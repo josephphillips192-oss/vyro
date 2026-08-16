@@ -714,7 +714,10 @@ const [completedDays, setCompletedDays] = useState<number[]>([]);
             </p>
 
          <button
-  onClick={() => {
+           onClick={() => {
+  setCompletedDays([]);
+  setShowPlan(true);
+}
     const plan = selectedOpportunity.firstSteps
       .map((step, index) => `Day ${index + 1}: ${step}`)
       .join("\n\n");
