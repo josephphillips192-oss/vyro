@@ -598,7 +598,124 @@ const [completedDays, setCompletedDays] = useState<number[]>([]);
       </main>
     );
   }
+if (showPlan && selectedOpportunity) {
+  const completedCount = completedDays.length;
+  const progress = Math.round((completedCount / 7) * 100);
 
+  return (
+    <main className="min-h-screen bg-white text-black">
+      <section className="mx-auto max-w-3xl px-6 py-12">
+        <button
+          onClick={() => setShowPlan(false)}
+          className="text-sm font-medium text-gray-500 hover:text-black"
+        >
+          ← Back to opportunity
+        </button>
+
+        <div className="mt-12">
+          <p className="text-sm font-semibold tracking-[0.3em] text-gray-400">
+            VYRO
+          </p>
+
+          <h1 className="mt-4 text-4xl font-bold tracking-tight sm:text-5xl">
+            Your 7-Day Launch Plan
+          </h1>
+
+          <p className="mt-4 text-lg text-gray-500">
+            {selectedOpportunity.name}
+          </p>
+        </div>
+
+        <div className="mt-10 rounded-3xl bg-black p-6 text-white">
+          <div className="flex items-end justify-between">
+            <div>
+              <p className="text-sm text-gray-400">Your progress</p>
+              <p className="mt-1 text-3xl font-bold">{progress}%</p>
+            </div>
+
+            <p className="text-sm text-gray-400">
+              {completedCount}/7 complete
+            </p>
+          </div>
+
+          <div className="mt-5 h-2 overflow-hidden rounded-full bg-gray-700">
+            <div
+              className="h-full rounded-full bg-white transition-all duration-300"
+              style={{ width: `${progress}%` }}
+            />
+          </div>
+        </div>
+
+        <div className="mt-10 space-y-4">
+          {selectedOpportunity.firstSteps.map((task, index) => {
+            const completed = completedDays.includes(index);
+
+            return (
+              <button
+                key={task}
+                onClick={() => {
+                  if (completed) {
+                    setCompletedDays(
+                      completedDays.filter((day) => day !== index)
+                    );
+                  } else {
+                    setCompletedDays([...completedDays, index]);
+                  }
+                }}
+                className={`w-full rounded-3xl border p-6 text-left transition ${
+                  completed
+                    ? "border-black bg-gray-100"
+                    : "border-gray-200 bg-white hover:border-black"
+                }`}
+              >
+                <div className="flex items-start gap-5">
+                  <div
+                    className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-sm font-bold ${
+                      completed
+                        ? "bg-black text-white"
+                        : "bg-gray-100 text-black"
+                    }`}
+                  >
+                    {completed ? "✓" : index + 1}
+                  </div>
+
+                  <div>
+                    <p className="text-sm font-semibold text-gray-400">
+                      DAY {index + 1}
+                    </p>
+
+                    <p
+                      className={`mt-2 text-lg font-semibold ${
+                        completed ? "line-through text-gray-400" : ""
+                      }`}
+                    >
+                      {task}
+                    </p>
+                  </div>
+                </div>
+              </button>
+            );
+          })}
+        </div>
+
+        {progress === 100 && (
+          <div className="mt-8 rounded-3xl bg-black p-8 text-center text-white">
+            <p className="text-4xl">🎉</p>
+
+            <h2 className="mt-4 text-2xl font-bold">
+              You completed your first 7 days.
+            </h2>
+
+            <p className="mt-3 text-gray-300">
+              Now it's time to review what you learned and decide your next
+              move.
+            </p>
+          </div>
+        )}
+      </section>
+    </main>
+  );
+}
   if (selectedOpportunity) {
     const match =
       results.find(
