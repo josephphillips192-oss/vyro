@@ -16,6 +16,7 @@ type Opportunity = {
   difficulty: string;
   location: string;
   firstSteps: string[];
+  whyItFits: string;
 };
 
 const goals = [
@@ -108,12 +109,20 @@ const opportunities: Opportunity[] = [
     budgetMin: 0,
     budgetMax: 150,
     skills: ["Video editing", "Social media", "Design", "Marketing"],
-    interests: ["Social media", "Entertainment", "Technology", "Fashion", "Sports"],
+    interests: [
+      "Social media",
+      "Entertainment",
+      "Technology",
+      "Fashion",
+      "Sports",
+    ],
     timeMin: 3,
     incomeMin: 500,
     incomeMax: 3000,
     difficulty: "Moderate",
     location: "Online",
+    whyItFits:
+      "This opportunity can be started with relatively little money and can work well for people who enjoy creative work, social media and building skills online.",
     firstSteps: [
       "Create 3 sample videos.",
       "Build a simple portfolio.",
@@ -136,6 +145,8 @@ const opportunities: Opportunity[] = [
     incomeMax: 3000,
     difficulty: "Easy",
     location: "In person",
+    whyItFits:
+      "This is a practical business that can be started locally with a relatively small amount of equipment. It also has clear opportunities to increase revenue through repeat customers and higher-value detailing packages.",
     firstSteps: [
       "Research local competitors.",
       "Buy basic cleaning equipment.",
@@ -152,12 +163,20 @@ const opportunities: Opportunity[] = [
     budgetMin: 0,
     budgetMax: 200,
     skills: ["Social media", "Marketing", "Writing", "Design"],
-    interests: ["Social media", "Fashion", "Food", "Fitness", "Beauty"],
+    interests: [
+      "Social media",
+      "Fashion",
+      "Food",
+      "Fitness",
+      "Beauty",
+    ],
     timeMin: 4,
     incomeMin: 500,
     incomeMax: 5000,
     difficulty: "Moderate",
     location: "Online",
+    whyItFits:
+      "Small businesses constantly need content and social media support. This can be started with almost no equipment and developed into recurring monthly income.",
     firstSteps: [
       "Choose a niche.",
       "Create example social media posts.",
@@ -180,6 +199,8 @@ const opportunities: Opportunity[] = [
     incomeMax: 5000,
     difficulty: "Moderate",
     location: "Online",
+    whyItFits:
+      "UGC allows creators to start small and build a portfolio without needing a large audience. Strong communication and content skills can translate directly into paid brand work.",
     firstSteps: [
       "Create 3 sample UGC videos.",
       "Choose a few product categories.",
@@ -196,12 +217,14 @@ const opportunities: Opportunity[] = [
     budgetMin: 0,
     budgetMax: 300,
     skills: ["AI / Technology", "Coding", "Marketing", "Management"],
-    interests: ["AI", "Technology", "Finance", "Business"],
+    interests: ["AI", "Technology", "Finance"],
     timeMin: 5,
     incomeMin: 1000,
     incomeMax: 10000,
     difficulty: "Advanced",
     location: "Online",
+    whyItFits:
+      "Businesses are increasingly looking for ways to save time through automation. This has strong scalability because services can become repeatable systems rather than one-off work.",
     firstSteps: [
       "Learn one useful automation platform.",
       "Build three example automations.",
@@ -224,6 +247,8 @@ const opportunities: Opportunity[] = [
     incomeMax: 3000,
     difficulty: "Easy",
     location: "Online",
+    whyItFits:
+      "Tutoring can be started with almost no upfront investment and can be fitted around another job or education.",
     firstSteps: [
       "Choose a subject.",
       "Define your target student.",
@@ -240,12 +265,14 @@ const opportunities: Opportunity[] = [
     budgetMin: 250,
     budgetMax: 1000,
     skills: ["Sales", "Customer service", "Construction / Practical work"],
-    interests: ["Sustainability", "Cars", "Construction"],
+    interests: ["Sustainability", "Cars"],
     timeMin: 4,
     incomeMin: 700,
     incomeMax: 4000,
     difficulty: "Moderate",
     location: "In person",
+    whyItFits:
+      "Pressure washing has a straightforward value proposition: customers pay for a visible transformation. It can also grow through referrals and repeat work.",
     firstSteps: [
       "Research local demand.",
       "Calculate equipment costs.",
@@ -262,12 +289,19 @@ const opportunities: Opportunity[] = [
     budgetMin: 0,
     budgetMax: 150,
     skills: ["Design", "Marketing", "Social media"],
-    interests: ["Fashion", "Technology", "Entertainment", "Social media"],
+    interests: [
+      "Fashion",
+      "Technology",
+      "Entertainment",
+      "Social media",
+    ],
     timeMin: 3,
     incomeMin: 300,
     incomeMax: 4000,
     difficulty: "Moderate",
     location: "Online",
+    whyItFits:
+      "Graphic design can be started from home with very little capital and can become a service business with recurring clients.",
     firstSteps: [
       "Create five portfolio examples.",
       "Choose a niche.",
@@ -290,6 +324,8 @@ const opportunities: Opportunity[] = [
     incomeMax: 5000,
     difficulty: "Moderate",
     location: "Online",
+    whyItFits:
+      "Fitness coaching can combine expertise, content creation and recurring client relationships into a scalable service.",
     firstSteps: [
       "Choose a specific target audience.",
       "Create educational content.",
@@ -306,12 +342,20 @@ const opportunities: Opportunity[] = [
     budgetMin: 50,
     budgetMax: 1000,
     skills: ["Sales", "Marketing", "Customer service"],
-    interests: ["Fashion", "Gaming", "Cars", "Technology", "Sports"],
+    interests: [
+      "Fashion",
+      "Gaming",
+      "Cars",
+      "Technology",
+      "Sports",
+    ],
     timeMin: 3,
     incomeMin: 300,
     incomeMax: 4000,
     difficulty: "Moderate",
     location: "Either",
+    whyItFits:
+      "Reselling can be tested on a small scale and expanded by reinvesting profits into inventory once demand is proven.",
     firstSteps: [
       "Choose one product niche.",
       "Research prices and demand.",
@@ -323,28 +367,28 @@ const opportunities: Opportunity[] = [
 ];
 
 function getBudgetNumber(budget: string): number {
-  if (budget.includes("€0–€50")) return 50;
-  if (budget.includes("€50–€250")) return 250;
-  if (budget.includes("€250–€500")) return 500;
-  if (budget.includes("€500–€1,000")) return 1000;
-  if (budget.includes("€1,000+")) return 5000;
+  if (budget === "€0–€50") return 50;
+  if (budget === "€50–€250") return 250;
+  if (budget === "€250–€500") return 500;
+  if (budget === "€500–€1,000") return 1000;
+  if (budget === "€1,000+") return 5000;
   return 0;
 }
 
 function getTimeNumber(time: string): number {
-  if (time.includes("Less than 2")) return 1;
-  if (time.includes("2–5")) return 3;
-  if (time.includes("5–10")) return 7;
-  if (time.includes("10–20")) return 15;
+  if (time === "Less than 2 hours/week") return 1;
+  if (time === "2–5 hours/week") return 3;
+  if (time === "5–10 hours/week") return 7;
+  if (time === "10–20 hours/week") return 15;
   return 25;
 }
 
 function getAmbitionNumber(ambition: string): number {
-  if (ambition.includes("€100–€500")) return 500;
-  if (ambition.includes("€500–€1,000")) return 1000;
-  if (ambition.includes("€1,000–€2,500")) return 2500;
-  if (ambition.includes("€2,500–€5,000")) return 5000;
-  if (ambition.includes("€5,000–€10,000")) return 10000;
+  if (ambition === "€100–€500/month") return 500;
+  if (ambition === "€500–€1,000/month") return 1000;
+  if (ambition === "€1,000–€2,500/month") return 2500;
+  if (ambition === "€2,500–€5,000/month") return 5000;
+  if (ambition === "€5,000–€10,000/month") return 10000;
   return 15000;
 }
 
@@ -417,6 +461,8 @@ export default function Home() {
   const [step, setStep] = useState(1);
   const [analysing, setAnalysing] = useState(false);
   const [showResults, setShowResults] = useState(false);
+  const [selectedOpportunity, setSelectedOpportunity] =
+    useState<Opportunity | null>(null);
 
   const [selectedGoal, setSelectedGoal] = useState("");
   const [selectedBudget, setSelectedBudget] = useState("");
@@ -552,6 +598,132 @@ export default function Home() {
     );
   }
 
+  if (selectedOpportunity) {
+    const match =
+      results.find(
+        (result) => result.opportunity.name === selectedOpportunity.name
+      )?.score ?? 0;
+
+    return (
+      <main className="min-h-screen bg-white text-black">
+        <section className="mx-auto max-w-4xl px-6 py-12">
+          <div className="flex items-center justify-between">
+            <button
+              onClick={() => setSelectedOpportunity(null)}
+              className="text-sm font-medium text-gray-500 hover:text-black"
+            >
+              ← Back to results
+            </button>
+
+            <p className="text-sm font-semibold tracking-[0.3em]">VYRO</p>
+          </div>
+
+          <div className="mt-16">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400">
+              {selectedOpportunity.category}
+            </p>
+
+            <div className="mt-4 flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
+              <h1 className="text-5xl font-bold tracking-tight sm:text-6xl">
+                {selectedOpportunity.name}
+              </h1>
+
+              <div className="sm:text-right">
+                <p className="text-4xl font-bold">{match}%</p>
+                <p className="text-sm text-gray-400">VYRO match</p>
+              </div>
+            </div>
+
+            <p className="mt-6 max-w-3xl text-xl leading-8 text-gray-600">
+              {selectedOpportunity.description}
+            </p>
+          </div>
+
+          <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-4">
+            <InfoCard
+              label="Startup cost"
+              value={`€${selectedOpportunity.budgetMin}–€${selectedOpportunity.budgetMax}`}
+            />
+
+            <InfoCard
+              label="Time"
+              value={`${selectedOpportunity.timeMin}+ hrs/week`}
+            />
+
+            <InfoCard
+              label="Income potential"
+              value={`€${selectedOpportunity.incomeMin}–€${selectedOpportunity.incomeMax}`}
+            />
+
+            <InfoCard
+              label="Difficulty"
+              value={selectedOpportunity.difficulty}
+            />
+          </div>
+
+          <section className="mt-16">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400">
+              Why VYRO matched you
+            </p>
+
+            <div className="mt-5 rounded-3xl bg-gray-50 p-7 sm:p-9">
+              <p className="text-lg leading-8 text-gray-700">
+                {selectedOpportunity.whyItFits}
+              </p>
+            </div>
+          </section>
+
+          <section className="mt-16">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400">
+              Your first 7 days
+            </p>
+
+            <h2 className="mt-3 text-3xl font-bold">
+              Start small. Prove demand.
+            </h2>
+
+            <div className="mt-8 space-y-4">
+              {selectedOpportunity.firstSteps.map((item, index) => (
+                <div
+                  key={item}
+                  className="flex gap-5 rounded-2xl border border-gray-200 p-5"
+                >
+                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-black text-sm font-bold text-white">
+                    {index + 1}
+                  </div>
+
+                  <p className="pt-1 leading-6 text-gray-700">{item}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="mt-16 rounded-3xl bg-black p-8 text-white sm:p-10">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400">
+              Ready?
+            </p>
+
+            <h2 className="mt-3 text-3xl font-bold">
+              Start building this opportunity.
+            </h2>
+
+            <p className="mt-4 max-w-2xl leading-7 text-gray-300">
+              VYRO will eventually guide you through validation, finding your
+              first customer and building your first version.
+            </p>
+
+            <button
+              onClick={() => alert("Your VYRO action plan will be available here soon.")}
+              className="mt-8 rounded-full bg-white px-8 py-4 font-semibold text-black transition hover:bg-gray-200"
+            >
+              Start This Opportunity →
+            </button>
+          </section>
+        </section>
+      </main>
+    );
+  }
+
   if (showResults) {
     return (
       <main className="min-h-screen bg-white text-black">
@@ -579,9 +751,10 @@ export default function Home() {
 
           <div className="mt-12 space-y-5">
             {results.map((result, index) => (
-              <div
+              <button
                 key={result.opportunity.name}
-                className="rounded-3xl border border-gray-200 p-6 transition hover:border-black sm:p-8"
+                onClick={() => setSelectedOpportunity(result.opportunity)}
+                className="w-full rounded-3xl border border-gray-200 p-6 text-left transition hover:border-black sm:p-8"
               >
                 <div className="flex items-start justify-between gap-6">
                   <div>
@@ -595,10 +768,7 @@ export default function Home() {
                   </div>
 
                   <div className="shrink-0 text-right">
-                    <p className="text-3xl font-bold">
-                      {result.score}%
-                    </p>
-
+                    <p className="text-3xl font-bold">{result.score}%</p>
                     <p className="text-sm text-gray-400">match</p>
                   </div>
                 </div>
@@ -629,29 +799,10 @@ export default function Home() {
                   />
                 </div>
 
-                <div className="mt-7">
-                  <p className="text-sm font-semibold uppercase tracking-[0.15em] text-gray-400">
-                    First steps
-                  </p>
-
-                  <ol className="mt-4 space-y-2">
-                    {result.opportunity.firstSteps.slice(0, 3).map(
-                      (step, stepIndex) => (
-                        <li
-                          key={step}
-                          className="flex gap-3 text-gray-600"
-                        >
-                          <span className="font-semibold text-black">
-                            {stepIndex + 1}.
-                          </span>
-
-                          <span>{step}</span>
-                        </li>
-                      )
-                    )}
-                  </ol>
-                </div>
-              </div>
+                <p className="mt-6 text-sm font-semibold">
+                  View opportunity →
+                </p>
+              </button>
             ))}
           </div>
 
@@ -665,9 +816,8 @@ export default function Home() {
             </h2>
 
             <p className="mt-4 max-w-2xl leading-7 text-gray-300">
-              These matches are a starting point. The next version of VYRO
-              will give you deeper market research, personalised action plans
-              and AI-powered guidance.
+              These matches are your starting point. VYRO will eventually help
+              you validate the opportunity and build your first version.
             </p>
           </div>
         </section>
@@ -905,9 +1055,7 @@ function InfoCard({
         {label}
       </p>
 
-      <p className="mt-2 text-sm font-semibold">
-        {value}
-      </p>
+      <p className="mt-2 text-sm font-semibold">{value}</p>
     </div>
   );
 }
