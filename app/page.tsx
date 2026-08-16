@@ -712,12 +712,20 @@ export default function Home() {
               first customer and building your first version.
             </p>
 
-            <button
-              onClick={() => alert("Your VYRO action plan will be available here soon.")}
-              className="mt-8 rounded-full bg-white px-8 py-4 font-semibold text-black transition hover:bg-gray-200"
-            >
-              Start This Opportunity →
-            </button>
+         <button
+  onClick={() => {
+    const plan = selectedOpportunity.firstSteps
+      .map((step, index) => `Day ${index + 1}: ${step}`)
+      .join("\n\n");
+
+    alert(
+      `YOUR VYRO 7-DAY LAUNCH PLAN\n\n${plan}\n\nYour goal: Take the first step and prove demand before investing heavily.`
+    );
+  }}
+  className="mt-8 rounded-full bg-white px-8 py-4 font-semibold text-black transition hover:bg-gray-200"
+>
+  Start This Opportunity →
+</button>
           </section>
         </section>
       </main>
