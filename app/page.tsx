@@ -599,6 +599,156 @@ const [completedDays, setCompletedDays] = useState<number[]>([]);
       </main>
     );
   }
+  if (show30DayPlan && selectedOpportunity) {
+  const monthPlan = [
+    {
+      week: "WEEK 1",
+      title: "Validate",
+      description:
+        "Make sure there is real demand before putting significant time or money into the opportunity.",
+      tasks: [
+        "Research 10 competitors.",
+        "Identify your ideal customer.",
+        "Speak to at least 5 potential customers.",
+        "Find the biggest problem your customer has.",
+        "Create a simple offer that solves that problem.",
+      ],
+    },
+    {
+      week: "WEEK 2",
+      title: "Build",
+      description:
+        "Create the basic assets you need to start offering your opportunity.",
+      tasks: [
+        "Create your brand or service identity.",
+        "Build a simple portfolio or landing page.",
+        "Create your pricing.",
+        "Prepare your sales message.",
+        "Create your first piece of promotional content.",
+      ],
+    },
+    {
+      week: "WEEK 3",
+      title: "Launch",
+      description:
+        "Put your opportunity in front of real people and try to generate your first customer.",
+      tasks: [
+        "Create a list of 30 potential customers.",
+        "Contact at least 10 prospects.",
+        "Post your offer on social media.",
+        "Follow up with interested prospects.",
+        "Aim to secure your first paying customer.",
+      ],
+    },
+    {
+      week: "WEEK 4",
+      title: "Improve & Grow",
+      description:
+        "Use what you learned to improve the opportunity and create a repeatable system.",
+      tasks: [
+        "Review your results.",
+        "Identify what worked and what didn't.",
+        "Improve your offer.",
+        "Ask customers for feedback or testimonials.",
+        "Set your next 30-day revenue target.",
+      ],
+    },
+  ];
+
+  return (
+    <main className="min-h-screen bg-white text-black">
+      <section className="mx-auto max-w-4xl px-6 py-12">
+        <button
+          onClick={() => setShow30DayPlan(false)}
+          className="text-sm font-medium text-gray-500 hover:text-black"
+        >
+          ← Back to 7-day plan
+        </button>
+
+        <div className="mt-12">
+          <p className="text-sm font-semibold tracking-[0.3em] text-gray-400">
+            VYRO
+          </p>
+
+          <h1 className="mt-4 text-4xl font-bold tracking-tight sm:text-5xl">
+            Your 30-Day Build Plan
+          </h1>
+
+          <p className="mt-4 text-lg text-gray-500">
+            {selectedOpportunity.name}
+          </p>
+        </div>
+
+        <div className="mt-10 rounded-3xl bg-black p-8 text-white">
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400">
+            Your objective
+          </p>
+
+          <h2 className="mt-3 text-2xl font-bold">
+            Turn this opportunity into something real.
+          </h2>
+
+          <p className="mt-4 leading-7 text-gray-300">
+            Your first month is about validating demand, building your offer,
+            getting in front of customers and learning what works.
+          </p>
+        </div>
+
+        <div className="mt-10 space-y-6">
+          {monthPlan.map((week) => (
+            <div
+              key={week.week}
+              className="rounded-3xl border border-gray-200 p-7 sm:p-8"
+            >
+              <p className="text-sm font-semibold tracking-[0.2em] text-gray-400">
+                {week.week}
+              </p>
+
+              <h2 className="mt-2 text-3xl font-bold">{week.title}</h2>
+
+              <p className="mt-4 leading-7 text-gray-600">
+                {week.description}
+              </p>
+
+              <div className="mt-6 space-y-3">
+                {week.tasks.map((task, index) => (
+                  <div
+                    key={task}
+                    className="flex gap-4 rounded-2xl bg-gray-50 p-4"
+                  >
+                    <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-black text-xs font-bold text-white">
+                      {index + 1}
+                    </div>
+
+                    <p className="text-sm leading-6 text-gray-700">
+                      {task}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-10 rounded-3xl border border-black p-8">
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400">
+            Your target
+          </p>
+
+          <h2 className="mt-3 text-2xl font-bold">
+            Get your first real result.
+          </h2>
+
+          <p className="mt-3 leading-7 text-gray-600">
+            Don't measure the month only by how much you made. Measure it by
+            whether you proved that someone is willing to pay for what you're
+            offering.
+          </p>
+        </div>
+      </section>
+    </main>
+  );
+}
 if (showPlan && selectedOpportunity) {
   const completedCount = completedDays.length;
   const progress = Math.round((completedCount / 7) * 100);
