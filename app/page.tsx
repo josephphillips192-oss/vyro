@@ -830,10 +830,11 @@ if (showPlan && selectedOpportunity) {
               first customer and building your first version.
             </p>
 
-         onClick={() => {
-  setCompletedDays([]);
-  setShowPlan(true);
-}}
+         <button
+  onClick={() => {
+    setCompletedDays([]);
+    setShowPlan(true);
+  }}
   className="mt-8 rounded-full bg-white px-8 py-4 font-semibold text-black transition hover:bg-gray-200"
 >
   Start This Opportunity →
