@@ -466,6 +466,7 @@ export default function Home() {
 const [showPlan, setShowPlan] = useState(false);
 const [completedDays, setCompletedDays] = useState<number[]>([]);
   const [selectedGoal, setSelectedGoal] = useState("");
+  const [show30DayPlan, setShow30DayPlan] = useState(false);
   const [selectedBudget, setSelectedBudget] = useState("");
   const [selectedSkills, setSelectedSkills] = useState<string[]>([]);
   const [selectedInterests, setSelectedInterests] = useState<string[]>([]);
