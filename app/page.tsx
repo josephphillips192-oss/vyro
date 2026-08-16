@@ -864,6 +864,12 @@ if (showPlan && selectedOpportunity) {
           </div>
         )}
       </section>
+      <button
+  onClick={() => setShow30DayPlan(true)}
+  className="mt-8 w-full rounded-full bg-black px-8 py-4 font-semibold text-white transition hover:bg-gray-800"
+>
+  Continue to 30-Day Build Plan →
+</button>
     </main>
   );
 }
