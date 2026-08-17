@@ -601,11 +601,6 @@ const [completedDays, setCompletedDays] = useState<number[]>([]);
     );
   }
   if (show30DayPlan && selectedOpportunity) {
-    const total30DayTasks = 20;
-const completed30DayCount = completed30DayTasks.length;
-const thirtyDayProgress = Math.round(
-  (completed30DayCount / total30DayTasks) * 100
-);
   const monthPlan = [
     {
       week: "WEEK 1",
@@ -661,9 +656,16 @@ const thirtyDayProgress = Math.round(
     },
   ];
 
+  const allTasks = monthPlan.flatMap((week) => week.tasks);
+  const completedCount = completed30DayTasks.length;
+  const progress = Math.round(
+    (completedCount / allTasks.length) * 100
+  );
+
   return (
     <main className="min-h-screen bg-white text-black">
       <section className="mx-auto max-w-4xl px-6 py-12">
+
         <button
           onClick={() => setShow30DayPlan(false)}
           className="text-sm font-medium text-gray-500 hover:text-black"
@@ -683,30 +685,31 @@ const thirtyDayProgress = Math.round(
           <p className="mt-4 text-lg text-gray-500">
             {selectedOpportunity.name}
           </p>
-          <div className="mt-8 rounded-3xl bg-gray-100 p-6">
-  <div className="flex items-end justify-between">
-    <div>
-      <p className="text-sm text-gray-500">
-        30-day progress
-      </p>
+        </div>
 
-      <p className="mt-1 text-3xl font-bold">
-        {thirtyDayProgress}%
-      </p>
-    </div>
+        <div className="mt-8 rounded-3xl bg-gray-100 p-6">
+          <div className="flex items-end justify-between">
+            <div>
+              <p className="text-sm text-gray-500">
+                30-day progress
+              </p>
 
-    <p className="text-sm text-gray-500">
-      {completed30DayCount}/{total30DayTasks} tasks
-    </p>
-  </div>
+              <p className="mt-1 text-3xl font-bold">
+                {progress}%
+              </p>
+            </div>
 
-  <div className="mt-5 h-2 overflow-hidden rounded-full bg-gray-200">
-    <div
-      className="h-full rounded-full bg-black transition-all duration-300"
-      style={{ width: `${thirtyDayProgress}%` }}
-    />
-  </div>
-</div>
+            <p className="text-sm text-gray-500">
+              {completedCount}/{allTasks.length} tasks
+            </p>
+          </div>
+
+          <div className="mt-5 h-2 overflow-hidden rounded-full bg-gray-200">
+            <div
+              className="h-full rounded-full bg-black transition-all duration-300"
+              style={{ width: `${progress}%` }}
+            />
+          </div>
         </div>
 
         <div className="mt-10 rounded-3xl bg-black p-8 text-white">
@@ -719,8 +722,8 @@ const thirtyDayProgress = Math.round(
           </h2>
 
           <p className="mt-4 leading-7 text-gray-300">
-            Your first month is about validating demand, building your offer,
-            getting in front of customers and learning what works.
+            Your first month is about validating demand, building your
+            offer, getting in front of customers and learning what works.
           </p>
         </div>
 
@@ -734,126 +737,85 @@ const thirtyDayProgress = Math.round(
                 {week.week}
               </p>
 
-              <h2 className="mt-2 text-3xl font-bold">{week.title}</h2>
+              <h2 className="mt-2 text-3xl font-bold">
+                {week.title}
+              </h2>
 
               <p className="mt-4 leading-7 text-gray-600">
                 {week.description}
               </p>
 
-             <div className="mt-6 space-y-3">
-  {week.tasks.map((task, index) => (
-    <button
-      key={task}
-      onClick={() => {
-        if (completed30DayTasks.includes(task)) {
-          setCompleted30DayTasks(
-            completed30DayTasks.filter((item) => item !== task)
-          );
-        } else {
-          setCompleted30DayTasks([
-            ...completed30DayTasks,
-            task,
-          ]);
-        }
-      }}
-      className={`w-full rounded-2xl p-4 text-left transition ${
-        completed30DayTasks.includes(task)
-          ? "bg-black text-white"
-          : "bg-gray-50 text-black hover:bg-gray-100"
-      }`}
-    >
-      <div className="flex gap-4">
-        <div
-          className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-bold ${
-            completed30DayTasks.includes(task)
-              ? "bg-white text-black"
-              : "bg-black text-white"
-          }`}
-        >
-          {completed30DayTasks.includes(task) ? "✓" : index + 1}
-        </div>
+              <div className="mt-6 space-y-3">
+                {week.tasks.map((task, index) => {
+                  const completed =
+                    completed30DayTasks.includes(task);
 
-        <p
-          className={`text-sm leading-6 ${
-            completed30DayTasks.includes(task)
-              ? "line-through opacity-60"
-              : ""
-          }`}
-        >
-          {task}
-        </p>
-      </div>
-    </button>
-  ))}
-</div>
-              <button
-  key={task}
-  onClick={() => {
-    if (completed30DayTasks.includes(task)) {
-      setCompleted30DayTasks(
-        completed30DayTasks.filter((item) => item !== task)
-      );
-    } else {
-      setCompleted30DayTasks([...completed30DayTasks, task]);
-    }
-  }}
-  className={`w-full rounded-2xl p-4 text-left transition ${
-    completed30DayTasks.includes(task)
-      ? "bg-black text-white"
-      : "bg-gray-50 text-black hover:bg-gray-100"
-  }`}
->
-  <div className="flex gap-4">
-    <div
-      className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-bold ${
-        completed30DayTasks.includes(task)
-          ? "bg-white text-black"
-          : "bg-black text-white"
-      }`}
-    >
-      {completed30DayTasks.includes(task) ? "✓" : index + 1}
-    </div>
+                  return (
+                    <button
+                      key={task}
+                      onClick={() => {
+                        if (completed) {
+                          setCompleted30DayTasks(
+                            completed30DayTasks.filter(
+                              (item) => item !== task
+                            )
+                          );
+                        } else {
+                          setCompleted30DayTasks([
+                            ...completed30DayTasks,
+                            task,
+                          ]);
+                        }
+                      }}
+                      className={`w-full rounded-2xl p-5 text-left transition ${
+                        completed
+                          ? "bg-black text-white"
+                          : "bg-gray-50 text-black hover:bg-gray-100"
+                      }`}
+                    >
+                      <div className="flex items-center gap-4">
+                        <div
+                          className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-xs font-bold ${
+                            completed
+                              ? "bg-white text-black"
+                              : "bg-black text-white"
+                          }`}
+                        >
+                          {completed ? "✓" : index + 1}
+                        </div>
 
-    <p
-      className={`text-sm leading-6 ${
-        completed30DayTasks.includes(task)
-          ? "line-through opacity-60"
-          : ""
-      }`}
-    >
-      {task}
-    </p>
-  </div>
-</button>
-                    <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-black text-xs font-bold text-white">
-                      {index + 1}
-                    </div>
-
-                    <p className="text-sm leading-6 text-gray-700">
-                      {task}
-                    </p>
-                  </div>
-                ))}
+                        <p
+                          className={`text-sm leading-6 ${
+                            completed
+                              ? "line-through opacity-60"
+                              : ""
+                          }`}
+                        >
+                          {task}
+                        </p>
+                      </div>
+                    </button>
+                  );
+                })}
               </div>
             </div>
           ))}
         </div>
 
-        <div className="mt-10 rounded-3xl border border-black p-8">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400">
-            Your target
-          </p>
+        {progress === 100 && (
+          <div className="mt-10 rounded-3xl bg-black p-8 text-center text-white">
+            <p className="text-4xl">🎉</p>
 
-          <h2 className="mt-3 text-2xl font-bold">
-            Get your first real result.
-          </h2>
+            <h2 className="mt-4 text-2xl font-bold">
+              You completed your 30-day plan.
+            </h2>
 
-          <p className="mt-3 leading-7 text-gray-600">
-            Don't measure the month only by how much you made. Measure it by
-            whether you proved that someone is willing to pay for what you're
-            offering.
-          </p>
-        </div>
+            <p className="mt-3 text-gray-300">
+              You've taken the opportunity from idea to execution.
+            </p>
+          </div>
+        )}
+
       </section>
     </main>
   );
