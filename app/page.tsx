@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 type Opportunity = {
   name: string;
@@ -468,6 +468,32 @@ const [completedDays, setCompletedDays] = useState<number[]>([]);
   const [selectedGoal, setSelectedGoal] = useState("");
   const [show30DayPlan, setShow30DayPlan] = useState(false);
   const [completed30DayTasks, setCompleted30DayTasks] = useState<string[]>([]);
+  useEffect(() => {
+  const saved7DayProgress = localStorage.getItem("vyro-7-day-progress");
+  const saved30DayProgress = localStorage.getItem("vyro-30-day-progress");
+
+  if (saved7DayProgress) {
+    setCompletedDays(JSON.parse(saved7DayProgress));
+  }
+
+  if (saved30DayProgress) {
+    setCompleted30DayTasks(JSON.parse(saved30DayProgress));
+  }
+}, []);
+
+useEffect(() => {
+  localStorage.setItem(
+    "vyro-7-day-progress",
+    JSON.stringify(completedDays)
+  );
+}, [completedDays]);
+
+useEffect(() => {
+  localStorage.setItem(
+    "vyro-30-day-progress",
+    JSON.stringify(completed30DayTasks)
+  );
+}, [completed30DayTasks]);
   const [selectedBudget, setSelectedBudget] = useState("");
   const [selectedSkills, setSelectedSkills] = useState<string[]>([]);
   const [selectedInterests, setSelectedInterests] = useState<string[]>([]);
