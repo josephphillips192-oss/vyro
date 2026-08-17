@@ -740,7 +740,52 @@ const thirtyDayProgress = Math.round(
                 {week.description}
               </p>
 
-              <div className="mt-6 space-y-3">
+             <div className="mt-6 space-y-3">
+  {week.tasks.map((task, index) => (
+    <button
+      key={task}
+      onClick={() => {
+        if (completed30DayTasks.includes(task)) {
+          setCompleted30DayTasks(
+            completed30DayTasks.filter((item) => item !== task)
+          );
+        } else {
+          setCompleted30DayTasks([
+            ...completed30DayTasks,
+            task,
+          ]);
+        }
+      }}
+      className={`w-full rounded-2xl p-4 text-left transition ${
+        completed30DayTasks.includes(task)
+          ? "bg-black text-white"
+          : "bg-gray-50 text-black hover:bg-gray-100"
+      }`}
+    >
+      <div className="flex gap-4">
+        <div
+          className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-bold ${
+            completed30DayTasks.includes(task)
+              ? "bg-white text-black"
+              : "bg-black text-white"
+          }`}
+        >
+          {completed30DayTasks.includes(task) ? "✓" : index + 1}
+        </div>
+
+        <p
+          className={`text-sm leading-6 ${
+            completed30DayTasks.includes(task)
+              ? "line-through opacity-60"
+              : ""
+          }`}
+        >
+          {task}
+        </p>
+      </div>
+    </button>
+  ))}
+</div>
               <button
   key={task}
   onClick={() => {
