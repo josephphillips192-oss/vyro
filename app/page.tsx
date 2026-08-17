@@ -683,6 +683,30 @@ const thirtyDayProgress = Math.round(
           <p className="mt-4 text-lg text-gray-500">
             {selectedOpportunity.name}
           </p>
+          <div className="mt-8 rounded-3xl bg-gray-100 p-6">
+  <div className="flex items-end justify-between">
+    <div>
+      <p className="text-sm text-gray-500">
+        30-day progress
+      </p>
+
+      <p className="mt-1 text-3xl font-bold">
+        {thirtyDayProgress}%
+      </p>
+    </div>
+
+    <p className="text-sm text-gray-500">
+      {completed30DayCount}/{total30DayTasks} tasks
+    </p>
+  </div>
+
+  <div className="mt-5 h-2 overflow-hidden rounded-full bg-gray-200">
+    <div
+      className="h-full rounded-full bg-black transition-all duration-300"
+      style={{ width: `${thirtyDayProgress}%` }}
+    />
+  </div>
+</div>
         </div>
 
         <div className="mt-10 rounded-3xl bg-black p-8 text-white">
