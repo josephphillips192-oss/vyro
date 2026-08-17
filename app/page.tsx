@@ -601,6 +601,11 @@ const [completedDays, setCompletedDays] = useState<number[]>([]);
     );
   }
   if (show30DayPlan && selectedOpportunity) {
+    const total30DayTasks = 20;
+const completed30DayCount = completed30DayTasks.length;
+const thirtyDayProgress = Math.round(
+  (completed30DayCount / total30DayTasks) * 100
+);
   const monthPlan = [
     {
       week: "WEEK 1",
