@@ -403,9 +403,10 @@ function calculateMatch(
   userInterests: string[],
   time: string,
   ambition: string,
-  goal: string
+  goal: string,
+  location: string
 ) {
-  let score = 40;
+  let score = 35;
 
   const budgetNumber = getBudgetNumber(budget);
   const timeNumber = getTimeNumber(time);
@@ -419,45 +420,85 @@ function calculateMatch(
     opportunity.interests.includes(interest)
   ).length;
 
-  score += Math.min(skillMatches * 8, 24);
+  // Skills are one of the strongest indicators of fit.
+  score += Math.min(skillMatches * 9, 27);
+
+  // Interests help determine whether the user is likely to enjoy the opportunity.
   score += Math.min(interestMatches * 6, 18);
 
+  // Budget compatibility.
   if (
     budgetNumber >= opportunity.budgetMin &&
-    budgetNumber <= opportunity.budgetMax + 250
+    budgetNumber <= opportunity.budgetMax
   ) {
-    score += 8;
+    score += 10;
   } else if (budgetNumber >= opportunity.budgetMin) {
-    score += 4;
+    score += 5;
+  } else if (budgetNumber >= opportunity.budgetMin * 0.7) {
+    score += 2;
+  } else {
+    score -= 5;
   }
 
+  // Available time.
   if (timeNumber >= opportunity.timeMin) {
-    score += 5;
+    score += 8;
+  } else if (timeNumber >= opportunity.timeMin * 0.75) {
+    score += 3;
+  } else {
+    score -= 5;
+  }
+
+  // Income ambition.
+  if (ambitionNumber >= opportunity.incomeMin) {
+    score += 6;
   }
 
   if (ambitionNumber <= opportunity.incomeMax) {
     score += 5;
+  } else if (ambitionNumber > opportunity.incomeMax * 1.5) {
+    score -= 4;
   }
 
+  // Goal compatibility.
   if (
     goal === "Build a scalable business" &&
     opportunity.incomeMax >= 5000
   ) {
-    score += 5;
+    score += 7;
   }
 
   if (
     goal === "Make extra income" &&
     opportunity.incomeMin <= 1000
   ) {
-    score += 4;
+    score += 5;
   }
 
   if (goal === "Start a business") {
-    score += 3;
+    score += 4;
   }
 
-  return Math.min(Math.round(score), 99);
+  // Location compatibility.
+  if (
+    location === "Online / Anywhere" &&
+    opportunity.location === "Online"
+  ) {
+    score += 10;
+  } else if (
+    location === "Local / In Person" &&
+    opportunity.location === "In person"
+  ) {
+    score += 10;
+  } else if (
+    location === "Hybrid" &&
+    (opportunity.location === "Online" ||
+      opportunity.location === "In person")
+  ) {
+    score += 5;
+  }
+
+  return Math.min(Math.max(Math.round(score), 1), 99);
 }
 
 export default function Home() {
@@ -567,6 +608,7 @@ useEffect(() => {
           selectedTime,
           selectedAmbition,
           selectedGoal
+          selectedLocation
         ),
       }))
       .sort((a, b) => b.score - a.score)
