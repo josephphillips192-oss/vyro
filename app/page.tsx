@@ -1342,7 +1342,24 @@ if (showPlan && selectedOpportunity) {
 
             <p className="text-sm text-gray-400">Your results</p>
           </div>
-
+<button
+  onClick={() => {
+    setShowResults(false);
+    setSelectedOpportunity(null);
+    setStep(1);
+    setSelectedGoal("");
+    setSelectedBudget("");
+    setSelectedSkills([]);
+    setSelectedInterests([]);
+    setSelectedTime("");
+    setSelectedLocation("");
+    setSelectedAmbition("");
+    setResults([]);
+  }}
+  className="mt-6 w-full rounded-full border border-black px-8 py-4 font-semibold text-black transition hover:bg-black hover:text-white"
+>
+  Retake Assessment
+</button>
           <div className="mt-16">
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400">
               Your opportunities
