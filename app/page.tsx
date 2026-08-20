@@ -473,31 +473,51 @@ const [completedDays, setCompletedDays] = useState<number[]>([]);
   const [show30DayPlan, setShow30DayPlan] = useState(false);
   const [completed30DayTasks, setCompleted30DayTasks] = useState<string[]>([]);
   useEffect(() => {
-  const saved7DayProgress = localStorage.getItem("vyro-7-day-progress");
-  const saved30DayProgress = localStorage.getItem("vyro-30-day-progress");
+  if (!selectedOpportunity) return;
 
-  if (saved7DayProgress) {
-    setCompletedDays(JSON.parse(saved7DayProgress));
-  }
+  const progressKey = selectedOpportunity.name
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-");
 
-  if (saved30DayProgress) {
-    setCompleted30DayTasks(JSON.parse(saved30DayProgress));
-  }
-}, []);
+  const saved7DayProgress = localStorage.getItem(
+    `vyro-7-day-progress-${progressKey}`
+  );
+
+  const saved30DayProgress = localStorage.getItem(
+    `vyro-30-day-progress-${progressKey}`
+  );
+
+  setCompletedDays(saved7DayProgress ? JSON.parse(saved7DayProgress) : []);
+  setCompleted30DayTasks(
+    saved30DayProgress ? JSON.parse(saved30DayProgress) : []
+  );
+}, [selectedOpportunity]);
 
 useEffect(() => {
+  if (!selectedOpportunity) return;
+
+  const progressKey = selectedOpportunity.name
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-");
+
   localStorage.setItem(
-    "vyro-7-day-progress",
+    `vyro-7-day-progress-${progressKey}`,
     JSON.stringify(completedDays)
   );
-}, [completedDays]);
+}, [completedDays, selectedOpportunity]);
 
 useEffect(() => {
+  if (!selectedOpportunity) return;
+
+  const progressKey = selectedOpportunity.name
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-");
+
   localStorage.setItem(
-    "vyro-30-day-progress",
+    `vyro-30-day-progress-${progressKey}`,
     JSON.stringify(completed30DayTasks)
   );
-}, [completed30DayTasks]);
+}, [completed30DayTasks, selectedOpportunity]);
   const [selectedBudget, setSelectedBudget] = useState("");
   const [selectedSkills, setSelectedSkills] = useState<string[]>([]);
   const [selectedInterests, setSelectedInterests] = useState<string[]>([]);
