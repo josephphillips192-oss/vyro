@@ -124,12 +124,14 @@ const opportunities: Opportunity[] = [
     whyItFits:
       "This opportunity can be started with relatively little money and can work well for people who enjoy creative work, social media and building skills online.",
     firstSteps: [
-      "Create 3 sample videos.",
-      "Build a simple portfolio.",
-      "Contact 20 potential clients.",
-      "Offer your first client a discounted package.",
-      "Collect testimonials and improve your offer.",
-    ],
+  "Choose your target niche and identify the type of customer you want to serve.",
+  "Research 10 competitors and study their pricing, offers and content.",
+  "Create 3 high-quality sample videos for your chosen niche.",
+  "Build a simple portfolio showcasing your best work.",
+  "Create your service packages and decide what you will charge.",
+  "Create a list of 20 potential clients and prepare a personalised outreach message.",
+  "Contact your first 20 potential clients and aim to book your first customer.",
+],
   },
   {
     name: "Mobile Car Valeting",
@@ -148,12 +150,14 @@ const opportunities: Opportunity[] = [
     whyItFits:
       "This is a practical business that can be started locally with a relatively small amount of equipment. It also has clear opportunities to increase revenue through repeat customers and higher-value detailing packages.",
     firstSteps: [
-      "Research local competitors.",
-      "Buy basic cleaning equipment.",
-      "Create your service packages.",
-      "Create a social media page.",
-      "Get your first five customers.",
-    ],
+  "Research 10 local car valeting competitors and compare their prices.",
+  "Choose your exact services and calculate your cost per job.",
+  "Buy the essential cleaning equipment needed to start.",
+  "Create your service packages and pricing.",
+  "Create your Instagram, TikTok and Google Business presence.",
+  "Create before-and-after content and prepare your first local promotion.",
+  "Contact potential customers and aim to book your first five jobs.",
+],
   },
   {
     name: "Social Media Management",
