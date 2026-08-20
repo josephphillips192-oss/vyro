@@ -1321,9 +1321,8 @@ if (showPlan && selectedOpportunity) {
 
          <button
   onClick={() => {
-    setCompletedDays([]);
-    setShowPlan(true);
-  }}
+  setShowPlan(true);
+}}
   className="mt-8 rounded-full bg-white px-8 py-4 font-semibold text-black transition hover:bg-gray-200"
 >
   Start This Opportunity →
