@@ -627,12 +627,198 @@ useEffect(() => {
     );
   }
   if (show30DayPlan && selectedOpportunity) {
-  const monthPlan = [
+  const monthPlan = (() => {
+  const name = selectedOpportunity.name.toLowerCase();
+
+  if (
+    name.includes("video") ||
+    name.includes("content") ||
+    name.includes("ugc")
+  ) {
+    return [
+      {
+        week: "WEEK 1",
+        title: "Build Your Offer",
+        description:
+          "Create a simple video-content service that businesses can understand and buy.",
+        tasks: [
+          "Choose one target niche such as estate agents, hotels, restaurants or gyms.",
+          "Create 3 sample videos for businesses in your chosen niche.",
+          "Decide exactly what your service includes.",
+          "Create a simple pricing package.",
+          "Create a portfolio page or social media profile.",
+        ],
+      },
+      {
+        week: "WEEK 2",
+        title: "Find Your First Customers",
+        description:
+          "Start contacting businesses that could benefit from your service.",
+        tasks: [
+          "Build a list of 50 potential businesses.",
+          "Find the owner or decision-maker for each business.",
+          "Create a short personalised outreach message.",
+          "Contact 10 businesses per day.",
+          "Follow up with businesses that have not replied.",
+        ],
+      },
+      {
+        week: "WEEK 3",
+        title: "Get Your First Client",
+        description:
+          "Turn your outreach into a real paying customer and create proof of your work.",
+        tasks: [
+          "Offer a simple introductory package to interested businesses.",
+          "Complete your first project quickly and professionally.",
+          "Ask the client for feedback.",
+          "Request permission to use the work in your portfolio.",
+          "Create a case study showing the result.",
+        ],
+      },
+      {
+        week: "WEEK 4",
+        title: "Build The System",
+        description:
+          "Turn your first client into a repeatable business process.",
+        tasks: [
+          "Create a repeatable client onboarding process.",
+          "Create templates for proposals and messages.",
+          "Set a clear monthly pricing structure.",
+          "Continue outreach every weekday.",
+          "Set a target for your next 5 paying customers.",
+        ],
+      },
+    ];
+  }
+
+  if (
+    name.includes("car") ||
+    name.includes("valet") ||
+    name.includes("pressure")
+  ) {
+    return [
+      {
+        week: "WEEK 1",
+        title: "Prepare",
+        description:
+          "Get everything ready to deliver your service professionally.",
+        tasks: [
+          "Research 10 local competitors.",
+          "Choose your exact service packages.",
+          "Calculate your costs and profit per job.",
+          "Buy only the essential equipment.",
+          "Create your business name, social profile and pricing.",
+        ],
+      },
+      {
+        week: "WEEK 2",
+        title: "Get Local Customers",
+        description:
+          "Start generating your first local enquiries.",
+        tasks: [
+          "Create before-and-after examples.",
+          "Post your service in local social media groups.",
+          "Contact 30 potential customers.",
+          "Offer an introductory price for your first customers.",
+          "Ask every customer for a review.",
+        ],
+      },
+      {
+        week: "WEEK 3",
+        title: "Improve",
+        description:
+          "Use your first jobs to improve quality and increase demand.",
+        tasks: [
+          "Review your first 5 jobs.",
+          "Improve your service process.",
+          "Create better before-and-after content.",
+          "Set up a simple referral offer.",
+          "Increase your prices if demand supports it.",
+        ],
+      },
+      {
+        week: "WEEK 4",
+        title: "Scale",
+        description:
+          "Create a repeatable system that can generate customers every week.",
+        tasks: [
+          "Create a weekly customer target.",
+          "Set up Google Business Profile.",
+          "Build a repeat-customer offer.",
+          "Track revenue, costs and profit.",
+          "Plan how you will reach your next €1,000 in revenue.",
+        ],
+      },
+    ];
+  }
+
+  if (
+    name.includes("social media") ||
+    name.includes("marketing") ||
+    name.includes("automation")
+  ) {
+    return [
+      {
+        week: "WEEK 1",
+        title: "Choose Your Niche",
+        description:
+          "Focus on one type of customer so your offer becomes easier to sell.",
+        tasks: [
+          "Choose one profitable niche.",
+          "Research 20 businesses in that niche.",
+          "Identify their biggest marketing or operational problems.",
+          "Create one clear service offer.",
+          "Create a simple portfolio or demonstration.",
+        ],
+      },
+      {
+        week: "WEEK 2",
+        title: "Start Outreach",
+        description:
+          "Build a pipeline of potential customers.",
+        tasks: [
+          "Create a list of 50 prospects.",
+          "Find the decision-maker for each business.",
+          "Write a personalised outreach message.",
+          "Contact 10 prospects per day.",
+          "Follow up with previous prospects.",
+        ],
+      },
+      {
+        week: "WEEK 3",
+        title: "Close & Deliver",
+        description:
+          "Turn conversations into your first paying client.",
+        tasks: [
+          "Book discovery calls with interested prospects.",
+          "Offer a simple starter package.",
+          "Close your first customer.",
+          "Deliver the service quickly and professionally.",
+          "Collect feedback and a testimonial.",
+        ],
+      },
+      {
+        week: "WEEK 4",
+        title: "Create Recurring Revenue",
+        description:
+          "Turn one-off work into predictable monthly income.",
+        tasks: [
+          "Create monthly service packages.",
+          "Build a simple client onboarding process.",
+          "Create reusable templates.",
+          "Ask existing customers about ongoing work.",
+          "Set a target for your next 5 recurring clients.",
+        ],
+      },
+    ];
+  }
+
+  return [
     {
       week: "WEEK 1",
       title: "Validate",
       description:
-        "Make sure there is real demand before putting significant time or money into the opportunity.",
+        "Make sure there is real demand before investing significant time or money.",
       tasks: [
         "Research 10 competitors.",
         "Identify your ideal customer.",
@@ -645,42 +831,43 @@ useEffect(() => {
       week: "WEEK 2",
       title: "Build",
       description:
-        "Create the basic assets you need to start offering your opportunity.",
+        "Create the minimum version of your business that you can sell.",
       tasks: [
-        "Create your brand or service identity.",
-        "Build a simple portfolio or landing page.",
-        "Create your pricing.",
-        "Prepare your sales message.",
-        "Create your first piece of promotional content.",
+        "Create your first version of the product or service.",
+        "Set your pricing.",
+        "Create a simple brand identity.",
+        "Set up a basic sales page or social profile.",
+        "Prepare a way for customers to contact or buy from you.",
       ],
     },
     {
       week: "WEEK 3",
       title: "Launch",
       description:
-        "Put your opportunity in front of real people and try to generate your first customer.",
+        "Get your first real customers and learn from the market.",
       tasks: [
-        "Create a list of 30 potential customers.",
-        "Contact at least 10 prospects.",
-        "Post your offer on social media.",
-        "Follow up with interested prospects.",
-        "Aim to secure your first paying customer.",
+        "Contact potential customers.",
+        "Post your offer online.",
+        "Make your first sales.",
+        "Ask customers for feedback.",
+        "Improve your offer based on what you learn.",
       ],
     },
     {
       week: "WEEK 4",
-      title: "Improve & Grow",
+      title: "Grow",
       description:
-        "Use what you learned to improve the opportunity and create a repeatable system.",
+        "Create a repeatable system for generating customers and revenue.",
       tasks: [
-        "Review your results.",
-        "Identify what worked and what didn't.",
-        "Improve your offer.",
-        "Ask customers for feedback or testimonials.",
+        "Track your revenue and costs.",
+        "Identify your best customer acquisition method.",
+        "Create a repeatable sales process.",
+        "Ask customers for referrals.",
         "Set your next 30-day revenue target.",
       ],
     },
   ];
+})();
 
   const allTasks = monthPlan.flatMap((week) => week.tasks);
   const completedCount = completed30DayTasks.length;
