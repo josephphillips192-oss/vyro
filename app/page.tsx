@@ -520,18 +520,29 @@ const [completedDays, setCompletedDays] = useState<number[]>([]);
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, "-");
 
-  const saved7DayProgress = localStorage.getItem(
-    `vyro-7-day-progress-${progressKey}`
-  );
+  try {
+    const saved7DayProgress = localStorage.getItem(
+      `vyro-7-day-progress-${progressKey}`
+    );
 
-  const saved30DayProgress = localStorage.getItem(
-    `vyro-30-day-progress-${progressKey}`
-  );
+    const saved30DayProgress = localStorage.getItem(
+      `vyro-30-day-progress-${progressKey}`
+    );
 
-  setCompletedDays(saved7DayProgress ? JSON.parse(saved7DayProgress) : []);
-  setCompleted30DayTasks(
-    saved30DayProgress ? JSON.parse(saved30DayProgress) : []
-  );
+    if (saved7DayProgress) {
+      setCompletedDays(JSON.parse(saved7DayProgress));
+    } else {
+      setCompletedDays([]);
+    }
+
+    if (saved30DayProgress) {
+      setCompleted30DayTasks(JSON.parse(saved30DayProgress));
+    } else {
+      setCompleted30DayTasks([]);
+    }
+  } catch (error) {
+    console.error("VYRO progress loading error:", error);
+  }
 }, [selectedOpportunity]);
 
 useEffect(() => {
