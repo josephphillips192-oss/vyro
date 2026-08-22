@@ -607,7 +607,7 @@ useEffect(() => {
           selectedInterests,
           selectedTime,
           selectedAmbition,
-          selectedGoal
+          selectedGoal,
           selectedLocation
         ),
       }))
