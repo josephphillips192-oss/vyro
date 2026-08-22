@@ -507,20 +507,34 @@ export default function Home() {
   const [analysing, setAnalysing] = useState(false);
   const [showResults, setShowResults] = useState(false);
   const [selectedOpportunity, setSelectedOpportunity] =
-    useState<Opportunity | null>(null);
+  useState<Opportunity | null>(null);
 const [showPlan, setShowPlan] = useState(false);
 const [completedDays, setCompletedDays] = useState<number[]>([]);
-  const [selectedGoal, setSelectedGoal] = useState("");
-  const [show30DayPlan, setShow30DayPlan] = useState(false);
-  const [completed30DayTasks, setCompleted30DayTasks] = useState<string[]>([]);
-  useEffect(() => {
-  if (!selectedOpportunity) return;
+const [selectedGoal, setSelectedGoal] = useState("");
+const [show30DayPlan, setShow30DayPlan] = useState(false);
+const [completed30DayTasks, setCompleted30DayTasks] = useState<string[]>([]);
+const [selectedBudget, setSelectedBudget] = useState("");
+const [selectedSkills, setSelectedSkills] = useState<string[]>([]);
+const [selectedInterests, setSelectedInterests] = useState<string[]>([]);
+const [selectedTime, setSelectedTime] = useState("");
+const [selectedLocation, setSelectedLocation] = useState("");
+const [selectedAmbition, setSelectedAmbition] = useState("");
 
-  const progressKey = selectedOpportunity.name
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-");
+useEffect(() => {
+  const savedOpportunity = localStorage.getItem(
+    "vyro-selected-opportunity"
+  );
+
+  if (!savedOpportunity) return;
 
   try {
+    const opportunity = JSON.parse(savedOpportunity);
+    setSelectedOpportunity(opportunity);
+
+    const progressKey = opportunity.name
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-");
+
     const saved7DayProgress = localStorage.getItem(
       `vyro-7-day-progress-${progressKey}`
     );
@@ -529,21 +543,17 @@ const [completedDays, setCompletedDays] = useState<number[]>([]);
       `vyro-30-day-progress-${progressKey}`
     );
 
-    if (saved7DayProgress) {
-      setCompletedDays(JSON.parse(saved7DayProgress));
-    } else {
-      setCompletedDays([]);
-    }
+    setCompletedDays(
+      saved7DayProgress ? JSON.parse(saved7DayProgress) : []
+    );
 
-    if (saved30DayProgress) {
-      setCompleted30DayTasks(JSON.parse(saved30DayProgress));
-    } else {
-      setCompleted30DayTasks([]);
-    }
+    setCompleted30DayTasks(
+      saved30DayProgress ? JSON.parse(saved30DayProgress) : []
+    );
   } catch (error) {
-    console.error("VYRO progress loading error:", error);
+    console.error("VYRO saved opportunity error:", error);
   }
-}, [selectedOpportunity]);
+}, []);
 
 useEffect(() => {
   if (!selectedOpportunity) return;
@@ -570,13 +580,6 @@ useEffect(() => {
     JSON.stringify(completed30DayTasks)
   );
 }, [completed30DayTasks, selectedOpportunity]);
-  const [selectedBudget, setSelectedBudget] = useState("");
-  const [selectedSkills, setSelectedSkills] = useState<string[]>([]);
-  const [selectedInterests, setSelectedInterests] = useState<string[]>([]);
-  const [selectedTime, setSelectedTime] = useState("");
-  const [selectedLocation, setSelectedLocation] = useState("");
-  const [selectedAmbition, setSelectedAmbition] = useState("");
-
   const [results, setResults] = useState<
     { opportunity: Opportunity; score: number }[]
   >([]);
