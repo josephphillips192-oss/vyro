@@ -1,4 +1,4 @@
-"use client";
+n"use client";
 
 import { useEffect, useState } from "react";
 
@@ -1401,8 +1401,9 @@ if (showPlan && selectedOpportunity) {
 <button
   onClick={() => {
     setShowResults(false);
-    setSelectedOpportunity(null);
-    setStep(1);
+    localStorage.removeItem("vyro-selected-opportunity");
+setSelectedOpportunity(null);
+setStep(1);
     setSelectedGoal("");
     setSelectedBudget("");
     setSelectedSkills([]);
@@ -1435,7 +1436,14 @@ if (showPlan && selectedOpportunity) {
             {results.map((result, index) => (
               <button
                 key={result.opportunity.name}
-                onClick={() => setSelectedOpportunity(result.opportunity)}
+                onClick={() => {
+  localStorage.setItem(
+    "vyro-selected-opportunity",
+    JSON.stringify(result.opportunity)
+  );
+
+  setSelectedOpportunity(result.opportunity);
+}}
                 className="w-full rounded-3xl border border-gray-200 p-6 text-left transition hover:border-black sm:p-8"
               >
                 <div className="flex items-start justify-between gap-6">
