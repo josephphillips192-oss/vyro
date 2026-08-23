@@ -510,6 +510,14 @@ export default function Home() {
   useState<Opportunity | null>(null);
 const [showPlan, setShowPlan] = useState(false);
 const [completedDays, setCompletedDays] = useState<number[]>([]);
+  useEffect(() => {
+  const savedPlan = localStorage.getItem("vyro-show-plan");
+
+  if (savedPlan === "true") {
+  localStorage.setItem("vyro-show-plan", "true");
+setShowPlan(true);
+  }
+}, []);
 const [selectedGoal, setSelectedGoal] = useState("");
 const [show30DayPlan, setShow30DayPlan] = useState(false);
 const [completed30DayTasks, setCompleted30DayTasks] = useState<string[]>([]);
@@ -1253,7 +1261,16 @@ if (showPlan && selectedOpportunity) {
         )}
       </section>
       <button
-  onClick={() => setShow30DayPlan(true)}
+  onClick={() => localStorage.setItem("vyro-show-30-day-plan", "true");
+setShow30DayPlan(true);} useEffect(() => {
+  const saved30DayPlan = localStorage.getItem(
+    "vyro-show-30-day-plan"
+  );
+
+  if (saved30DayPlan === "true") {
+    setShow30DayPlan(true);
+  }
+}, []);
   className="mt-8 w-full rounded-full bg-black px-8 py-4 font-semibold text-white transition hover:bg-gray-800"
 >
   Continue to 30-Day Build Plan →
