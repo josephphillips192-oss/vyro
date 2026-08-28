@@ -1,4 +1,3 @@
-```tsx
 "use client";
 
 import { useEffect, useState } from "react";
@@ -926,31 +925,53 @@ export default function Home() {
     return false;
   };
 
-  const findOpportunities = () => {
+  const findOpportunities = async () => {
     setAnalysing(true);
 
-    const scored = opportunities
-      .map((opportunity) => ({
-        opportunity,
-        score: calculateMatch(
-          opportunity,
-          selectedBudget,
-          selectedSkills,
-          selectedInterests,
-          selectedTime,
-          selectedAmbition,
-          selectedGoal,
-          selectedLocation
-        ),
-      }))
-      .sort((a, b) => b.score - a.score)
-      .slice(0, 3);
+    try {
+      const response = await fetch("/api/generate-opportunities", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          goal: selectedGoal,
+          budget: selectedBudget,
+          skills: selectedSkills,
+          interests: selectedInterests,
+          time: selectedTime,
+          incomeGoal: selectedAmbition,
+          location: selectedLocation,
+          experience: "Beginner",
+          preferences:
+            "I want something I can start alongside my current work and eventually scale.",
+        }),
+      });
 
-    setTimeout(() => {
-      setResults(scored);
+      if (!response.ok) {
+        throw new Error(`API request failed: ${response.status}`);
+      }
+
+      const data = await response.json();
+
+      if (!data.opportunities || !Array.isArray(data.opportunities)) {
+        throw new Error("Invalid opportunity response from AI");
+      }
+
+      const aiResults = data.opportunities.map(
+        (opportunity: Opportunity & { score?: number }) => ({
+          opportunity,
+          score: opportunity.score ?? 0,
+        })
+      );
+
+      setResults(aiResults);
       setAnalysing(false);
       setShowResults(true);
-    }, 1800);
+    } catch (error) {
+      console.error("VYRO AI error:", error);
+      setAnalysing(false);
+    }
   };
 
   const nextStep = () => {
@@ -1913,4 +1934,3 @@ function InfoCard({
     </div>
   );
 }
-```
