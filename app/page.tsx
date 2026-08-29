@@ -510,74 +510,97 @@ function getProgressKey(opportunity: Opportunity) {
 function getThirtyDayPlan(opportunity: Opportunity) {
   const name = opportunity.name.toLowerCase();
 
+  const makePlan = (
+    week1Title: string,
+    week1Description: string,
+    week1Tasks: string[],
+    week2Title: string,
+    week2Description: string,
+    week2Tasks: string[],
+    week3Title: string,
+    week3Description: string,
+    week3Tasks: string[],
+    week4Title: string,
+    week4Description: string,
+    week4Tasks: string[]
+  ) => [
+    {
+      week: "WEEK 1 — DAYS 1–7",
+      title: week1Title,
+      description: week1Description,
+      tasks: week1Tasks,
+    },
+    {
+      week: "WEEK 2 — DAYS 8–14",
+      title: week2Title,
+      description: week2Description,
+      tasks: week2Tasks,
+    },
+    {
+      week: "WEEK 3 — DAYS 15–21",
+      title: week3Title,
+      description: week3Description,
+      tasks: week3Tasks,
+    },
+    {
+      week: "WEEK 4 — DAYS 22–30",
+      title: week4Title,
+      description: week4Description,
+      tasks: week4Tasks,
+    },
+  ];
+
   if (
     name.includes("video") ||
     name.includes("content") ||
     name.includes("ugc")
   ) {
-    return [
-      {
-        week: "WEEK 1 — DAYS 1–7",
-        title: "Build Your Foundation",
-        description: "Define your niche, offer and portfolio.",
-        tasks: [
-          "Choose your target niche.",
-          "Research 10 competitors.",
-          "Identify what customers in your niche actually need.",
-          "Create your first sample video.",
-          "Create two more sample videos.",
-          "Decide exactly what your service includes.",
-          "Create your starter pricing package.",
-        ],
-      },
-      {
-        week: "WEEK 2 — DAYS 8–14",
-        title: "Build Your Sales System",
-        description:
-          "Prepare everything you need to start approaching customers.",
-        tasks: [
-          "Create your portfolio.",
-          "Create your business social media profile.",
-          "Write your outreach message.",
-          "Build a list of 20 potential customers.",
-          "Build a second list of 20 potential customers.",
-          "Contact your first 10 prospects.",
-          "Contact another 10 prospects and follow up with earlier leads.",
-        ],
-      },
-      {
-        week: "WEEK 3 — DAYS 15–21",
-        title: "Get Your First Client",
-        description:
-          "Turn your outreach into your first paying customer.",
-        tasks: [
-          "Follow up with all interested prospects.",
-          "Offer a simple introductory package.",
-          "Book your first sales conversation.",
-          "Close your first client.",
-          "Complete the client's first project.",
-          "Ask for feedback and a testimonial.",
-          "Turn the project into a case study for your portfolio.",
-        ],
-      },
-      {
-        week: "WEEK 4 — DAYS 22–30",
-        title: "Create Momentum",
-        description:
-          "Turn your first success into a repeatable business.",
-        tasks: [
-          "Create a repeatable client onboarding process.",
-          "Create reusable proposal and outreach templates.",
-          "Create a monthly service package.",
-          "Contact another 10 potential clients.",
-          "Follow up with previous prospects.",
-          "Ask your first client for a referral.",
-          "Review your revenue, costs and profit.",
-          "Set your next 30-day customer target.",
-          "Create a plan to reach your next €1,000 in revenue.",
-        ],
-      },
-    ];
+    return makePlan(
+      "Build Your Foundation",
+      "Choose your niche, understand the market and create your first proof of work.",
+      [
+        "Choose one target niche and define your ideal customer.",
+        "Research 10 competitors and compare their offers and pricing.",
+        "Identify the most common content problems your target customers have.",
+        "Create your first high-quality sample.",
+        "Create two additional samples for your portfolio.",
+        "Decide exactly what your service includes.",
+        "Create your starter pricing package.",
+      ],
+      "Build Your Sales System",
+      "Turn your skills into a professional offer that is ready to sell.",
+      [
+        "Build a simple portfolio using your strongest examples.",
+        "Create your business social media profile.",
+        "Write a personalised outreach message.",
+        "Build a list of 20 potential customers.",
+        "Build a second list of 20 potential customers.",
+        "Contact your first 10 prospects.",
+        "Contact another 10 prospects and follow up with earlier leads.",
+      ],
+      "Get Your First Client",
+      "Turn your outreach into real conversations, work and feedback.",
+      [
+        "Follow up with every interested prospect.",
+        "Offer a simple introductory package.",
+        "Book your first sales conversation.",
+        "Aim to close your first paying client.",
+        "Complete the client's first project to a high standard.",
+        "Ask for feedback and a testimonial.",
+        "Turn the project into a case study for your portfolio.",
+      ],
+      "Create Momentum",
+      "Build systems that make it easier to win and retain customers.",
+      [
+        "Create a repeatable client onboarding process.",
+        "Create reusable proposal and outreach templates.",
+        "Create a monthly service package.",
+        "Contact another 10 potential clients.",
+        "Follow up with previous prospects.",
+        "Ask your first client for a referral or repeat work.",
+        "Review revenue, costs, results and set your next 30-day target.",
+      ]
+    );
   }
 
   if (
@@ -585,69 +608,52 @@ function getThirtyDayPlan(opportunity: Opportunity) {
     name.includes("valet") ||
     name.includes("pressure")
   ) {
-    return [
-      {
-        week: "WEEK 1 — DAYS 1–7",
-        title: "Prepare",
-        description: "Build the foundation for your local service.",
-        tasks: [
-          "Research 10 local competitors.",
-          "Compare competitor pricing.",
-          "Choose your exact services.",
-          "Calculate your cost per job.",
-          "Create your service packages.",
-          "Buy the essential equipment.",
-          "Create your business name and social profile.",
-        ],
-      },
-      {
-        week: "WEEK 2 — DAYS 8–14",
-        title: "Get Local Attention",
-        description:
-          "Start generating your first local enquiries.",
-        tasks: [
-          "Create your first before-and-after example.",
-          "Create three pieces of social media content.",
-          "Set up Google Business Profile.",
-          "Post your service in local groups.",
-          "Create an introductory offer.",
-          "Contact 10 potential customers.",
-          "Contact another 10 potential customers.",
-        ],
-      },
-      {
-        week: "WEEK 3 — DAYS 15–21",
-        title: "Get Your First Customers",
-        description:
-          "Turn local interest into paying customers.",
-        tasks: [
-          "Follow up with interested customers.",
-          "Book your first job.",
-          "Complete your first job professionally.",
-          "Take before-and-after photos.",
-          "Ask your customer for a review.",
-          "Complete your next two jobs.",
-          "Create a referral offer.",
-        ],
-      },
-      {
-        week: "WEEK 4 — DAYS 22–30",
-        title: "Build Repeat Business",
-        description:
-          "Create a system that can consistently generate revenue.",
-        tasks: [
-          "Review your first five jobs.",
-          "Improve your service process.",
-          "Create a repeat-customer package.",
-          "Contact another 10 local prospects.",
-          "Follow up with previous customers.",
-          "Track your revenue and costs.",
-          "Calculate your average profit per job.",
-          "Set your weekly customer target.",
-          "Create your next 30-day growth target.",
-        ],
-      },
-    ];
+    return makePlan(
+      "Prepare Your Local Service",
+      "Understand local demand, pricing and the equipment required to deliver the service.",
+      [
+        "Research 10 local competitors.",
+        "Compare competitor pricing and services.",
+        "Choose your exact services.",
+        "Calculate your cost and expected profit per job.",
+        "Create your service packages.",
+        "Buy only the essential equipment needed to start.",
+        "Create your business name and social media profile.",
+      ],
+      "Get Local Attention",
+      "Create visibility and generate your first local enquiries.",
+      [
+        "Create your first before-and-after example.",
+        "Create three pieces of social media content.",
+        "Set up your Google Business Profile.",
+        "Post your service in relevant local groups.",
+        "Create an introductory offer.",
+        "Contact 10 potential local customers.",
+        "Contact another 10 potential customers.",
+      ],
+      "Get Your First Customers",
+      "Turn local interest into paying customers and collect proof of quality.",
+      [
+        "Follow up with interested customers.",
+        "Book your first job.",
+        "Complete your first job professionally.",
+        "Take before-and-after photos.",
+        "Ask your customer for a review.",
+        "Complete your next two jobs.",
+        "Create a referral offer for existing customers.",
+      ],
+      "Build Repeat Business",
+      "Turn individual jobs into a reliable local customer base.",
+      [
+        "Review your first five jobs and identify improvements.",
+        "Improve your service and customer experience.",
+        "Create a repeat-customer package.",
+        "Contact another 10 local prospects.",
+        "Follow up with previous customers.",
+        "Track revenue, costs and profit per job.",
+        "Set your weekly customer target and next 30-day growth goal.",
+      ]
+    );
   }
 
   if (
@@ -655,136 +661,149 @@ function getThirtyDayPlan(opportunity: Opportunity) {
     name.includes("marketing") ||
     name.includes("automation")
   ) {
-    return [
-      {
-        week: "WEEK 1 — DAYS 1–7",
-        title: "Choose Your Niche",
-        description:
-          "Build a focused service around one type of customer.",
-        tasks: [
-          "Choose one profitable niche.",
-          "Research 20 businesses in that niche.",
-          "Identify their biggest problems.",
-          "Study how competitors currently solve those problems.",
-          "Choose your main service.",
-          "Create your first service offer.",
-          "Set your initial pricing.",
-        ],
-      },
-      {
-        week: "WEEK 2 — DAYS 8–14",
-        title: "Build Your Sales System",
-        description:
-          "Create the assets you need to start selling.",
-        tasks: [
-          "Create a simple portfolio.",
-          "Create a demonstration of your service.",
-          "Create your business social profile.",
-          "Write your outreach message.",
-          "Build a list of 20 prospects.",
-          "Build another list of 20 prospects.",
-          "Contact your first 10 prospects.",
-        ],
-      },
-      {
-        week: "WEEK 3 — DAYS 15–21",
-        title: "Land Your First Client",
-        description:
-          "Turn conversations into your first paying customer.",
-        tasks: [
-          "Contact another 10 prospects.",
-          "Follow up with earlier prospects.",
-          "Book your first discovery call.",
-          "Present your offer.",
-          "Close your first customer.",
-          "Deliver the first piece of work.",
-          "Ask for a testimonial.",
-        ],
-      },
-      {
-        week: "WEEK 4 — DAYS 22–30",
-        title: "Create Recurring Revenue",
-        description:
-          "Turn your service into a repeatable monthly business.",
-        tasks: [
-          "Create monthly service packages.",
-          "Create a client onboarding process.",
-          "Create reusable templates.",
-          "Contact another 10 prospects.",
-          "Follow up with previous prospects.",
-          "Ask your existing customer about ongoing work.",
-          "Ask for referrals.",
-          "Track revenue and customer acquisition.",
-          "Set your next 30-day revenue target.",
-        ],
-      },
-    ];
-  }
-
-  return [
-    {
-      week: "WEEK 1 — DAYS 1–7",
-      title: "Validate",
-      description:
-        "Make sure there is real demand for your opportunity.",
-      tasks: [
-        "Research 10 competitors.",
-        "Identify your ideal customer.",
-        "Speak to your first potential customer.",
-        "Speak to four more potential customers.",
-        "Identify the biggest problem customers have.",
-        "Create your first offer.",
+    return makePlan(
+      "Choose Your Niche",
+      "Build a focused service around one type of customer and one valuable problem.",
+      [
+        "Choose one specific target niche.",
+        "Research 20 businesses in that niche.",
+        "Identify their biggest operational or marketing problems.",
+        "Study how competitors currently solve those problems.",
+        "Choose your main service.",
+        "Create your first service offer.",
         "Set your initial pricing.",
       ],
-    },
-    {
-      week: "WEEK 2 — DAYS 8–14",
-      title: "Build",
-      description:
-        "Create the minimum version of your business.",
-      tasks: [
-        "Create your product or service.",
-        "Create your basic brand identity.",
-        "Create a social media profile.",
-        "Create a simple sales page.",
-        "Set up a way for customers to contact you.",
-        "Create your first promotional content.",
-        "Prepare your first customer outreach.",
-      ],
-    },
-    {
-      week: "WEEK 3 — DAYS 15–21",
-      title: "Launch",
-      description:
-        "Get your first customers and learn from the market.",
-      tasks: [
+      "Build Your Sales System",
+      "Create the assets and prospect list needed to start selling.",
+      [
+        "Create a simple portfolio or demonstration.",
+        "Build a working example of your service.",
+        "Create your business social profile.",
+        "Write your personalised outreach message.",
+        "Build a list of 20 prospects.",
+        "Build another list of 20 prospects.",
         "Contact your first 10 prospects.",
+      ],
+      "Land Your First Client",
+      "Turn conversations into your first paying customer and proof of results.",
+      [
         "Contact another 10 prospects.",
-        "Follow up with interested prospects.",
-        "Make your first offer.",
-        "Aim for your first sale.",
-        "Deliver your first customer order.",
+        "Follow up with earlier prospects.",
+        "Book your first discovery call.",
+        "Present your offer clearly.",
+        "Aim to close your first customer.",
+        "Deliver the first piece of work.",
         "Ask for feedback and a testimonial.",
       ],
-    },
-    {
-      week: "WEEK 4 — DAYS 22–30",
-      title: "Grow",
-      description:
-        "Build a repeatable system for generating revenue.",
-      tasks: [
-        "Improve your offer based on feedback.",
-        "Create a repeatable sales process.",
-        "Create a referral system.",
+      "Create Recurring Revenue",
+      "Turn a successful first project into a repeatable monthly service.",
+      [
+        "Create monthly service packages.",
+        "Create a client onboarding process.",
+        "Create reusable templates and systems.",
+        "Contact another 10 prospects.",
+        "Follow up with previous prospects.",
+        "Ask your existing customer about ongoing work.",
+        "Track revenue and customer acquisition and set your next 30-day target.",
+      ]
+    );
+  }
+
+  if (name.includes("tutoring") || name.includes("coaching")) {
+    return makePlan(
+      "Define Your Offer",
+      "Choose who you help, what outcome you provide and how your sessions will work.",
+      [
+        "Choose your specific target student or customer.",
+        "Research 10 competing tutors or coaches.",
+        "Identify the biggest problems your target customer wants solved.",
+        "Create your session structure.",
+        "Create a simple introductory offer.",
+        "Set your initial pricing.",
+        "Create a simple profile explaining your offer.",
+      ],
+      "Find Your First Customers",
+      "Start conversations with people who could benefit from your service.",
+      [
+        "Create three useful pieces of educational content.",
+        "Set up your social media profile.",
+        "Write your outreach message.",
+        "Create a list of 20 potential customers.",
+        "Contact your first 10 prospects.",
+        "Contact another 10 prospects.",
+        "Follow up with anyone who shows interest.",
+      ],
+      "Deliver & Improve",
+      "Deliver your first sessions and use feedback to improve the experience.",
+      [
+        "Book your first session.",
+        "Deliver your first session professionally.",
+        "Ask for feedback.",
+        "Improve your session structure.",
+        "Book your next customer.",
+        "Ask a satisfied customer for a testimonial.",
+        "Create a simple referral offer.",
+      ],
+      "Build Recurring Revenue",
+      "Turn individual sessions into a predictable service.",
+      [
+        "Create weekly or monthly packages.",
+        "Create a simple customer onboarding process.",
+        "Create reusable lesson or coaching resources.",
         "Contact another 10 prospects.",
         "Follow up with previous leads.",
-        "Track your revenue and costs.",
-        "Calculate your profit.",
-        "Set your next customer target.",
-        "Set your next 30-day revenue target.",
-      ],
-    },
-  ];
+        "Ask existing customers about continuing.",
+        "Review revenue and set your next 30-day customer target.",
+      ]
+    );
+  }
+
+  return makePlan(
+    "Validate the Opportunity",
+    "Make sure there is real demand before investing too much time or money.",
+    [
+      "Research 10 competitors.",
+      "Identify your ideal customer.",
+      "Speak to your first potential customer.",
+      "Speak to four more potential customers.",
+      "Identify the biggest problem customers have.",
+      "Create your first offer.",
+      "Set your initial pricing.",
+    ],
+    "Build the Minimum Version",
+    "Create the simplest version of your product or service that can be tested.",
+    [
+      "Create your first version of the product or service.",
+      "Create your basic brand identity.",
+      "Create your business social media profile.",
+      "Create a simple sales page or offer document.",
+      "Set up a way for customers to contact you.",
+      "Create your first promotional content.",
+      "Prepare your first customer outreach.",
+    ],
+    "Launch & Get Customers",
+    "Put the opportunity in front of real customers and learn from the market.",
+    [
+      "Contact your first 10 prospects.",
+      "Contact another 10 prospects.",
+      "Follow up with interested prospects.",
+      "Make your first personalised offer.",
+      "Aim for your first sale.",
+      "Deliver your first customer order or service.",
+      "Ask for feedback and a testimonial.",
+    ],
+    "Improve & Grow",
+    "Turn what you learned into a repeatable system for generating revenue.",
+    [
+      "Improve your offer based on customer feedback.",
+      "Create a repeatable sales process.",
+      "Create a referral system.",
+      "Contact another 10 prospects.",
+      "Follow up with previous leads.",
+      "Track revenue, costs and profit.",
+      "Set your next customer and 30-day revenue target.",
+    ]
+  );
 }
 
 export default function Home() {
