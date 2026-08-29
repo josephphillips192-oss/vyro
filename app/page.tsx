@@ -17,6 +17,10 @@ type Opportunity = {
   location: string;
   firstSteps: string[];
   whyItFits: string;
+  targetCustomer?: string;
+  timeToFirstRevenue?: string;
+  scalability?: string;
+  score?: number;
 };
 
 const goals = [
@@ -939,7 +943,7 @@ export default function Home() {
           budget: selectedBudget,
           skills: selectedSkills,
           interests: selectedInterests,
-          time: selectedTime,
+          timeAvailable: selectedTime,
           incomeGoal: selectedAmbition,
           location: selectedLocation,
           experience: "Beginner",
