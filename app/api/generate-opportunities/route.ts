@@ -107,6 +107,42 @@ Use this exact structure:
       );
     }
 
+    if (
+      !parsed.opportunities ||
+      !Array.isArray(parsed.opportunities) ||
+      parsed.opportunities.length !== 8
+    ) {
+      return NextResponse.json(
+        { error: "AI returned an invalid number of opportunities." },
+        { status: 500 }
+      );
+    }
+
+    for (const opportunity of parsed.opportunities) {
+      if (!Array.isArray(opportunity.firstSteps)) {
+        opportunity.firstSteps = [];
+      }
+
+      const defaultSteps = [
+        "Validate demand and research your target customer.",
+        "Study competitors and define your unique offer.",
+        "Create the basic materials, portfolio or setup needed to launch.",
+        "Set your pricing, process and simple way for customers to buy.",
+        "Start outreach and contact your first potential customers.",
+        "Deliver your first test, pilot or customer experience and collect feedback.",
+        "Review your results, improve the offer and decide your next growth step.",
+      ];
+
+      opportunity.firstSteps = opportunity.firstSteps
+        .slice(0, 7);
+
+      while (opportunity.firstSteps.length < 7) {
+        opportunity.firstSteps.push(
+          defaultSteps[opportunity.firstSteps.length]
+        );
+      }
+    }
+
     return NextResponse.json(parsed);
   } catch (error) {
     console.error("VYRO AI error:", error);
