@@ -174,11 +174,14 @@ const opportunities: Opportunity[] = [
     whyItFits:
       "Small businesses constantly need content and social media support. This can be started with almost no equipment and developed into recurring monthly income.",
     firstSteps: [
-      "Choose a niche.",
-      "Create example social media posts.",
-      "Build a simple portfolio.",
-      "Contact 20 businesses.",
-      "Offer a starter monthly package.",
+      "Day 1 — Choose a specific niche and define the type of businesses you want to help.",
+      "Day 2 — Research 10 competitors and study their services, pricing and content.",
+      "Day 3 — Create 5 example social media posts for your chosen niche.",
+      "Day 4 — Build a simple portfolio showing your best examples and services.",
+      "Day 5 — Create 2–3 simple monthly service packages and set your pricing.",
+      "Day 6 — Build a list of 20 potential clients and prepare a personalised outreach message.",
+      "Day 7 — Contact your first 20 potential clients and aim to book your first conversation.",
+    
     ],
   },
   {
@@ -198,11 +201,14 @@ const opportunities: Opportunity[] = [
     whyItFits:
       "UGC allows creators to start small and build a portfolio without needing a large audience. Strong communication and content skills can translate directly into paid brand work.",
     firstSteps: [
-      "Create 3 sample UGC videos.",
-      "Choose a few product categories.",
-      "Create a creator portfolio.",
-      "Contact small brands.",
-      "Start with affordable packages.",
+      "Day 1 — Choose 2–3 product categories you want to create UGC for.",
+      "Day 2 — Research successful UGC creators and identify what makes their videos effective.",
+      "Day 3 — Create your first sample UGC video.",
+      "Day 4 — Create two more sample videos using different hooks and styles.",
+      "Day 5 — Build a simple creator portfolio containing your best work.",
+      "Day 6 — Find 20 small brands that could benefit from UGC and prepare an outreach message.",
+      "Day 7 — Contact your first 20 brands and offer a simple starter UGC package.",
+    
     ],
   },
   {
@@ -222,11 +228,14 @@ const opportunities: Opportunity[] = [
     whyItFits:
       "Businesses are increasingly looking for ways to save time through automation. This has strong scalability because services can become repeatable systems rather than one-off work.",
     firstSteps: [
-      "Learn one useful automation platform.",
-      "Build three example automations.",
-      "Choose a business niche.",
-      "Create a simple service offer.",
-      "Contact businesses with a specific automation idea.",
+      "Day 1 — Choose one business niche and identify repetitive tasks they commonly perform.",
+      "Day 2 — Learn one automation platform and understand its core features.",
+      "Day 3 — Build your first simple AI automation.",
+      "Day 4 — Build two additional automations that solve realistic business problems.",
+      "Day 5 — Create a simple service offer explaining the problem you solve and your pricing.",
+      "Day 6 — Find 20 businesses in your chosen niche and identify one automation opportunity for each.",
+      "Day 7 — Contact your first 20 businesses with a personalised automation idea.",
+    
     ],
   },
   {
@@ -246,11 +255,14 @@ const opportunities: Opportunity[] = [
     whyItFits:
       "Tutoring can be started with almost no upfront investment and can be fitted around another job or education.",
     firstSteps: [
-      "Choose a subject.",
-      "Define your target student.",
-      "Create a simple lesson structure.",
-      "Set an introductory price.",
-      "Find your first students.",
+      "Day 1 — Choose the subject or skill you will teach and define your ideal student.",
+      "Day 2 — Research competing tutors and compare their pricing and offers.",
+      "Day 3 — Create a simple lesson structure and prepare your first teaching materials.",
+      "Day 4 — Create a short sample lesson or educational resource to demonstrate your ability.",
+      "Day 5 — Set your introductory pricing and create a simple tutoring offer.",
+      "Day 6 — Find 20 potential students, parents or communities where you can promote your service.",
+      "Day 7 — Reach out to potential students and aim to book your first session.",
+    
     ],
   },
   {
@@ -270,11 +282,14 @@ const opportunities: Opportunity[] = [
     whyItFits:
       "Pressure washing has a straightforward value proposition: customers pay for a visible transformation. It can also grow through referrals and repeat work.",
     firstSteps: [
-      "Research local demand.",
-      "Calculate equipment costs.",
-      "Create service packages.",
-      "Find your first customers.",
-      "Take before-and-after photos for marketing.",
+      "Day 1 — Research local demand and identify the types of outdoor surfaces customers need cleaned.",
+      "Day 2 — Research equipment costs and calculate your expected cost per job.",
+      "Day 3 — Choose your services and create simple pricing packages.",
+      "Day 4 — Practise your cleaning process and create before-and-after examples.",
+      "Day 5 — Create a simple local presence using social media and a business profile.",
+      "Day 6 — Identify 20 nearby potential customers and prepare a local promotion.",
+      "Day 7 — Contact potential customers and aim to book your first five jobs.",
+    
     ],
   },
   {
@@ -294,11 +309,14 @@ const opportunities: Opportunity[] = [
     whyItFits:
       "Graphic design can be started from home with very little capital and can become a service business with recurring clients.",
     firstSteps: [
-      "Create five portfolio examples.",
-      "Choose a niche.",
-      "Create simple service packages.",
-      "Contact potential clients.",
-      "Turn your first projects into case studies.",
+      "Day 1 — Choose a specific design niche and define the businesses you want to serve.",
+      "Day 2 — Research 10 competitors and study their portfolios, services and pricing.",
+      "Day 3 — Create your first two portfolio examples.",
+      "Day 4 — Create three additional examples showing different design services.",
+      "Day 5 — Build a simple portfolio and create clear service packages.",
+      "Day 6 — Find 20 potential clients and prepare a personalised outreach message.",
+      "Day 7 — Contact your first 20 potential clients and aim to secure your first project.",
+    
     ],
   },
   {
@@ -318,11 +336,14 @@ const opportunities: Opportunity[] = [
     whyItFits:
       "Fitness coaching can combine expertise, content creation and recurring client relationships into a scalable service.",
     firstSteps: [
-      "Choose a specific target audience.",
-      "Create educational content.",
-      "Define your coaching offer.",
-      "Find your first clients.",
-      "Collect feedback and testimonials.",
+      "Day 1 — Choose a specific target audience and define the problem your coaching will solve.",
+      "Day 2 — Research competing coaches and compare their offers, content and pricing.",
+      "Day 3 — Create your coaching structure, including what clients receive each week.",
+      "Day 4 — Create three educational pieces of content demonstrating your knowledge.",
+      "Day 5 — Create a simple coaching offer and introductory price.",
+      "Day 6 — Find 20 potential clients and prepare a personalised outreach message.",
+      "Day 7 — Contact potential clients and aim to book your first consultation.",
+    
     ],
   },
   {
@@ -342,11 +363,14 @@ const opportunities: Opportunity[] = [
     whyItFits:
       "Reselling can be tested on a small scale and expanded by reinvesting profits into inventory once demand is proven.",
     firstSteps: [
-      "Choose one product niche.",
-      "Research prices and demand.",
-      "Find reliable sources.",
-      "Start with a small amount of inventory.",
-      "Track every sale and reinvest profits.",
+      "Day 1 — Choose one product niche and identify products with consistent demand.",
+      "Day 2 — Research marketplace prices, fees and typical profit margins.",
+      "Day 3 — Find reliable sources and identify your first products to test.",
+      "Day 4 — Start with a small amount of inventory and photograph the products professionally.",
+      "Day 5 — Create and publish your first listings with competitive pricing.",
+      "Day 6 — Promote your listings and monitor views, messages and demand.",
+      "Day 7 — Review your results, complete your first sales where possible and decide what inventory to reinvest in.",
+    
     ],
   },
 ];
