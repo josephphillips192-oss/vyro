@@ -30,6 +30,7 @@ const goals = [
   "Replace my job",
   "Test an idea",
   "I'm not sure yet",
+  "Other",
 ];
 
 const budgets = [
@@ -57,6 +58,7 @@ const skills = [
   "Construction / Practical work",
   "Social media",
   "Management",
+  "Other",
 ];
 
 const interests = [
@@ -75,6 +77,7 @@ const interests = [
   "Social media",
   "Sustainability",
   "Entertainment",
+  "Other",
 ];
 
 const timeOptions = [
@@ -805,6 +808,10 @@ export default function Home() {
   const [selectedSkills, setSelectedSkills] = useState<string[]>([]);
   const [selectedInterests, setSelectedInterests] =
     useState<string[]>([]);
+
+  const [otherGoal, setOtherGoal] = useState("");
+  const [otherSkill, setOtherSkill] = useState("");
+  const [otherInterest, setOtherInterest] = useState("");
   const [selectedTime, setSelectedTime] = useState("");
   const [selectedLocation, setSelectedLocation] = useState("");
   const [selectedAmbition, setSelectedAmbition] = useState("");
@@ -963,10 +970,19 @@ export default function Home() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          goal: selectedGoal,
           budget: selectedBudget,
-          skills: selectedSkills,
-          interests: selectedInterests,
+          skills: [
+            ...selectedSkills,
+            ...(otherSkill.trim() ? [`Other: ${otherSkill.trim()}`] : []),
+          ],
+          interests: [
+            ...selectedInterests,
+            ...(otherInterest.trim() ? [`Other: ${otherInterest.trim()}`] : []),
+          ],
+          goal:
+            selectedGoal === "Other" && otherGoal.trim()
+              ? `Other: ${otherGoal.trim()}`
+              : selectedGoal,
           timeAvailable: selectedTime,
           incomeGoal: selectedAmbition,
           location: selectedLocation,
@@ -1757,6 +1773,9 @@ export default function Home() {
               options={goals}
               selected={selectedGoal ? [selectedGoal] : []}
               onSelect={setSelectedGoal}
+              otherValue={otherGoal}
+              setOtherValue={setOtherGoal}
+              otherPlaceholder="Tell VYRO what you're looking to achieve..."
             />
           </>
         )}
@@ -1795,6 +1814,9 @@ export default function Home() {
                   setSelectedSkills
                 )
               }
+              otherValue={otherSkill}
+              setOtherValue={setOtherSkill}
+              otherPlaceholder="Tell VYRO about another skill you have..."
             />
           </>
         )}
@@ -1816,6 +1838,9 @@ export default function Home() {
                   setSelectedInterests
                 )
               }
+              otherValue={otherInterest}
+              setOtherValue={setOtherInterest}
+              otherPlaceholder="Tell VYRO about another interest..."
             />
           </>
         )}
@@ -1915,11 +1940,21 @@ function OptionList({
   options,
   selected,
   onSelect,
+  otherValue,
+  setOtherValue,
+  otherPlaceholder,
 }: {
   options: string[];
   selected: string[];
   onSelect: (value: string) => void;
+  otherValue?: string;
+  setOtherValue?: (value: string) => void;
+  otherPlaceholder?: string;
 }) {
+  const showOtherInput =
+    selected.includes("Other") &&
+    setOtherValue !== undefined;
+
   return (
     <div className="mt-10 space-y-3">
       {options.map((option) => {
@@ -1928,6 +1963,7 @@ function OptionList({
         return (
           <button
             key={option}
+            type="button"
             onClick={() => onSelect(option)}
             className={`w-full rounded-2xl border p-5 text-left text-base font-medium transition ${
               isSelected
@@ -1939,6 +1975,23 @@ function OptionList({
           </button>
         );
       })}
+
+      {showOtherInput && (
+        <div className="pt-2">
+          <textarea
+            value={otherValue ?? ""}
+            onChange={(event) =>
+              setOtherValue?.(event.target.value)
+            }
+            placeholder={
+              otherPlaceholder ||
+              "Tell VYRO more..."
+            }
+            rows={3}
+            className="w-full resize-none rounded-2xl border border-gray-200 bg-gray-50 p-5 text-base outline-none transition placeholder:text-gray-400 focus:border-black focus:bg-white"
+          />
+        </div>
+      )}
     </div>
   );
 }
