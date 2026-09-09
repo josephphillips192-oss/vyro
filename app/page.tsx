@@ -509,6 +509,7 @@ function getProgressKey(opportunity: Opportunity) {
 
 function getThirtyDayPlan(opportunity: Opportunity) {
   const name = opportunity.name.toLowerCase();
+  const category = opportunity.category.toLowerCase();
 
   const makePlan = (
     week1Title: string,
@@ -550,25 +551,433 @@ function getThirtyDayPlan(opportunity: Opportunity) {
     },
   ];
 
+  /*
+   * Home Gym / Fitness Equipment Assembly
+   */
+  if (
+    name.includes("home gym") ||
+    name.includes("gym assembly") ||
+    name.includes("fitness equipment") ||
+    name.includes("gym equipment assembly")
+  ) {
+    return makePlan(
+      "Validate Local Demand",
+      "Understand who needs home-gym assembly, what competitors charge and what customers expect.",
+      [
+        "Research 10 local home-gym assembly competitors.",
+        "Compare competitor prices for common equipment.",
+        "Identify your ideal customers and target neighbourhoods.",
+        "Research the most common home-gym equipment customers need assembled.",
+        "Check what tools and transport you would need.",
+        "Calculate your estimated cost and profit per job.",
+        "Create your first three service packages.",
+      ],
+      "Build Your Local Service",
+      "Create a professional service that customers can confidently book.",
+      [
+        "Choose your business name and service area.",
+        "Create a simple professional social media profile.",
+        "Create a clear price list for common equipment.",
+        "Create a simple customer enquiry and booking process.",
+        "Prepare a checklist for every assembly job.",
+        "Create basic customer safety and service terms.",
+        "Create your first promotional post or flyer.",
+      ],
+      "Get Your First Customers",
+      "Put your service in front of real local customers and complete your first jobs.",
+      [
+        "Post your service in relevant local community groups.",
+        "Contact 10 potential customers.",
+        "Contact another 10 potential customers.",
+        "Offer an introductory price to your first customers.",
+        "Complete your first home-gym assembly professionally.",
+        "Take before-and-after photos with customer permission.",
+        "Ask your first customers for reviews and testimonials.",
+      ],
+      "Build Repeatable Local Growth",
+      "Turn your first jobs into reviews, referrals and a repeatable customer acquisition system.",
+      [
+        "Create a Google Business Profile.",
+        "Create a simple referral offer.",
+        "Create an after-service follow-up message.",
+        "Contact another 10 local prospects.",
+        "Follow up with previous enquiries.",
+        "Review your revenue, travel costs, equipment costs and profit per job.",
+        "Set your next customer target and 30-day revenue goal.",
+      ]
+    );
+  }
+
+
+  /*
+   * On-site Matchday Content Production
+   */
+  if (
+    name.includes("matchday content") ||
+    name.includes("short-form video") ||
+    name.includes("content production") ||
+    name.includes("highlights")
+  ) {
+    return makePlan(
+      "Validate the Matchday Content Opportunity",
+      "Find out what local clubs actually need, what they currently use and what they would realistically pay for better matchday content.",
+      [
+        "Research 10 local amateur football clubs and review their current social media content.",
+        "Identify the biggest content gaps across matchday posts, highlights, interviews and stories.",
+        "Research 5 local photographers, videographers or football content creators.",
+        "Compare local prices for matchday photography, video and social media packages.",
+        "Decide which type of club you want to target first.",
+        "Create a simple list of the equipment you already have and what you actually need.",
+        "Define your first matchday content package and introductory price."
+      ],
+      "Build Your Matchday Content Service",
+      "Turn your idea into a simple service that a football club can understand and book.",
+      [
+        "Choose your service name and define your local service area.",
+        "Create 3 simple packages: Matchday Basic, Matchday Plus and Full Content.",
+        "Define exactly what the club receives in each package.",
+        "Create a simple Instagram or TikTok portfolio page.",
+        "Create 3 example pieces of football content to demonstrate your editing style.",
+        "Create a simple enquiry and booking process for clubs.",
+        "Create your first promotional post showing clubs what you can provide."
+      ],
+      "Get Your First Club",
+      "Start direct outreach and aim to turn your first conversations into a real matchday opportunity.",
+      [
+        "Create a list of 20 local amateur football clubs to contact.",
+        "Send a personalised message to your first 5 clubs.",
+        "Send a personalised message to another 5 clubs.",
+        "Offer one club an introductory matchday content package.",
+        "Follow up with clubs that have not replied.",
+        "Complete your first matchday content session if booked.",
+        "Ask the club for permission to use the work in your portfolio and request a testimonial."
+      ],
+      "Turn One Club Into a Repeatable Business",
+      "Use your first results to create recurring club relationships and build a repeatable acquisition system.",
+      [
+        "Create a portfolio post using your strongest first-club content.",
+        "Create a simple monthly or seasonal content package for clubs.",
+        "Contact another 10 clubs using your improved portfolio.",
+        "Follow up with every previous enquiry.",
+        "Ask your first club about recurring matchday content.",
+        "Calculate your revenue, travel costs, editing time and profit per matchday.",
+        "Set your next 30-day target for clubs, matches and revenue."
+      ]
+    );
+  }
+
+
+  /*
+   * Freelance Remote Customer Support
+   */
+  if (
+    name.includes("remote customer support") ||
+    name.includes("freelance customer support") ||
+    name.includes("remote support") ||
+    name.includes("customer support")
+  ) {
+    return makePlan(
+      "Validate the Remote Support Opportunity",
+      "Identify companies that genuinely need flexible customer support and understand the problems they need help solving.",
+      [
+        "Research 15 small SaaS, AI or technology companies that offer customer-facing products.",
+        "Review each company's website, help centre and support channels for potential gaps.",
+        "Identify the types of customer questions these companies receive most often.",
+        "Research freelance and part-time customer support roles and compare typical requirements.",
+        "Define the types of support you can confidently provide.",
+        "Choose your ideal client: small SaaS, AI startup, e-commerce company or growing app.",
+        "Create your initial freelance customer support offer."
+      ],
+      "Build Your Support Service",
+      "Create a professional offer that makes it easy for a company to understand how you can help.",
+      [
+        "Define your support services: email, live chat, onboarding and knowledge-base support.",
+        "Create 2–3 simple service packages based on weekly hours and responsibilities.",
+        "Create a professional one-page service profile.",
+        "Prepare example customer support responses for common scenarios.",
+        "Create a small FAQ or knowledge-base example to demonstrate your ability.",
+        "Create a simple system for tracking customer enquiries and support tasks.",
+        "Prepare your outreach message and application template."
+      ],
+      "Get Your First Client",
+      "Put your offer in front of real companies and focus on securing your first paid support opportunity.",
+      [
+        "Create a list of 20 suitable SaaS, AI and technology companies.",
+        "Apply for or contact your first 5 relevant opportunities.",
+        "Contact another 5 potential companies directly.",
+        "Follow up with companies that have not responded.",
+        "Offer a short trial or introductory support package where appropriate.",
+        "Complete your first paid support work professionally.",
+        "Ask your first client for feedback and a testimonial."
+      ],
+      "Build Recurring Remote Income",
+      "Turn your first client into recurring work while creating a repeatable system for finding additional clients.",
+      [
+        "Document the support processes you used with your first client.",
+        "Improve your service packages based on what the client actually needed.",
+        "Contact another 10 potential companies.",
+        "Follow up with every previous lead.",
+        "Ask your first client about extending or increasing your support hours.",
+        "Calculate your hourly earnings, total revenue and time spent.",
+        "Set your next 30-day target for clients, hours and monthly recurring income."
+      ]
+    );
+  }
+
+
+  /*
+   * AI Tools for Football Coaches Newsletter
+   */
+  if (
+    name.includes("ai tools for football coaches") ||
+    name.includes("football coaches") ||
+    name.includes("affiliate newsletter") ||
+    name.includes("niche content")
+  ) {
+    return makePlan(
+      "Find the Right Football Coaching Niche",
+      "Understand which problems coaches and grassroots clubs actually have and where AI can provide useful, practical solutions.",
+      [
+        "Identify 20 grassroots football coaches, managers or club volunteers to research.",
+        "List the biggest recurring problems coaches face with planning, analysis, administration and communication.",
+        "Research 15 AI tools that could help football coaches or club staff.",
+        "Review existing football coaching newsletters, websites and social accounts.",
+        "Identify gaps where existing content is weak, confusing or too technical.",
+        "Choose one specific audience to focus on first.",
+        "Choose your first 3 content themes and define your newsletter concept."
+      ],
+      "Build Your Content Engine",
+      "Create a simple media brand that consistently gives football coaches useful information they can actually apply.",
+      [
+        "Choose your newsletter or content brand name.",
+        "Create a simple landing page where coaches can subscribe.",
+        "Create your first 5 useful articles, posts or videos about AI for football.",
+        "Create a simple free resource such as an AI prompt pack for coaches.",
+        "Create your first newsletter issue.",
+        "Set up a simple content calendar for the next 30 days.",
+        "Create profiles on the social platform where your target coaches are most active."
+      ],
+      "Build Your First Audience",
+      "Get your content in front of real coaches and learn which topics generate the strongest response.",
+      [
+        "Contact 10 football coaches or club staff and introduce the project.",
+        "Publish your first educational social post.",
+        "Publish a second piece of useful AI-for-football content.",
+        "Share your free resource with relevant coaches and communities.",
+        "Ask 5 coaches what AI or technology problem they would most like solved.",
+        "Review your views, clicks, subscribers and responses.",
+        "Choose the 3 content topics that generated the strongest interest."
+      ],
+      "Test Your First Revenue",
+      "Turn audience attention into your first small revenue opportunities while continuing to build trust.",
+      [
+        "Research relevant AI affiliate programmes and partnership opportunities.",
+        "Create your first paid guide, template pack or coaching resource.",
+        "Publish a detailed comparison or review of a useful AI tool.",
+        "Contact 5 relevant companies about potential partnerships or sponsorships.",
+        "Test a clear call-to-action for your paid resource or affiliate recommendation.",
+        "Review your subscriber growth, engagement and first revenue.",
+        "Set your next 30-day target for subscribers, content output and revenue."
+      ]
+    );
+  }
+
+
+  /*
+   * Football-Tech Print-on-Demand Shop
+   */
+  if (
+    name.includes("print on demand") ||
+    name.includes("football-tech accessory") ||
+    name.includes("accessory shop") ||
+    name.includes("football tech")
+  ) {
+    return makePlan(
+      "Find a Winning Football-Tech Niche",
+      "Identify a specific group of football fans and understand which products, designs and ideas they would actually want to buy.",
+      [
+        "Research 20 Irish football-related products and stores online.",
+        "Identify popular football-tech accessories and products already being sold.",
+        "Research 10 Irish football communities, clubs or supporter groups.",
+        "Identify underserved football niches and potential design themes.",
+        "Create 10 initial product or design ideas.",
+        "Check estimated production, platform and delivery costs for your strongest ideas.",
+        "Choose your first 3 products to test."
+      ],
+      "Build Your Store",
+      "Turn your strongest ideas into a simple online shop with clear products, pricing and branding.",
+      [
+        "Choose your shop name and visual identity.",
+        "Create your first 3–5 product designs.",
+        "Choose your print-on-demand supplier and connect your products.",
+        "Calculate your selling price, production cost and expected profit for every product.",
+        "Write clear product descriptions and create product mockups.",
+        "Create your online storefront and organise the product collection.",
+        "Create your first social media profiles and prepare launch content."
+      ],
+      "Launch and Test Demand",
+      "Get real people to see your products and use their behaviour to identify what deserves more attention.",
+      [
+        "Launch your store with your first products.",
+        "Create your first football-focused social media post.",
+        "Create another 3 pieces of product content.",
+        "Share your products with relevant football communities without spamming.",
+        "Track visits, clicks, product views and sales.",
+        "Ask potential customers which design or product they prefer.",
+        "Review your first results and identify your strongest product."
+      ],
+      "Optimise and Scale the Shop",
+      "Double down on what works, improve your store and build a repeatable way to generate sales.",
+      [
+        "Create 3 new variations of your strongest design or product.",
+        "Improve the product page for your best-performing item.",
+        "Test a different social media hook or content format.",
+        "Review your product margins and remove or improve weak products.",
+        "Create a simple promotional offer or bundle.",
+        "Review total revenue, costs, orders and profit.",
+        "Set your next 30-day target for products, orders and revenue."
+      ]
+    );
+  }
+
+
+  /*
+   * AI-Assisted LinkedIn & CV Optimisation Service
+   */
+  if (
+    name.includes("linkedin") ||
+    name.includes("cv optimisation") ||
+    name.includes("cv optimization") ||
+    name.includes("personal branding")
+  ) {
+    return makePlan(
+      "Validate the Career Optimisation Service",
+      "Understand which job seekers need help, what problems they have with their CV or LinkedIn profile and what they would realistically pay to improve their applications.",
+      [
+        "Research 10 CV and LinkedIn optimisation services targeting early-career professionals.",
+        "Compare their packages, pricing, positioning and customer reviews.",
+        "Identify the most common CV and LinkedIn problems experienced by graduates and job seekers.",
+        "Choose your initial target customer, such as graduates, career changers or early-career professionals.",
+        "Define the specific outcomes your service will help customers achieve.",
+        "Create a list of the AI tools you can use to speed up research, drafting and optimisation.",
+        "Create your initial CV and LinkedIn optimisation package and introductory price."
+      ],
+      "Build Your Career Optimisation Service",
+      "Create a professional service that combines AI efficiency with genuine human review and personalisation.",
+      [
+        "Define your service packages for CV-only, LinkedIn-only and combined optimisation.",
+        "Create a professional service profile explaining exactly what customers receive.",
+        "Create an example before-and-after CV section using a fictional candidate.",
+        "Create an example LinkedIn headline, About section and experience section.",
+        "Create your customer intake questionnaire to collect career goals, experience and target roles.",
+        "Create a repeatable workflow for reviewing, improving and quality-checking each customer's documents.",
+        "Create your first promotional post explaining the problem your service solves."
+      ],
+      "Get Your First Customers",
+      "Put the service in front of real job seekers and use your first projects to improve your process.",
+      [
+        "Create a list of 20 potential customers through your network and relevant communities.",
+        "Offer your service to your first 5 suitable prospects.",
+        "Contact another 5 potential customers with a personalised message.",
+        "Offer an introductory package to your first customers.",
+        "Complete your first paid CV or LinkedIn optimisation project.",
+        "Ask the customer for feedback on the process and final result.",
+        "Request a testimonial or permission to use an anonymised before-and-after example."
+      ],
+      "Build a Repeatable Career Service",
+      "Turn your first customers and results into a repeatable service that can generate recurring monthly income.",
+      [
+        "Create a portfolio showing your strongest optimisation examples.",
+        "Improve your packages based on customer feedback.",
+        "Create a referral offer for previous customers.",
+        "Contact another 10 potential customers.",
+        "Test a higher-value combined CV, LinkedIn and application support package.",
+        "Calculate your revenue, time spent per customer and profit per package.",
+        "Set your next 30-day target for customers, revenue and average order value."
+      ]
+    );
+  }
+
+  /*
+   * Football Coaching
+   */
+  if (
+    name.includes("football coaching") ||
+    name.includes("football coach") ||
+    name.includes("soccer coaching") ||
+    name.includes("football training")
+  ) {
+    return makePlan(
+      "Define Your Coaching Offer",
+      "Choose who you coach, what you help them improve and how your sessions will work.",
+      [
+        "Choose your target age group and player level.",
+        "Research 10 local football coaches and academies.",
+        "Compare local coaching prices and session formats.",
+        "Identify the biggest problems your target players want to improve.",
+        "Design your first individual coaching session.",
+        "Design your first small-group session.",
+        "Set your introductory coaching prices.",
+      ],
+      "Build Your Coaching Presence",
+      "Create a professional presence that makes parents and players confident in your service.",
+      [
+        "Choose your coaching name and service area.",
+        "Create a professional Instagram or Facebook page.",
+        "Create a simple coaching profile explaining your experience.",
+        "Create three useful football training posts.",
+        "Create a simple booking and enquiry process.",
+        "Prepare a basic session plan template.",
+        "Create your first promotional offer.",
+      ],
+      "Get Your First Players",
+      "Start conversations with local players, parents and football communities.",
+      [
+        "Contact 10 potential players or parents.",
+        "Contact another 10 potential customers.",
+        "Post your coaching offer in relevant local groups.",
+        "Offer an introductory trial session.",
+        "Deliver your first coaching session.",
+        "Ask for feedback from the player or parent.",
+        "Request a testimonial and referral.",
+      ],
+      "Build Recurring Coaching Revenue",
+      "Turn individual sessions into weekly customers and small-group opportunities.",
+      [
+        "Create weekly coaching packages.",
+        "Create a small-group training package.",
+        "Create a simple customer progress tracker.",
+        "Contact another 10 potential customers.",
+        "Follow up with previous enquiries.",
+        "Ask existing customers about continuing sessions.",
+        "Set your next player target and 30-day revenue goal.",
+      ]
+    );
+  }
+
+  /*
+   * Video / Content / UGC
+   */
   if (
     name.includes("video") ||
     name.includes("content") ||
-    name.includes("ugc")
+    name.includes("ugc") ||
+    category.includes("content")
   ) {
     return makePlan(
       "Build Your Foundation",
-      "Choose your niche, understand the market and create your first proof of work.",
+      "Choose your niche, understand the market and create proof that you can deliver.",
       [
         "Choose one target niche and define your ideal customer.",
         "Research 10 competitors and compare their offers and pricing.",
-        "Identify the most common content problems your target customers have.",
+        "Identify the biggest content problems your target customers have.",
         "Create your first high-quality sample.",
         "Create two additional samples for your portfolio.",
         "Decide exactly what your service includes.",
         "Create your starter pricing package.",
       ],
       "Build Your Sales System",
-      "Turn your skills into a professional offer that is ready to sell.",
+      "Create everything you need to approach potential customers professionally.",
       [
         "Build a simple portfolio using your strongest examples.",
         "Create your business social media profile.",
@@ -603,21 +1012,27 @@ function getThirtyDayPlan(opportunity: Opportunity) {
     );
   }
 
+  /*
+   * Car Valeting / Pressure Washing / Local Cleaning
+   */
   if (
-    name.includes("car") ||
-    name.includes("valet") ||
-    name.includes("pressure")
+    name.includes("car valet") ||
+    name.includes("car detailing") ||
+    name.includes("pressure washing") ||
+    name.includes("pressure wash") ||
+    name.includes("cleaning service") ||
+    name.includes("mobile cleaning")
   ) {
     return makePlan(
       "Prepare Your Local Service",
-      "Understand local demand, pricing and the equipment required to deliver the service.",
+      "Understand local demand, pricing, equipment and the costs required to deliver each job.",
       [
         "Research 10 local competitors.",
         "Compare competitor pricing and services.",
         "Choose your exact services.",
         "Calculate your cost and expected profit per job.",
         "Create your service packages.",
-        "Buy only the essential equipment needed to start.",
+        "Identify the essential equipment needed to start.",
         "Create your business name and social media profile.",
       ],
       "Get Local Attention",
@@ -656,10 +1071,14 @@ function getThirtyDayPlan(opportunity: Opportunity) {
     );
   }
 
+  /*
+   * Social Media / Marketing / Automation
+   */
   if (
     name.includes("social media") ||
     name.includes("marketing") ||
-    name.includes("automation")
+    name.includes("automation") ||
+    category.includes("marketing")
   ) {
     return makePlan(
       "Choose Your Niche",
@@ -709,7 +1128,15 @@ function getThirtyDayPlan(opportunity: Opportunity) {
     );
   }
 
-  if (name.includes("tutoring") || name.includes("coaching")) {
+  /*
+   * Tutoring / Coaching
+   */
+  if (
+    name.includes("tutoring") ||
+    name.includes("tutor") ||
+    name.includes("coaching") ||
+    name.includes("coach")
+  ) {
     return makePlan(
       "Define Your Offer",
       "Choose who you help, what outcome you provide and how your sessions will work.",
@@ -758,6 +1185,68 @@ function getThirtyDayPlan(opportunity: Opportunity) {
     );
   }
 
+  /*
+   * Product / E-commerce
+   */
+  if (
+    category.includes("product") ||
+    category.includes("ecommerce") ||
+    category.includes("e-commerce") ||
+    name.includes("online store") ||
+    name.includes("clothing brand") ||
+    name.includes("product business")
+  ) {
+    return makePlan(
+      "Validate the Product",
+      "Prove there is demand before spending heavily on inventory or development.",
+      [
+        "Define your ideal customer.",
+        "Research 10 competing products or brands.",
+        "Compare competitor pricing and positioning.",
+        "Identify the main problem or desire your product addresses.",
+        "Create or source your first product concept.",
+        "Calculate your full cost per unit.",
+        "Set your target selling price and expected margin.",
+      ],
+      "Build Your Minimum Brand",
+      "Create the simplest professional version of your business.",
+      [
+        "Choose your brand name and positioning.",
+        "Create your basic visual identity.",
+        "Create your product page or sales page.",
+        "Create your business social media profile.",
+        "Take or create strong product visuals.",
+        "Create your first three promotional pieces of content.",
+        "Set up a simple customer enquiry and payment process.",
+      ],
+      "Launch & Make Your First Sales",
+      "Put the product in front of real customers and learn what converts.",
+      [
+        "Create your launch offer.",
+        "Contact your first 10 potential customers.",
+        "Contact another 10 potential customers.",
+        "Publish your first product promotion.",
+        "Aim for your first sale.",
+        "Deliver your first customer order professionally.",
+        "Ask your first customers for feedback and reviews.",
+      ],
+      "Improve & Grow",
+      "Use real customer data to improve your product, marketing and sales.",
+      [
+        "Review your first sales and customer feedback.",
+        "Improve your product or offer.",
+        "Improve your product page.",
+        "Create a repeatable content schedule.",
+        "Contact another 10 potential customers.",
+        "Track revenue, costs and profit.",
+        "Set your next customer and 30-day revenue target.",
+      ]
+    );
+  }
+
+  /*
+   * Generic fallback
+   */
   return makePlan(
     "Validate the Opportunity",
     "Make sure there is real demand before investing too much time or money.",
@@ -800,10 +1289,389 @@ function getThirtyDayPlan(opportunity: Opportunity) {
       "Create a referral system.",
       "Contact another 10 prospects.",
       "Follow up with previous leads.",
-      "Track revenue, costs and profit.",
+      "Track your revenue, costs and profit.",
       "Set your next customer and 30-day revenue target.",
     ]
   );
+}
+
+
+function getScalePlan(opportunity: Opportunity) {
+  const name = opportunity.name.toLowerCase();
+  const category = opportunity.category.toLowerCase();
+
+  const monthlyRevenueTarget = Math.max(
+    1000,
+    Math.round((opportunity.incomeMax || opportunity.incomeMin || 1000) * 3 / 100) * 100
+  );
+
+  const customerTarget =
+    category.includes("service") ||
+    category.includes("sales") ||
+    category.includes("marketing") ||
+    category.includes("coaching")
+      ? 5
+      : 25;
+
+  if (
+    name.includes("appointment-setting") ||
+    name.includes("lead qualification") ||
+    name.includes("sales outsourcing")
+  ) {
+    return {
+      title: "Scale Your Client Acquisition",
+      description:
+        "Turn your first successful client relationships into a repeatable appointment-setting business with predictable monthly revenue.",
+      revenueTarget: "€3,000+ monthly revenue",
+      customerTarget: "5 recurring business clients",
+      systems: [
+        "Create a repeatable prospecting and follow-up system.",
+        "Build a simple CRM pipeline for every lead and client.",
+        "Create standard onboarding and reporting templates.",
+        "Document your appointment-setting and qualification process.",
+      ],
+      growth: [
+        "Increase weekly prospect outreach.",
+        "Ask existing clients for referrals.",
+        "Target businesses with higher customer lifetime value.",
+        "Create a case study showing appointments generated and results achieved.",
+      ],
+      pricing: [
+        "Move from one-off trials toward monthly retainers.",
+        "Create tiered packages based on appointment volume.",
+        "Charge more as your results and proof improve.",
+      ],
+      reinvest: [
+        "Reinvest into better CRM and outreach tools.",
+        "Consider automation only after your manual process is consistently working.",
+        "Reinvest a portion of revenue into customer acquisition.",
+      ],
+    };
+  }
+
+  if (
+    name.includes("football") ||
+    name.includes("matchday") ||
+    name.includes("coaching") ||
+    name.includes("content")
+  ) {
+    return {
+      title: "Scale Through Repeat Customers",
+      description:
+        "Turn your strongest results into recurring customers, stronger packages and a recognisable niche brand.",
+      revenueTarget: "€2,000+ monthly revenue",
+      customerTarget: `${customerTarget} recurring customers`,
+      systems: [
+        "Create a standard customer onboarding process.",
+        "Document how you deliver each service.",
+        "Create reusable content, templates and workflows.",
+        "Track revenue, costs, customer retention and delivery time.",
+      ],
+      growth: [
+        "Focus your marketing on the niche producing the best results.",
+        "Create case studies from your strongest customers.",
+        "Build referral relationships with existing customers.",
+        "Increase outreach while maintaining service quality.",
+      ],
+      pricing: [
+        "Create premium packages around your best-performing service.",
+        "Introduce recurring monthly or seasonal packages.",
+        "Increase pricing when demand consistently exceeds capacity.",
+      ],
+      reinvest: [
+        "Reinvest into equipment or software that saves delivery time.",
+        "Outsource low-value tasks when revenue can support it.",
+        "Put part of your profit back into customer acquisition.",
+      ],
+    };
+  }
+
+  return {
+    title: "Build a Scalable Business",
+    description:
+      "Use everything you learned during your first 30 days to create a repeatable system for acquiring customers, delivering value and increasing revenue.",
+    revenueTarget: `€${monthlyRevenueTarget.toLocaleString("en-IE")}+ monthly revenue`,
+    customerTarget: `${customerTarget} active customers`,
+    systems: [
+      "Document your core customer acquisition process.",
+      "Create a repeatable onboarding and delivery system.",
+      "Track revenue, costs, customers and profit every month.",
+      "Create templates for your most common business tasks.",
+    ],
+    growth: [
+      "Double down on the customer segment producing the best results.",
+      "Increase your weekly customer acquisition activity.",
+      "Build a referral system around satisfied customers.",
+      "Create case studies, testimonials or proof of results.",
+    ],
+    pricing: [
+      "Review your pricing against the value you provide.",
+      "Create a higher-value premium package.",
+      "Test price increases once demand becomes consistent.",
+    ],
+    reinvest: [
+      "Reinvest into tools that save time or improve customer acquisition.",
+      "Only add major expenses when they are supported by revenue.",
+      "Reinvest a percentage of profit into the activity producing the strongest return.",
+    ],
+  };
+}
+
+
+function getStage06Plan(opportunity: Opportunity) {
+  const name = opportunity.name.toLowerCase();
+  const category = opportunity.category.toLowerCase();
+  const description = opportunity.description.toLowerCase();
+
+  const isLeadGeneration =
+    name.includes("appointment-setting") ||
+    name.includes("lead generation") ||
+    name.includes("lead qualification") ||
+    name.includes("sales outsourcing") ||
+    category.includes("sales") ||
+    category.includes("marketing");
+
+  const isCoaching =
+    name.includes("football") ||
+    name.includes("coaching") ||
+    category.includes("coaching") ||
+    description.includes("coaching");
+
+  const isContent =
+    name.includes("content") ||
+    name.includes("creator") ||
+    category.includes("content") ||
+    category.includes("media");
+
+  const isProduct =
+    category.includes("ecommerce") ||
+    category.includes("product") ||
+    category.includes("retail") ||
+    name.includes("ecommerce");
+
+  if (isLeadGeneration) {
+    return {
+      title: "Build a Scalable Client Acquisition System",
+      description:
+        "Turn your client acquisition service into a repeatable operation with documented processes, recurring revenue, automation and delegated delivery.",
+      systems: [
+        "Document your complete prospecting and follow-up workflow.",
+        "Create a standard CRM pipeline from lead to paying client.",
+        "Build repeatable onboarding and monthly reporting templates.",
+        "Create a clear delivery process that another person could follow.",
+      ],
+      automation: [
+        "Automate lead tracking and follow-up reminders.",
+        "Create reusable outreach and follow-up sequences.",
+        "Automate client reporting where possible.",
+        "Connect your CRM with the tools you use most often.",
+      ],
+      delegation: [
+        "Identify repetitive prospecting tasks someone else could handle.",
+        "Create a simple role description for a future virtual assistant.",
+        "Document your delivery process before delegating it.",
+        "Delegate low-value administrative work once revenue supports it.",
+      ],
+      retention: [
+        "Move clients toward monthly retainers.",
+        "Create a monthly results review for every client.",
+        "Set a clear renewal and upsell process.",
+        "Build referrals into your client relationship process.",
+      ],
+      profit: [
+        "Calculate the true profit from each client.",
+        "Identify clients and services with the strongest margins.",
+        "Reduce unnecessary software and acquisition costs.",
+        "Increase pricing as your results and capacity improve.",
+      ],
+      growth: [
+        "Choose one niche where your results are strongest.",
+        "Build a repeatable weekly acquisition target.",
+        "Turn your strongest results into case studies.",
+        "Create a referral and partnership channel.",
+      ],
+      target: "Build toward €10,000+ monthly revenue with a repeatable client acquisition operation.",
+    };
+  }
+
+  if (isCoaching) {
+    return {
+      title: "Build a Scalable Coaching System",
+      description:
+        "Turn your expertise into a repeatable coaching operation with structured delivery, recurring programmes, systems and additional capacity.",
+      systems: [
+        "Create a standard onboarding process for every client.",
+        "Document your coaching or training framework.",
+        "Create reusable session plans, resources and templates.",
+        "Track client progress, retention and results.",
+      ],
+      automation: [
+        "Automate booking confirmations and reminders.",
+        "Create reusable communication templates.",
+        "Automate progress tracking where possible.",
+        "Create a simple system for collecting testimonials and referrals.",
+      ],
+      delegation: [
+        "Identify administration that does not require your expertise.",
+        "Document tasks a future assistant could handle.",
+        "Create a repeatable process for onboarding new coaches or staff.",
+        "Delegate operational work before delegating your core expertise.",
+      ],
+      retention: [
+        "Create recurring coaching or training packages.",
+        "Build clear progression milestones for customers.",
+        "Introduce renewal conversations before programmes finish.",
+        "Create referral incentives for satisfied customers.",
+      ],
+      profit: [
+        "Measure revenue and delivery time per customer.",
+        "Identify your most profitable programme.",
+        "Increase prices as demand and results improve.",
+        "Reduce time spent on low-value administrative work.",
+      ],
+      growth: [
+        "Focus your marketing on your strongest customer niche.",
+        "Build proof through testimonials and case studies.",
+        "Develop a referral network.",
+        "Increase capacity through group or recurring programmes.",
+      ],
+      target: "Build recurring revenue without increasing your workload at the same rate.",
+    };
+  }
+
+  if (isContent) {
+    return {
+      title: "Build a Scalable Content Engine",
+      description:
+        "Turn your content skills into a repeatable production and distribution system that can handle more clients, projects and revenue.",
+      systems: [
+        "Create a repeatable content production workflow.",
+        "Build reusable briefs, templates and approval processes.",
+        "Create a content calendar and publishing system.",
+        "Track performance by client, platform and content type.",
+      ],
+      automation: [
+        "Automate scheduling and publishing where possible.",
+        "Create reusable editing and production templates.",
+        "Automate reporting for key content metrics.",
+        "Build a central system for managing briefs and approvals.",
+      ],
+      delegation: [
+        "Identify editing, research or admin tasks that can be delegated.",
+        "Document your production standards.",
+        "Create a role description for a future editor or assistant.",
+        "Delegate execution while keeping strategic quality control.",
+      ],
+      retention: [
+        "Offer monthly content packages.",
+        "Create recurring reporting and strategy reviews.",
+        "Show clients the results generated by your work.",
+        "Build long-term content partnerships.",
+      ],
+      profit: [
+        "Track profit by client and project.",
+        "Identify which services take the least time for the highest return.",
+        "Productise your strongest service.",
+        "Increase pricing as demand becomes consistent.",
+      ],
+      growth: [
+        "Choose a profitable content niche.",
+        "Publish proof of your results consistently.",
+        "Build partnerships with complementary businesses.",
+        "Create a repeatable client acquisition process.",
+      ],
+      target: "Build recurring content revenue while increasing output without increasing workload linearly.",
+    };
+  }
+
+  if (isProduct) {
+    return {
+      title: "Build a Scalable Product Business",
+      description:
+        "Turn a working product into a repeatable commercial system through better operations, customer retention, automation and profitable growth.",
+      systems: [
+        "Document your order fulfilment process.",
+        "Create a repeatable inventory management system.",
+        "Track sales, margins, returns and customer behaviour.",
+        "Create standard customer support procedures.",
+      ],
+      automation: [
+        "Automate order and customer notifications.",
+        "Automate inventory alerts and stock tracking.",
+        "Create reusable customer support responses.",
+        "Automate reporting for sales and profitability.",
+      ],
+      delegation: [
+        "Identify fulfilment and admin tasks that can be outsourced.",
+        "Document your packing and fulfilment standards.",
+        "Create a future operations role checklist.",
+        "Delegate repetitive work before adding more complexity.",
+      ],
+      retention: [
+        "Create a post-purchase customer journey.",
+        "Build repeat-purchase opportunities.",
+        "Create referral and loyalty mechanisms.",
+        "Use customer feedback to improve the product and offer.",
+      ],
+      profit: [
+        "Calculate true profit after product, delivery and marketing costs.",
+        "Identify your highest-margin products.",
+        "Reduce waste and unnecessary operating costs.",
+        "Increase average order value through bundles or premium offers.",
+      ],
+      growth: [
+        "Double down on the product and audience producing the strongest results.",
+        "Build a repeatable acquisition channel.",
+        "Test partnerships and creator collaborations.",
+        "Reinvest profit into the highest-performing growth channel.",
+      ],
+      target: "Build a repeatable product operation that can grow sales without operational chaos.",
+    };
+  }
+
+  return {
+    title: "Build a Scalable Business System",
+    description:
+      "Turn what is working into a repeatable business system with clear processes, automation, delegation, retention and profitable growth.",
+    systems: [
+      "Document your core customer acquisition process.",
+      "Create a repeatable onboarding and delivery system.",
+      "Track revenue, costs, customers and profit consistently.",
+      "Create templates for your most common business tasks.",
+    ],
+    automation: [
+      "Identify your three most repetitive weekly tasks.",
+      "Automate one repetitive task using your existing tools.",
+      "Create reusable communication and workflow templates.",
+      "Build a simple weekly business reporting system.",
+    ],
+    delegation: [
+      "List every task you currently perform in the business.",
+      "Separate tasks that require your expertise from repetitive work.",
+      "Document one task another person could complete.",
+      "Create a future delegation plan based on your revenue.",
+    ],
+    retention: [
+      "Create a reason for customers to continue buying from you.",
+      "Introduce a follow-up process after every sale.",
+      "Ask satisfied customers for referrals and testimonials.",
+      "Track repeat customers and customer lifetime value.",
+    ],
+    profit: [
+      "Calculate your true monthly profit.",
+      "Identify your highest-margin activity.",
+      "Remove unnecessary expenses and inefficient work.",
+      "Reinvest profit into the activity producing the strongest return.",
+    ],
+    growth: [
+      "Focus on the customer segment producing the strongest results.",
+      "Create a repeatable weekly customer acquisition target.",
+      "Build a referral system around satisfied customers.",
+      "Create proof of results through testimonials or case studies.",
+    ],
+    target:
+      "Build a business that can increase revenue without requiring the same increase in your personal workload.",
+  };
 }
 
 export default function Home() {
@@ -811,16 +1679,396 @@ export default function Home() {
   const [step, setStep] = useState(1);
   const [analysing, setAnalysing] = useState(false);
   const [showResults, setShowResults] = useState(false);
+  const [isPro, setIsPro] = useState(false);
+
+  const startCheckout = async (interval: "monthly" | "annual") => {
+    try {
+      const response = await fetch("/api/stripe/create-checkout-session", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ interval }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok || !data.url) {
+        throw new Error(data.error || "Unable to start checkout");
+      }
+
+      window.location.href = data.url;
+    } catch (error) {
+      console.error("Checkout error:", error);
+      alert("Unable to start checkout. Please try again.");
+    }
+  };
+
+  const [showDashboard, setShowDashboard] = useState(false);
+
+  const [currentUserId, setCurrentUserId] = useState<string | null>(null);
+  const [currentUserEmail, setCurrentUserEmail] = useState<string | null>(null);
+  const [authLoading, setAuthLoading] = useState(true);
+  const [opportunityLoading, setOpportunityLoading] = useState(true);
 
   const [selectedOpportunity, setSelectedOpportunity] =
     useState<Opportunity | null>(null);
 
   const [showPlan, setShowPlan] = useState(false);
   const [show30DayPlan, setShow30DayPlan] = useState(false);
+  const [showScalePlan, setShowScalePlan] = useState(false);
+  const [showStage06, setShowStage06] = useState(false);
 
   const [completedDays, setCompletedDays] = useState<number[]>([]);
   const [completed30DayTasks, setCompleted30DayTasks] =
-    useState<string[]>([]);
+    useState<number[]>([]);
+
+  const [completedIncomeTasks, setCompletedIncomeTasks] =
+    useState<number[]>([]);
+
+  const [monthlyRevenue, setMonthlyRevenue] = useState(0);
+  const [monthlyExpenses, setMonthlyExpenses] = useState(0);
+  const [activeCustomers, setActiveCustomers] = useState(0);
+  const [leadsGenerated, setLeadsGenerated] = useState(0);
+  const [appointmentsBooked, setAppointmentsBooked] = useState(0);
+  const [incomeProgressLoaded, setIncomeProgressLoaded] = useState(false);
+
+  useEffect(() => {
+    if (!selectedOpportunity) {
+      setIncomeProgressLoaded(false);
+      return;
+    }
+
+    let cancelled = false;
+
+    const loadIncomeProgress = async () => {
+      const progressKey = getProgressKey(selectedOpportunity);
+
+      try {
+        const response = await fetch(
+          `/api/income-growth?opportunity=${encodeURIComponent(
+            selectedOpportunity.name
+          )}`
+        );
+
+        if (response.ok) {
+          const result = await response.json();
+          const progress = result?.progress;
+
+          if (progress && !cancelled) {
+            setMonthlyRevenue(Number(progress.monthly_revenue) || 0);
+            setMonthlyExpenses(Number(progress.monthly_expenses) || 0);
+            setActiveCustomers(Number(progress.active_customers) || 0);
+            setLeadsGenerated(Number(progress.leads_generated) || 0);
+            setAppointmentsBooked(
+              Number(progress.appointments_booked) || 0
+            );
+            setCompletedIncomeTasks(
+              Array.isArray(progress.completed_income_tasks)
+                ? progress.completed_income_tasks
+                : []
+            );
+
+            localStorage.setItem(
+              `cstn-income-growth-${progressKey}`,
+              JSON.stringify({
+                monthlyRevenue:
+                  Number(progress.monthly_revenue) || 0,
+                monthlyExpenses:
+                  Number(progress.monthly_expenses) || 0,
+                activeCustomers:
+                  Number(progress.active_customers) || 0,
+                leadsGenerated:
+                  Number(progress.leads_generated) || 0,
+                appointmentsBooked:
+                  Number(progress.appointments_booked) || 0,
+                completedIncomeTasks:
+                  Array.isArray(progress.completed_income_tasks)
+                    ? progress.completed_income_tasks
+                    : [],
+              })
+            );
+
+            setIncomeProgressLoaded(true);
+            return;
+          }
+        }
+      } catch (error) {
+        console.error("CSTN income growth database load error:", error);
+      }
+
+      if (!cancelled) {
+        const saved = localStorage.getItem(
+          `cstn-income-growth-${progressKey}`
+        );
+
+        if (saved) {
+          try {
+            const data = JSON.parse(saved);
+
+            setMonthlyRevenue(data.monthlyRevenue ?? 0);
+            setMonthlyExpenses(data.monthlyExpenses ?? 0);
+            setActiveCustomers(data.activeCustomers ?? 0);
+            setLeadsGenerated(data.leadsGenerated ?? 0);
+            setAppointmentsBooked(data.appointmentsBooked ?? 0);
+            setCompletedIncomeTasks(
+              Array.isArray(data.completedIncomeTasks)
+                ? data.completedIncomeTasks
+                : []
+            );
+          } catch {
+            console.error("CSTN income growth restore error");
+          }
+        }
+
+        setIncomeProgressLoaded(true);
+      }
+    };
+
+    loadIncomeProgress();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [selectedOpportunity]);
+
+  useEffect(() => {
+    if (!selectedOpportunity || !incomeProgressLoaded) return;
+
+    const progressKey = getProgressKey(selectedOpportunity);
+
+    const progressData = {
+      monthlyRevenue,
+      monthlyExpenses,
+      activeCustomers,
+      leadsGenerated,
+      appointmentsBooked,
+      completedIncomeTasks,
+    };
+
+    localStorage.setItem(
+      `cstn-income-growth-${progressKey}`,
+      JSON.stringify(progressData)
+    );
+
+    const saveIncomeProgress = async () => {
+      try {
+        const response = await fetch("/api/income-growth", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            opportunityName: selectedOpportunity.name,
+            ...progressData,
+          }),
+        });
+
+        if (!response.ok) {
+          const result = await response.json().catch(() => null);
+
+          console.error(
+            "CSTN income growth database save failed:",
+            result?.error || response.statusText
+          );
+        }
+      } catch (error) {
+        console.error(
+          "CSTN income growth database save error:",
+          error
+        );
+      }
+    };
+
+    const saveTimer = window.setTimeout(() => {
+      saveIncomeProgress();
+    }, 700);
+
+    return () => {
+      window.clearTimeout(saveTimer);
+    };
+  }, [
+    selectedOpportunity,
+    incomeProgressLoaded,
+    monthlyRevenue,
+    monthlyExpenses,
+    activeCustomers,
+    leadsGenerated,
+    appointmentsBooked,
+    completedIncomeTasks,
+  ]);
+
+  const [completedScaleTasks, setCompletedScaleTasks] =
+    useState<number[]>([]);
+
+  const [sopsCreated, setSopsCreated] = useState(0);
+  const [automationsImplemented, setAutomationsImplemented] = useState(0);
+  const [delegatedTasks, setDelegatedTasks] = useState(0);
+  const [recurringCustomers, setRecurringCustomers] = useState(0);
+  const [scaleProgressLoaded, setScaleProgressLoaded] = useState(false);
+
+  useEffect(() => {
+    if (!selectedOpportunity) {
+      setScaleProgressLoaded(false);
+      return;
+    }
+
+    let cancelled = false;
+
+    const progressKey = getProgressKey(selectedOpportunity);
+
+    const loadScaleProgress = async () => {
+      try {
+        const response = await fetch(
+          `/api/scale-systems?opportunity=${encodeURIComponent(
+            selectedOpportunity.name
+          )}`
+        );
+
+        if (response.ok) {
+          const result = await response.json();
+          const progress = result?.progress;
+
+          if (progress && !cancelled) {
+            const restoredData = {
+              completedScaleTasks:
+                Array.isArray(progress.completed_scale_tasks)
+                  ? progress.completed_scale_tasks
+                  : [],
+              sopsCreated: Number(progress.sops_created) || 0,
+              automationsImplemented:
+                Number(progress.automations_implemented) || 0,
+              delegatedTasks: Number(progress.delegated_tasks) || 0,
+              recurringCustomers:
+                Number(progress.recurring_customers) || 0,
+            };
+
+            setCompletedScaleTasks(restoredData.completedScaleTasks);
+            setSopsCreated(restoredData.sopsCreated);
+            setAutomationsImplemented(
+              restoredData.automationsImplemented
+            );
+            setDelegatedTasks(restoredData.delegatedTasks);
+            setRecurringCustomers(restoredData.recurringCustomers);
+
+            localStorage.setItem(
+              `cstn-scale-systems-${progressKey}`,
+              JSON.stringify(restoredData)
+            );
+
+            setScaleProgressLoaded(true);
+            return;
+          }
+        }
+      } catch (error) {
+        console.error(
+          "CSTN scale systems database load error:",
+          error
+        );
+      }
+
+      if (!cancelled) {
+        const saved = localStorage.getItem(
+          `cstn-scale-systems-${progressKey}`
+        );
+
+        if (saved) {
+          try {
+            const data = JSON.parse(saved);
+
+            setCompletedScaleTasks(
+              Array.isArray(data.completedScaleTasks)
+                ? data.completedScaleTasks
+                : []
+            );
+
+            setSopsCreated(Number(data.sopsCreated) || 0);
+            setAutomationsImplemented(
+              Number(data.automationsImplemented) || 0
+            );
+            setDelegatedTasks(Number(data.delegatedTasks) || 0);
+            setRecurringCustomers(
+              Number(data.recurringCustomers) || 0
+            );
+          } catch {
+            console.error("CSTN scale systems restore error");
+          }
+        }
+
+        setScaleProgressLoaded(true);
+      }
+    };
+
+    loadScaleProgress();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [selectedOpportunity]);
+
+  useEffect(() => {
+    if (!selectedOpportunity || !scaleProgressLoaded) return;
+
+    const progressKey = getProgressKey(selectedOpportunity);
+
+    const progressData = {
+      completedScaleTasks,
+      sopsCreated,
+      automationsImplemented,
+      delegatedTasks,
+      recurringCustomers,
+    };
+
+    localStorage.setItem(
+      `cstn-scale-systems-${progressKey}`,
+      JSON.stringify(progressData)
+    );
+
+    const saveScaleProgress = async () => {
+      try {
+        const response = await fetch("/api/scale-systems", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            opportunityName: selectedOpportunity.name,
+            ...progressData,
+          }),
+        });
+
+        if (!response.ok) {
+          const result = await response.json().catch(() => null);
+
+          console.error(
+            "CSTN scale systems database save failed:",
+            result?.error || response.statusText
+          );
+        }
+      } catch (error) {
+        console.error(
+          "CSTN scale systems database save error:",
+          error
+        );
+      }
+    };
+
+    const saveTimer = window.setTimeout(() => {
+      saveScaleProgress();
+    }, 700);
+
+    return () => {
+      window.clearTimeout(saveTimer);
+    };
+  }, [
+    selectedOpportunity,
+    scaleProgressLoaded,
+    completedScaleTasks,
+    sopsCreated,
+    automationsImplemented,
+    delegatedTasks,
+    recurringCustomers,
+  ]);
 
   const [selectedGoal, setSelectedGoal] = useState("");
   const [selectedBudget, setSelectedBudget] = useState("");
@@ -840,53 +2088,192 @@ export default function Home() {
   >([]);
 
   /*
-   * Restore the user's last selected opportunity and its progress.
+   * Load the currently authenticated CSTN user.
    */
   useEffect(() => {
-    const savedOpportunity = localStorage.getItem(
-      "vyro-selected-opportunity"
+    const loadCurrentUser = async () => {
+      try {
+        const response = await fetch("/api/profile");
+
+        if (!response.ok) {
+          setCurrentUserId(null);
+          setCurrentUserEmail(null);
+          return;
+        }
+
+        const data = await response.json();
+
+        setCurrentUserId(data.user?.id ?? null);
+        setCurrentUserEmail(data.user?.email ?? null);
+      } catch (error) {
+        console.error("CSTN user loading error:", error);
+        setCurrentUserId(null);
+        setCurrentUserEmail(null);
+      } finally {
+        setAuthLoading(false);
+      }
+    };
+
+    loadCurrentUser();
+  }, []);
+
+  /*
+   * Restore the user's saved opportunity and progress.
+   */
+  useEffect(() => {
+    const restoreOpportunity = async () => {
+      let opportunity: Opportunity | null = null;
+
+      try {
+        if (currentUserId) {
+          const response = await fetch("/api/profile");
+
+          if (response.ok) {
+            const data = await response.json();
+
+            if (data.opportunity?.opportunity_data) {
+              opportunity = data.opportunity.opportunity_data;
+            }
+          }
+        }
+
+        if (!opportunity) {
+          const savedOpportunity = localStorage.getItem(
+            "cstn-selected-opportunity"
+          );
+
+          if (savedOpportunity) {
+            opportunity = JSON.parse(savedOpportunity);
+          }
+        }
+
+        if (!opportunity) {
+          setOpportunityLoading(false);
+          return;
+        }
+
+        setSelectedOpportunity(opportunity);
+
+        const progressKey = getProgressKey(opportunity);
+
+        const saved7DayProgress = localStorage.getItem(
+          `cstn-7-day-progress-${progressKey}`
+        );
+
+        const saved30DayProgress = localStorage.getItem(
+          `cstn-30-day-progress-${progressKey}`
+        );
+
+        setCompletedDays(
+          saved7DayProgress ? JSON.parse(saved7DayProgress) : []
+        );
+
+        setCompleted30DayTasks(
+          saved30DayProgress ? JSON.parse(saved30DayProgress) : []
+        );
+
+        const saved30DayPlan = localStorage.getItem(
+          `cstn-show-30-day-plan-${progressKey}`
+        );
+
+        const saved7DayPlan = localStorage.getItem(
+          `cstn-show-7-day-plan-${progressKey}`
+        );
+
+        setShowPlan(false);
+        setShow30DayPlan(false);
+        setShowScalePlan(false);
+
+        if (saved30DayPlan === "true") {
+          setShow30DayPlan(true);
+        } else if (saved7DayPlan === "true") {
+          setShowPlan(true);
+        }
+
+        localStorage.setItem(
+          "cstn-selected-opportunity",
+          JSON.stringify(opportunity)
+        );
+
+        if (currentUserId) {
+          setStarted(true);
+          setShowDashboard(true);
+        }
+      } catch (error) {
+        console.error("CSTN opportunity restore error:", error);
+      } finally {
+        setOpportunityLoading(false);
+      }
+    };
+
+    if (!authLoading) {
+      restoreOpportunity();
+    }
+  }, [currentUserId, authLoading]);
+
+
+  /*
+   * Restore saved CSTN assessment and results.
+   */
+  useEffect(() => {
+    const savedAssessment = localStorage.getItem(
+      "cstn-assessment"
     );
 
-    if (!savedOpportunity) return;
+    const savedResults = localStorage.getItem(
+      "cstn-results"
+    );
+
+    const savedStep = localStorage.getItem(
+      "cstn-assessment-step"
+    );
 
     try {
-      const opportunity: Opportunity = JSON.parse(savedOpportunity);
+      if (savedAssessment) {
+        const assessment = JSON.parse(savedAssessment);
 
-      setSelectedOpportunity(opportunity);
+        setSelectedGoal(assessment.selectedGoal ?? "");
+        setSelectedBudget(assessment.selectedBudget ?? "");
+        setSelectedSkills(
+          Array.isArray(assessment.selectedSkills)
+            ? assessment.selectedSkills
+            : []
+        );
+        setSelectedInterests(
+          Array.isArray(assessment.selectedInterests)
+            ? assessment.selectedInterests
+            : []
+        );
+        setOtherGoal(assessment.otherGoal ?? "");
+        setOtherSkill(assessment.otherSkill ?? "");
+        setOtherInterest(assessment.otherInterest ?? "");
+        setSelectedTime(assessment.selectedTime ?? "");
+        setSelectedLocation(assessment.selectedLocation ?? "");
+        setSelectedAmbition(assessment.selectedAmbition ?? "");
+      }
 
-      const progressKey = getProgressKey(opportunity);
+      if (savedResults) {
+        const parsedResults = JSON.parse(savedResults);
 
-      const saved7DayProgress = localStorage.getItem(
-        `vyro-7-day-progress-${progressKey}`
-      );
+        if (Array.isArray(parsedResults)) {
+          setResults(parsedResults);
+          setShowResults(true);
+        }
+      }
 
-      const saved30DayProgress = localStorage.getItem(
-        `vyro-30-day-progress-${progressKey}`
-      );
+      if (savedStep) {
+        const parsedStep = Number(savedStep);
 
-      setCompletedDays(
-        saved7DayProgress ? JSON.parse(saved7DayProgress) : []
-      );
-
-      setCompleted30DayTasks(
-        saved30DayProgress ? JSON.parse(saved30DayProgress) : []
-      );
-
-      const saved30DayPlan = localStorage.getItem(
-        `vyro-show-30-day-plan-${progressKey}`
-      );
-
-      const saved7DayPlan = localStorage.getItem(
-        `vyro-show-7-day-plan-${progressKey}`
-      );
-
-      if (saved30DayPlan === "true") {
-        setShow30DayPlan(true);
-      } else if (saved7DayPlan === "true") {
-        setShowPlan(true);
+        if (
+          Number.isInteger(parsedStep) &&
+          parsedStep >= 1 &&
+          parsedStep <= 7
+        ) {
+          setStep(parsedStep);
+        }
       }
     } catch (error) {
-      console.error("VYRO restore error:", error);
+      console.error("CSTN assessment restore error:", error);
     }
   }, []);
 
@@ -899,7 +2286,7 @@ export default function Home() {
     const progressKey = getProgressKey(selectedOpportunity);
 
     localStorage.setItem(
-      `vyro-7-day-progress-${progressKey}`,
+      `cstn-7-day-progress-${progressKey}`,
       JSON.stringify(completedDays)
     );
   }, [completedDays, selectedOpportunity]);
@@ -913,7 +2300,7 @@ export default function Home() {
     const progressKey = getProgressKey(selectedOpportunity);
 
     localStorage.setItem(
-      `vyro-30-day-progress-${progressKey}`,
+      `cstn-30-day-progress-${progressKey}`,
       JSON.stringify(completed30DayTasks)
     );
   }, [completed30DayTasks, selectedOpportunity]);
@@ -928,29 +2315,29 @@ export default function Home() {
 
     if (show30DayPlan) {
       localStorage.setItem(
-        `vyro-show-30-day-plan-${progressKey}`,
+        `cstn-show-30-day-plan-${progressKey}`,
         "true"
       );
 
       localStorage.removeItem(
-        `vyro-show-7-day-plan-${progressKey}`
+        `cstn-show-7-day-plan-${progressKey}`
       );
     } else if (showPlan) {
       localStorage.setItem(
-        `vyro-show-7-day-plan-${progressKey}`,
+        `cstn-show-7-day-plan-${progressKey}`,
         "true"
       );
 
       localStorage.removeItem(
-        `vyro-show-30-day-plan-${progressKey}`
+        `cstn-show-30-day-plan-${progressKey}`
       );
     } else {
       localStorage.removeItem(
-        `vyro-show-7-day-plan-${progressKey}`
+        `cstn-show-7-day-plan-${progressKey}`
       );
 
       localStorage.removeItem(
-        `vyro-show-30-day-plan-${progressKey}`
+        `cstn-show-30-day-plan-${progressKey}`
       );
     }
   }, [showPlan, show30DayPlan, selectedOpportunity]);
@@ -992,11 +2379,15 @@ export default function Home() {
           budget: selectedBudget,
           skills: [
             ...selectedSkills,
-            ...(otherSkill.trim() ? [`Other: ${otherSkill.trim()}`] : []),
+            ...(otherSkill.trim()
+              ? [`Other: ${otherSkill.trim()}`]
+              : []),
           ],
           interests: [
             ...selectedInterests,
-            ...(otherInterest.trim() ? [`Other: ${otherInterest.trim()}`] : []),
+            ...(otherInterest.trim()
+              ? [`Other: ${otherInterest.trim()}`]
+              : []),
           ],
           goal:
             selectedGoal === "Other" && otherGoal.trim()
@@ -1011,31 +2402,111 @@ export default function Home() {
         }),
       });
 
-      if (!response.ok) {
-        throw new Error(`API request failed: ${response.status}`);
+      const responseText = await response.text();
+
+      let data: {
+        opportunities?: Opportunity[];
+        error?: string;
+        message?: string;
+      };
+
+      try {
+        data = JSON.parse(responseText);
+      } catch {
+        throw new Error(
+          `Invalid API response (${response.status}): ${responseText.slice(
+            0,
+            300
+          )}`
+        );
       }
 
-      const data = await response.json();
+      if (!response.ok) {
+        throw new Error(
+          data.error ||
+            data.message ||
+            `API request failed: ${response.status}`
+        );
+      }
 
       if (!data.opportunities || !Array.isArray(data.opportunities)) {
-        throw new Error("Invalid opportunity response from AI");
+        throw new Error(
+          data.error ||
+            data.message ||
+            "AI returned no valid opportunities"
+        );
+      }
+
+      if (data.opportunities.length === 0) {
+        throw new Error(
+          "CSTN couldn't find any opportunities for these answers. Please try again."
+        );
       }
 
       const aiResults = data.opportunities.map(
         (opportunity: Opportunity & { score?: number }) => ({
           opportunity,
-          score: opportunity.score ?? 0,
+          score: Math.min(
+            Math.max(Math.round(opportunity.score ?? 0), 1),
+            99
+          ),
         })
       );
 
       setResults(aiResults);
+
+      localStorage.setItem(
+        "cstn-results",
+        JSON.stringify(aiResults)
+      );
+
+      localStorage.setItem(
+        "cstn-assessment",
+        JSON.stringify({
+          selectedGoal,
+          selectedBudget,
+          selectedSkills,
+          selectedInterests,
+          otherGoal,
+          otherSkill,
+          otherInterest,
+          selectedTime,
+          selectedLocation,
+          selectedAmbition,
+        })
+      );
+
+      localStorage.setItem(
+        "cstn-assessment-step",
+        "7"
+      );
+
       setAnalysing(false);
       setShowResults(true);
     } catch (error) {
-      console.error("VYRO AI error:", error);
+      console.error("CSTN AI error:", error);
+
       setAnalysing(false);
+
+      const message =
+        error instanceof Error
+          ? error.message
+          : "Something went wrong while finding your opportunities.";
+
+      alert(
+        `CSTN couldn't generate your opportunities.\n\n${message}\n\nPlease try again.`
+      );
     }
   };
+
+  useEffect(() => {
+    if (started && !showResults) {
+      localStorage.setItem(
+        "cstn-assessment-step",
+        String(step)
+      );
+    }
+  }, [step, started, showResults]);
 
   const nextStep = () => {
     if (!canContinue()) return;
@@ -1053,29 +2524,77 @@ export default function Home() {
     }
   };
 
-  const selectOpportunity = (opportunity: Opportunity) => {
+  const selectOpportunity = async (opportunity: Opportunity) => {
     const progressKey = getProgressKey(opportunity);
 
     const saved7DayProgress = localStorage.getItem(
-      `vyro-7-day-progress-${progressKey}`
+      `cstn-7-day-progress-${progressKey}`
     );
 
     const saved30DayProgress = localStorage.getItem(
-      `vyro-30-day-progress-${progressKey}`
+      `cstn-30-day-progress-${progressKey}`
     );
 
     setCompletedDays(
       saved7DayProgress ? JSON.parse(saved7DayProgress) : []
     );
 
-    setCompleted30DayTasks(
-      saved30DayProgress ? JSON.parse(saved30DayProgress) : []
-    );
+    if (saved30DayProgress) {
+      try {
+        const saved = JSON.parse(saved30DayProgress);
+
+        // New format: task indexes.
+        if (
+          Array.isArray(saved) &&
+          saved.every((item) => typeof item === "number")
+        ) {
+          setCompleted30DayTasks(saved);
+        } else {
+          // Old task-text format: clear it so old progress
+          // cannot incorrectly check tasks in a new plan.
+          setCompleted30DayTasks([]);
+          localStorage.removeItem(
+            `cstn-30-day-progress-${progressKey}`
+          );
+        }
+      } catch {
+        setCompleted30DayTasks([]);
+        localStorage.removeItem(
+          `cstn-30-day-progress-${progressKey}`
+        );
+      }
+    } else {
+      setCompleted30DayTasks([]);
+    }
 
     localStorage.setItem(
-      "vyro-selected-opportunity",
+      "cstn-selected-opportunity",
       JSON.stringify(opportunity)
     );
+
+    // Save the opportunity to the logged-in CSTN account.
+    if (currentUserId) {
+      try {
+        const response = await fetch("/api/profile", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            opportunity,
+          }),
+        });
+
+        if (!response.ok) {
+          console.error(
+            "CSTN opportunity save failed:",
+            await response.text()
+          );
+        }
+      } catch (error) {
+        console.error("CSTN opportunity save error:", error);
+      }
+    }
 
     setSelectedOpportunity(opportunity);
     setShowPlan(false);
@@ -1102,7 +2621,7 @@ export default function Home() {
     setCompletedDays([]);
     setCompleted30DayTasks([]);
 
-    localStorage.removeItem("vyro-selected-opportunity");
+    localStorage.removeItem("cstn-selected-opportunity");
   };
 
   /*
@@ -1113,7 +2632,7 @@ export default function Home() {
       <main className="min-h-screen bg-white text-black">
         <section className="flex min-h-screen flex-col items-center justify-center px-6 text-center">
           <p className="mb-8 text-sm font-semibold tracking-[0.35em] text-gray-500">
-            VISION. YOUR. OPPORTUNITY.
+            CORNERSTONE NETWORK
           </p>
 
           <h1 className="max-w-4xl text-6xl font-bold tracking-tight sm:text-7xl">
@@ -1123,8 +2642,7 @@ export default function Home() {
           </h1>
 
           <p className="mt-8 max-w-xl text-lg leading-8 text-gray-600">
-            Tell VYRO your skills, interests, budget and ambitions. We’ll
-            help you discover opportunities that fit you.
+     CSTN turns your skills, interests and ambitions into realistic opportunities — then gives you a step-by-step path to build one.
           </p>
 
           <button
@@ -1135,7 +2653,7 @@ export default function Home() {
           </button>
 
           <p className="mt-5 text-sm text-gray-400">
-            Discover. Explore. Build.
+            Discover. Validate. Build. Grow.
           </p>
         </section>
       </main>
@@ -1152,7 +2670,7 @@ export default function Home() {
           <div className="mb-8 h-12 w-12 animate-spin rounded-full border-4 border-gray-200 border-t-black" />
 
           <p className="text-sm font-semibold tracking-[0.3em] text-gray-400">
-            VYRO
+            CSTN
           </p>
 
           <h1 className="mt-6 text-4xl font-bold tracking-tight sm:text-5xl">
@@ -1168,6 +2686,340 @@ export default function Home() {
   }
 
   /*
+   * CSTN Dashboard
+   */
+  if (showDashboard && selectedOpportunity) {
+    const progressKey = getProgressKey(selectedOpportunity);
+
+    const monthPlan = getThirtyDayPlan(selectedOpportunity);
+    const allTasks = monthPlan.flatMap((week) => week.tasks);
+
+    const dashboard7Day = completedDays.filter(
+      (index) => Number.isInteger(index) && index >= 0 && index < 7
+    ).length;
+
+    const dashboard30Day = completed30DayTasks.filter(
+      (index) =>
+        Number.isInteger(index) &&
+        index >= 0 &&
+        index < allTasks.length
+    ).length;
+
+    const sevenDayProgress = Math.min(
+      100,
+      Math.round((dashboard7Day / 7) * 100)
+    );
+
+    const thirtyDayProgress =
+      allTasks.length === 0
+        ? 0
+        : Math.min(
+            100,
+            Math.round((dashboard30Day / allTasks.length) * 100)
+          );
+
+    const next7DayTask =
+      sevenDayProgress < 100
+        ? selectedOpportunity.firstSteps.find(
+            (_, index) => !completedDays.includes(index)
+          )
+        : null;
+
+    const next30DayTask =
+      thirtyDayProgress < 100
+        ? allTasks.find(
+            (_, index) => !completed30DayTasks.includes(index)
+          )
+        : null;
+
+    let nextAction = "Start your 7-day launch plan.";
+    let nextActionDescription =
+      "Your first objective is to validate the opportunity and take your first real-world actions.";
+
+    if (next7DayTask) {
+      nextAction = next7DayTask;
+      nextActionDescription =
+        "This is your next recommended action in the CSTN launch plan.";
+    } else if (next30DayTask) {
+      nextAction = next30DayTask;
+      nextActionDescription =
+        "Your 7-day launch is complete. Now keep building through the 30-day plan.";
+    } else if (
+      sevenDayProgress === 100 &&
+      thirtyDayProgress === 100
+    ) {
+      nextAction = "Your first CSTN build cycle is complete.";
+      nextActionDescription =
+        "Review what you learned, measure your results and decide what to improve or scale next.";
+    }
+
+    const continueBuilding = () => {
+      if (sevenDayProgress < 100) {
+        setShowDashboard(false);
+        setShowPlan(true);
+      } else if (thirtyDayProgress < 100) {
+        setShowDashboard(false);
+        setShow30DayPlan(true);
+      } else {
+        setShowDashboard(false);
+        setShowScalePlan(true);
+      }
+    };
+
+    return (
+      <main className="min-h-screen bg-white text-black">
+        <section className="mx-auto max-w-5xl px-6 py-12">
+          <div className="flex items-center justify-between">
+            <p className="text-sm font-semibold tracking-[0.3em]">
+              CSTN
+            </p>
+
+            <div className="flex items-center gap-6">
+              <button
+                type="button"
+                onClick={async () => {
+                  const { supabase } = await import("@/lib/supabase");
+                  await supabase.auth.signOut();
+
+                  localStorage.removeItem("cstn-selected-opportunity");
+                  localStorage.removeItem("cstn-assessment");
+                  localStorage.removeItem("cstn-results");
+                  localStorage.removeItem("cstn-assessment-step");
+
+                  window.location.href = "/auth";
+                }}
+                className="text-sm font-semibold text-gray-600 hover:text-black"
+              >
+                Log out
+              </button>
+
+              <button
+                type="button"
+                onClick={() => setShowDashboard(false)}
+                className="text-sm font-semibold text-gray-600 hover:text-black"
+              >
+                Back
+              </button>
+            </div>
+          </div>
+
+          <div className="mt-16">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400">
+              Your dashboard
+            </p>
+
+            <h1 className="mt-3 text-4xl font-bold tracking-tight sm:text-5xl">
+              Keep building.
+            </h1>
+
+            <p className="mt-4 max-w-2xl text-lg leading-7 text-gray-500">
+              Your opportunity, progress and next actions — all in one place.
+            </p>
+          </div>
+
+          <div className="mt-10 rounded-3xl bg-black p-8 text-white sm:p-10">
+            <div className="flex flex-col justify-between gap-8 sm:flex-row sm:items-end">
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400">
+                  Current opportunity
+                </p>
+
+                <h2 className="mt-3 max-w-2xl text-3xl font-bold sm:text-4xl">
+                  {selectedOpportunity.name}
+                </h2>
+
+                <p className="mt-4 text-gray-300">
+                  {selectedOpportunity.category}
+                </p>
+              </div>
+
+              <div className="sm:text-right">
+                <p className="text-4xl font-bold">
+                  {selectedOpportunity.score ?? 0}%
+                </p>
+
+                <p className="text-sm text-gray-400">
+                  CSTN match
+                </p>
+              </div>
+            </div>
+
+            {sevenDayProgress < 100 || thirtyDayProgress < 100 ? (
+              <button
+                onClick={continueBuilding}
+                className="mt-8 rounded-full bg-white px-7 py-4 font-semibold text-black transition hover:bg-gray-200"
+              >
+                Continue Building →
+              </button>
+            ) : (
+              <div className="mt-8">
+                <div className="rounded-2xl bg-white/10 p-5">
+                  <p className="font-semibold">
+                    🎉 Build cycle complete
+                  </p>
+
+                  <p className="mt-1 text-sm text-gray-300">
+                    You've completed your 7-day launch and 30-day build plans.
+                    You're ready for the next stage.
+                  </p>
+                </div>
+
+                <button
+                  onClick={() => {
+                    setShowDashboard(false);
+                    setShowScalePlan(true);
+                  }}
+                  className="mt-4 rounded-full bg-white px-7 py-4 font-semibold text-black transition hover:bg-gray-200"
+                >
+                  Start Scaling →
+                </button>
+              </div>
+            )}
+          </div>
+
+          <div className="mt-8 grid gap-4 sm:grid-cols-2">
+            <div className="rounded-3xl border border-gray-200 p-7">
+              <p className="text-sm font-semibold uppercase tracking-[0.15em] text-gray-400">
+                7-Day Launch
+              </p>
+
+              <p className="mt-3 text-4xl font-bold">
+                {sevenDayProgress}%
+              </p>
+
+              <p className="mt-2 text-sm text-gray-500">
+                {dashboard7Day}/7 days complete
+              </p>
+
+              <div className="mt-5 h-2 overflow-hidden rounded-full bg-gray-100">
+                <div
+                  className="h-full rounded-full bg-black transition-all duration-300"
+                  style={{ width: `${sevenDayProgress}%` }}
+                />
+              </div>
+            </div>
+
+            <div className="rounded-3xl border border-gray-200 p-7">
+              <p className="text-sm font-semibold uppercase tracking-[0.15em] text-gray-400">
+                30-Day Build
+              </p>
+
+              <p className="mt-3 text-4xl font-bold">
+                {thirtyDayProgress}%
+              </p>
+
+              <p className="mt-2 text-sm text-gray-500">
+                {dashboard30Day}/{allTasks.length} tasks complete
+              </p>
+
+              <div className="mt-5 h-2 overflow-hidden rounded-full bg-gray-100">
+                <div
+                  className="h-full rounded-full bg-black transition-all duration-300"
+                  style={{ width: `${thirtyDayProgress}%` }}
+                />
+              </div>
+            </div>
+          </div>
+
+          <section className="mt-8 rounded-3xl bg-gray-50 p-7 sm:p-9">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400">
+              Next action
+            </p>
+
+            <h2 className="mt-3 text-2xl font-bold leading-tight sm:text-3xl">
+              {nextAction}
+            </h2>
+
+            <p className="mt-3 max-w-2xl leading-7 text-gray-600">
+              {nextActionDescription}
+            </p>
+
+            {(next7DayTask || next30DayTask) && (
+              <button
+                onClick={continueBuilding}
+                className="mt-6 rounded-full bg-black px-6 py-3 text-sm font-semibold text-white transition hover:bg-gray-800"
+              >
+                Do this now →
+              </button>
+            )}
+          </section>
+
+          <section className="mt-8">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400">
+              CSTN Blueprint
+            </p>
+
+            <div className="mt-5 grid gap-4 sm:grid-cols-3">
+              <div className="rounded-3xl border border-gray-200 p-6">
+                <p className="text-sm text-gray-400">
+                  Target customer
+                </p>
+
+                <p className="mt-2 font-semibold leading-6">
+                  {selectedOpportunity.targetCustomer ?? "Define your customer"}
+                </p>
+              </div>
+
+              <div className="rounded-3xl border border-gray-200 p-6">
+                <p className="text-sm text-gray-400">
+                  Time to revenue
+                </p>
+
+                <p className="mt-2 font-semibold leading-6">
+                  {selectedOpportunity.timeToFirstRevenue ?? "Varies"}
+                </p>
+              </div>
+
+              <div className="rounded-3xl border border-gray-200 p-6">
+                <p className="text-sm text-gray-400">
+                  Scalability
+                </p>
+
+                <p className="mt-2 font-semibold leading-6">
+                  {selectedOpportunity.scalability ?? "Can be developed over time"}
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section className="mt-8">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400">
+              Your journey
+            </p>
+
+            <div className="mt-5 grid gap-3 sm:grid-cols-5">
+              {[
+                ["01", "Assessment", true],
+                ["02", "Opportunity", true],
+                ["03", "Launch", sevenDayProgress === 100],
+                ["04", "Build", thirtyDayProgress === 100],
+                ["05", "Scale", thirtyDayProgress === 100],
+              ].map(([number, title, complete]) => (
+                <div
+                  key={String(number)}
+                  className={`rounded-2xl p-5 ${
+                    complete
+                      ? "bg-black text-white"
+                      : "bg-gray-50 text-gray-400"
+                  }`}
+                >
+                  <p className="text-xs font-semibold tracking-[0.15em]">
+                    {number}
+                  </p>
+
+                  <p className="mt-3 font-semibold">
+                    {title}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </section>
+        </section>
+      </main>
+    );
+  }
+
+  /*
    * 30-Day Build Plan
    */
   if (show30DayPlan && selectedOpportunity) {
@@ -1175,20 +3027,47 @@ export default function Home() {
 
     const allTasks = monthPlan.flatMap((week) => week.tasks);
 
-    const completedCount = completed30DayTasks.length;
+    const validCompletedTasks = Array.from(
+      new Set(
+        completed30DayTasks.filter(
+          (index) =>
+            Number.isInteger(index) &&
+            index >= 0 &&
+            index < allTasks.length
+        )
+      )
+    );
+
+    const completedCount = validCompletedTasks.length;
 
     const progress =
       allTasks.length === 0
         ? 0
-        : Math.round((completedCount / allTasks.length) * 100);
+        : Math.min(
+            100,
+            Math.round((completedCount / allTasks.length) * 100)
+          );
 
-    const toggleThirtyDayTask = (task: string) => {
+    const toggleThirtyDayTask = (taskIndex: number) => {
       setCompleted30DayTasks((current) => {
-        if (current.includes(task)) {
-          return current.filter((item) => item !== task);
+        const validCurrent = Array.from(
+          new Set(
+            current.filter(
+              (index) =>
+                Number.isInteger(index) &&
+                index >= 0 &&
+                index < allTasks.length
+            )
+          )
+        );
+
+        if (validCurrent.includes(taskIndex)) {
+          return validCurrent.filter(
+            (index) => index !== taskIndex
+          );
         }
 
-        return [...current, task];
+        return [...validCurrent, taskIndex];
       });
     };
 
@@ -1207,7 +3086,7 @@ export default function Home() {
 
           <div className="mt-12">
             <p className="text-sm font-semibold tracking-[0.3em] text-gray-400">
-              VYRO
+              CSTN
             </p>
 
             <h1 className="mt-4 text-4xl font-bold tracking-tight sm:text-5xl">
@@ -1278,14 +3157,25 @@ export default function Home() {
                 </p>
 
                 <div className="mt-6 space-y-3">
-                  {week.tasks.map((task, index) => {
-                    const completed =
-                      completed30DayTasks.includes(task);
+                  {week.tasks.map((task, taskIndex) => {
+        const weekIndex = monthPlan.indexOf(week);
 
-                    return (
+        const globalTaskIndex =
+          monthPlan
+            .slice(0, weekIndex)
+            .reduce(
+              (total, previousWeek) =>
+                total + previousWeek.tasks.length,
+              0
+            ) + taskIndex;
+
+        const completed =
+          completed30DayTasks.includes(globalTaskIndex);
+
+        return (
                       <button
-                        key={task}
-                        onClick={() => toggleThirtyDayTask(task)}
+                        key={`${week.week}-${taskIndex}`}
+                        onClick={() => toggleThirtyDayTask(globalTaskIndex)}
                         className={`w-full rounded-2xl p-5 text-left transition ${
                           completed
                             ? "bg-black text-white"
@@ -1300,7 +3190,7 @@ export default function Home() {
                                 : "bg-black text-white"
                             }`}
                           >
-                            {completed ? "✓" : index + 1}
+                            {completed ? "✓" : taskIndex + 1}
                           </div>
 
                           <p
@@ -1369,7 +3259,7 @@ export default function Home() {
 
           <div className="mt-12">
             <p className="text-sm font-semibold tracking-[0.3em] text-gray-400">
-              VYRO
+              CSTN
             </p>
 
             <h1 className="mt-4 text-4xl font-bold tracking-tight sm:text-5xl">
@@ -1482,6 +3372,1010 @@ export default function Home() {
   }
 
   /*
+   * CSTN Stage 05 — Income Growth
+   */
+  if (showScalePlan && selectedOpportunity) {
+    const scalePlan = getScalePlan(selectedOpportunity);
+
+    const monthlyTarget =
+      Number(scalePlan.revenueTarget.replace(/[^0-9]/g, "")) || 10000;
+
+    const customerTarget =
+      Number(scalePlan.customerTarget.replace(/[^0-9]/g, "")) || 5;
+
+    const weeklyTarget = Math.round(monthlyTarget / 4);
+
+    const revenueRemaining = Math.max(
+      monthlyTarget - monthlyRevenue,
+      0
+    );
+
+    const profit = monthlyRevenue - monthlyExpenses;
+
+    const customerProgress = Math.min(
+      Math.round((activeCustomers / customerTarget) * 100),
+      100
+    );
+
+    const revenueProgress = Math.min(
+      Math.round((monthlyRevenue / monthlyTarget) * 100),
+      100
+    );
+
+    const leadToCustomerRate =
+      leadsGenerated > 0
+        ? Math.round((activeCustomers / leadsGenerated) * 100)
+        : 0;
+
+    const appointmentRate =
+      leadsGenerated > 0
+        ? Math.round((appointmentsBooked / leadsGenerated) * 100)
+        : 0;
+
+    const incomeTasks = [
+      {
+        category: "Acquire",
+        tasks: [
+          "Contact 50 potential customers.",
+          "Follow up with 25 existing prospects.",
+          "Book at least 5 discovery calls.",
+        ],
+      },
+      {
+        category: "Convert",
+        tasks: [
+          "Complete your discovery calls.",
+          "Send proposals to qualified prospects.",
+          "Close your next paying customer.",
+        ],
+      },
+      {
+        category: "Deliver",
+        tasks: [
+          "Deliver your service to your customers.",
+          "Track the results you generate.",
+          "Ask satisfied customers for a testimonial or referral.",
+        ],
+      },
+      {
+        category: "Improve",
+        tasks: [
+          "Identify what is producing the strongest results.",
+          "Improve your offer based on customer feedback.",
+          "Review your pricing and prepare for your next increase.",
+        ],
+      },
+    ];
+
+    const totalIncomeTasks = incomeTasks.reduce(
+      (total, section) => total + section.tasks.length,
+      0
+    );
+
+    const completedIncomeTaskCount = completedIncomeTasks.filter(
+      (index) =>
+        Number.isInteger(index) &&
+        index >= 0 &&
+        index < totalIncomeTasks
+    ).length;
+
+    const incomeProgress =
+      totalIncomeTasks === 0
+        ? 0
+        : Math.round(
+            (completedIncomeTaskCount / totalIncomeTasks) * 100
+          );
+
+    const toggleIncomeTask = (index: number) => {
+      setCompletedIncomeTasks((current) => {
+        if (current.includes(index)) {
+          return current.filter((task) => task !== index);
+        }
+
+        return [...current, index];
+      });
+    };
+
+    const milestones = [
+      { label: "First €500", amount: 500 },
+      { label: "€1,000/month", amount: 1000 },
+      { label: "€3,000/month", amount: 3000 },
+      { label: "€5,000/month", amount: 5000 },
+      { label: "€10,000/month", amount: 10000 },
+    ];
+
+    return (
+      <main className="min-h-screen bg-white text-black">
+        <section className="mx-auto max-w-5xl px-6 py-12">
+
+          <div className="flex items-center justify-between">
+            <p className="text-sm font-semibold tracking-[0.3em]">
+              CSTN
+            </p>
+
+            <button
+              onClick={() => {
+                setShowScalePlan(false);
+                setShowDashboard(true);
+              }}
+              className="text-sm font-medium text-gray-500 transition hover:text-black"
+            >
+              ← Back to Dashboard
+            </button>
+          </div>
+
+          <div className="mt-16 max-w-3xl">
+            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-gray-500">
+              Stage 05 — Income Growth
+            </p>
+
+            <h1 className="mt-4 text-4xl font-bold tracking-tight sm:text-5xl">
+              Turn Your Opportunity Into Income
+            </h1>
+
+            <p className="mt-5 text-lg leading-8 text-gray-500">
+              {selectedOpportunity.name}
+            </p>
+          </div>
+
+          <section className="mt-10 rounded-3xl bg-black p-8 text-white sm:p-10">
+            <div className="flex flex-col justify-between gap-8 sm:flex-row sm:items-end">
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400">
+                  Monthly Revenue
+                </p>
+
+                <p className="mt-3 text-5xl font-bold tracking-tight">
+                  €{monthlyRevenue.toLocaleString("en-IE")}
+                </p>
+
+                <p className="mt-2 text-gray-400">
+                  Target: €{monthlyTarget.toLocaleString("en-IE")}
+                </p>
+              </div>
+
+              <div className="sm:text-right">
+                <p className="text-3xl font-bold">
+                  {revenueProgress}%
+                </p>
+
+                <p className="mt-1 text-sm text-gray-400">
+                  Revenue target reached
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-8 h-3 overflow-hidden rounded-full bg-white/10">
+              <div
+                className="h-full rounded-full bg-white transition-all duration-300"
+                style={{ width: `${revenueProgress}%` }}
+              />
+            </div>
+
+            <p className="mt-4 text-sm text-gray-400">
+              €{revenueRemaining.toLocaleString("en-IE")} remaining to hit
+              this month's target.
+            </p>
+          </section>
+
+          <section className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+
+            <div className="rounded-3xl border border-gray-200 p-6">
+              <p className="text-sm text-gray-400">
+                Revenue
+              </p>
+
+              <input
+                type="number"
+                min="0"
+                value={monthlyRevenue}
+                onChange={(e) =>
+                  setMonthlyRevenue(Number(e.target.value) || 0)
+                }
+                className="mt-3 w-full border-b border-gray-300 bg-transparent pb-2 text-2xl font-bold outline-none focus:border-black"
+              />
+            </div>
+
+            <div className="rounded-3xl border border-gray-200 p-6">
+              <p className="text-sm text-gray-400">
+                Expenses
+              </p>
+
+              <input
+                type="number"
+                min="0"
+                value={monthlyExpenses}
+                onChange={(e) =>
+                  setMonthlyExpenses(Number(e.target.value) || 0)
+                }
+                className="mt-3 w-full border-b border-gray-300 bg-transparent pb-2 text-2xl font-bold outline-none focus:border-black"
+              />
+            </div>
+
+            <div className="rounded-3xl border border-gray-200 p-6">
+              <p className="text-sm text-gray-400">
+                Active Customers
+              </p>
+
+              <input
+                type="number"
+                min="0"
+                value={activeCustomers}
+                onChange={(e) =>
+                  setActiveCustomers(Number(e.target.value) || 0)
+                }
+                className="mt-3 w-full border-b border-gray-300 bg-transparent pb-2 text-2xl font-bold outline-none focus:border-black"
+              />
+
+              <p className="mt-2 text-xs text-gray-400">
+                Target: {customerTarget}
+              </p>
+            </div>
+
+            <div className="rounded-3xl border border-gray-200 p-6">
+              <p className="text-sm text-gray-400">
+                Monthly Profit
+              </p>
+
+              <p
+                className={`mt-3 text-2xl font-bold ${
+                  profit < 0 ? "text-red-600" : "text-black"
+                }`}
+              >
+                €{profit.toLocaleString("en-IE")}
+              </p>
+
+              <p className="mt-2 text-xs text-gray-400">
+                Revenue minus expenses
+              </p>
+            </div>
+
+          </section>
+
+          <section className="mt-8 grid gap-4 sm:grid-cols-2">
+
+            <div className="rounded-3xl border border-gray-200 p-6">
+              <p className="text-sm text-gray-400">
+                Leads Generated
+              </p>
+
+              <input
+                type="number"
+                min="0"
+                value={leadsGenerated}
+                onChange={(e) =>
+                  setLeadsGenerated(Number(e.target.value) || 0)
+                }
+                className="mt-3 w-full border-b border-gray-300 bg-transparent pb-2 text-2xl font-bold outline-none focus:border-black"
+              />
+
+              <p className="mt-2 text-sm text-gray-500">
+                {leadToCustomerRate}% lead → customer conversion
+              </p>
+            </div>
+
+            <div className="rounded-3xl border border-gray-200 p-6">
+              <p className="text-sm text-gray-400">
+                Appointments Booked
+              </p>
+
+              <input
+                type="number"
+                min="0"
+                value={appointmentsBooked}
+                onChange={(e) =>
+                  setAppointmentsBooked(Number(e.target.value) || 0)
+                }
+                className="mt-3 w-full border-b border-gray-300 bg-transparent pb-2 text-2xl font-bold outline-none focus:border-black"
+              />
+
+              <p className="mt-2 text-sm text-gray-500">
+                {appointmentRate}% of your leads became appointments
+              </p>
+            </div>
+
+          </section>
+
+          <section className="mt-16">
+
+            <div className="max-w-2xl">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400">
+                Your Targets
+              </p>
+
+              <h2 className="mt-3 text-3xl font-bold">
+                Know what you are working toward.
+              </h2>
+            </div>
+
+            <div className="mt-8 grid gap-4 sm:grid-cols-3">
+
+              <div className="rounded-3xl bg-gray-50 p-6">
+                <p className="text-sm text-gray-400">
+                  Monthly target
+                </p>
+
+                <p className="mt-2 text-2xl font-bold">
+                  €{monthlyTarget.toLocaleString("en-IE")}
+                </p>
+              </div>
+
+              <div className="rounded-3xl bg-gray-50 p-6">
+                <p className="text-sm text-gray-400">
+                  Weekly target
+                </p>
+
+                <p className="mt-2 text-2xl font-bold">
+                  €{weeklyTarget.toLocaleString("en-IE")}
+                </p>
+              </div>
+
+              <div className="rounded-3xl bg-gray-50 p-6">
+                <p className="text-sm text-gray-400">
+                  Customer target
+                </p>
+
+                <p className="mt-2 text-2xl font-bold">
+                  {customerTarget}
+                </p>
+              </div>
+
+            </div>
+
+          </section>
+
+          <section className="mt-16">
+
+            <div className="max-w-2xl">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400">
+                This Week
+              </p>
+
+              <h2 className="mt-3 text-3xl font-bold">
+                Build your income engine.
+              </h2>
+
+              <p className="mt-4 leading-7 text-gray-600">
+                Focus on acquiring customers, converting opportunities,
+                delivering results and improving your offer.
+              </p>
+            </div>
+
+            <div className="mt-8 space-y-6">
+
+              {incomeTasks.map((section, sectionIndex) => {
+                const previousTaskCount = incomeTasks
+                  .slice(0, sectionIndex)
+                  .reduce(
+                    (total, previousSection) =>
+                      total + previousSection.tasks.length,
+                    0
+                  );
+
+                return (
+                  <div
+                    key={section.category}
+                    className="rounded-3xl border border-gray-200 p-7 sm:p-8"
+                  >
+                    <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400">
+                      {section.category}
+                    </p>
+
+                    <div className="mt-5 space-y-3">
+
+                      {section.tasks.map((task, taskIndex) => {
+                        const globalIndex =
+                          previousTaskCount + taskIndex;
+
+                        const completed =
+                          completedIncomeTasks.includes(globalIndex);
+
+                        return (
+                          <button
+                            key={task}
+                            onClick={() =>
+                              toggleIncomeTask(globalIndex)
+                            }
+                            className={`w-full rounded-2xl p-5 text-left transition ${
+                              completed
+                                ? "bg-black text-white"
+                                : "bg-gray-50 text-black hover:bg-gray-100"
+                            }`}
+                          >
+                            <div className="flex items-center gap-4">
+
+                              <div
+                                className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-sm font-bold ${
+                                  completed
+                                    ? "bg-white text-black"
+                                    : "bg-black text-white"
+                                }`}
+                              >
+                                {completed
+                                  ? "✓"
+                                  : globalIndex + 1}
+                              </div>
+
+                              <p
+                                className={`text-sm leading-6 ${
+                                  completed
+                                    ? "line-through opacity-60"
+                                    : ""
+                                }`}
+                              >
+                                {task}
+                              </p>
+
+                            </div>
+                          </button>
+                        );
+                      })}
+
+                    </div>
+                  </div>
+                );
+              })}
+
+            </div>
+
+            <div className="mt-6 rounded-2xl bg-gray-50 p-5">
+              <div className="flex items-center justify-between">
+                <p className="font-semibold">
+                  Growth system progress
+                </p>
+
+                <p className="font-bold">
+                  {incomeProgress}%
+                </p>
+              </div>
+
+              <div className="mt-4 h-2 overflow-hidden rounded-full bg-gray-200">
+                <div
+                  className="h-full rounded-full bg-black transition-all duration-300"
+                  style={{ width: `${incomeProgress}%` }}
+                />
+              </div>
+            </div>
+
+          </section>
+
+          <section className="mt-16">
+
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400">
+              Your Growth Funnel
+            </p>
+
+            <h2 className="mt-3 text-3xl font-bold">
+              Customers create the income.
+            </h2>
+
+            <div className="mt-8 grid gap-4 sm:grid-cols-5">
+
+              {[
+                ["01", "Prospects", leadsGenerated],
+                ["02", "Conversations", leadsGenerated],
+                ["03", "Appointments", appointmentsBooked],
+                ["04", "Customers", activeCustomers],
+                ["05", "Revenue", `€${monthlyRevenue.toLocaleString("en-IE")}`],
+              ].map(([number, label, value]) => (
+                <div
+                  key={number}
+                  className="rounded-3xl bg-gray-50 p-6 text-center"
+                >
+                  <p className="text-sm font-semibold text-gray-400">
+                    {number}
+                  </p>
+
+                  <p className="mt-3 font-bold">
+                    {label}
+                  </p>
+
+                  <p className="mt-2 text-sm text-gray-500">
+                    {value}
+                  </p>
+                </div>
+              ))}
+
+            </div>
+
+          </section>
+
+          <section className="mt-16 rounded-3xl bg-gray-50 p-8 sm:p-10">
+
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400">
+              Revenue Milestones
+            </p>
+
+            <h2 className="mt-3 text-3xl font-bold">
+              Build your way up.
+            </h2>
+
+            <div className="mt-8 space-y-4">
+
+              {milestones.map((milestone, index) => {
+                const achieved =
+                  monthlyRevenue >= milestone.amount;
+
+                return (
+                  <div
+                    key={milestone.label}
+                    className="flex items-center gap-4 rounded-2xl border border-gray-200 bg-white p-5"
+                  >
+
+                    <div
+                      className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-sm font-bold ${
+                        achieved
+                          ? "bg-black text-white"
+                          : "bg-gray-100 text-black"
+                      }`}
+                    >
+                      {achieved ? "✓" : index + 1}
+                    </div>
+
+                    <div className="flex-1">
+                      <p className="font-semibold">
+                        {milestone.label}
+                      </p>
+
+                      <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-gray-100">
+                        <div
+                          className="h-full rounded-full bg-black transition-all duration-300"
+                          style={{
+                            width: `${Math.min(
+                              Math.round(
+                                (monthlyRevenue / milestone.amount) * 100
+                              ),
+                              100
+                            )}%`,
+                          }}
+                        />
+                      </div>
+                    </div>
+
+                  </div>
+                );
+              })}
+
+            </div>
+
+          </section>
+
+          {incomeProgress === 100 && (
+            <section className="mt-10 rounded-3xl bg-black p-8 text-center text-white sm:p-10">
+
+              <p className="text-4xl">🚀</p>
+
+              <h2 className="mt-4 text-2xl font-bold">
+                Your growth system is active.
+              </h2>
+
+              <p className="mx-auto mt-3 max-w-2xl text-gray-300">
+                You've completed your first growth cycle. Now use the
+                system every week to acquire customers, generate revenue
+                and improve the business.
+              </p>
+              
+              <button
+                onClick={() => {
+                  setShowScalePlan(false);
+                  setShowStage06(true);
+                }}
+                className="mt-6 rounded-full bg-white px-8 py-4 font-semibold text-black transition hover:bg-gray-200"
+              >
+                Continue to Scale & Systems →
+              </button>
+
+            </section>
+          )}
+
+        </section>
+      </main>
+    );
+  }
+
+  /*
+   * Stage 06 — Scale & Systems
+   */
+  if (showStage06 && selectedOpportunity) {
+    const scalePlan = getStage06Plan(selectedOpportunity);
+
+    const scaleSections = [
+      { title: "Build Your Systems", tasks: scalePlan.systems },
+      { title: "Automate", tasks: scalePlan.automation },
+      { title: "Delegate", tasks: scalePlan.delegation },
+      { title: "Retain & Increase Customer Value", tasks: scalePlan.retention },
+      { title: "Improve Profit", tasks: scalePlan.profit },
+      { title: "Build Your Growth Engine", tasks: scalePlan.growth },
+    ];
+
+    const allScaleTasks = scaleSections.flatMap(
+      (section) => section.tasks
+    );
+
+    const scaleProgress =
+      allScaleTasks.length > 0
+        ? Math.round(
+            (completedScaleTasks.length / allScaleTasks.length) * 100
+          )
+        : 0;
+
+    const getSectionProgress = (
+      startIndex: number,
+      endIndex: number
+    ) => {
+      const sectionTaskCount = endIndex - startIndex;
+      const completedCount = completedScaleTasks.filter(
+        (task) => task >= startIndex && task < endIndex
+      ).length;
+
+      return sectionTaskCount > 0
+        ? Math.round((completedCount / sectionTaskCount) * 100)
+        : 0;
+    };
+
+    const systemProgress = getSectionProgress(0, 4);
+    const automationProgress = getSectionProgress(4, 8);
+    const delegationProgress = getSectionProgress(8, 12);
+    const retentionProgress = getSectionProgress(12, 16);
+
+    const readinessScore = Math.round(
+      (systemProgress +
+        automationProgress +
+        delegationProgress +
+        retentionProgress) /
+        4
+    );
+
+    const toggleScaleTask = (index: number) => {
+      setCompletedScaleTasks((current) => {
+        if (current.includes(index)) {
+          return current.filter((task) => task !== index);
+        }
+
+        return [...current, index];
+      });
+    };
+
+    return (
+      <main className="min-h-screen bg-white text-black">
+        <section className="mx-auto max-w-5xl px-6 py-12">
+
+          <div className="flex items-center justify-between">
+            <p className="text-sm font-semibold tracking-[0.3em]">
+              CSTN
+            </p>
+
+            <button
+              onClick={() => {
+                setShowStage06(false);
+                setShowScalePlan(true);
+              }}
+              className="text-sm font-medium text-gray-500 transition hover:text-black"
+            >
+              ← Back to Income Growth
+            </button>
+          </div>
+
+          <div className="mt-16 max-w-3xl">
+            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-gray-500">
+              Stage 06 — Scale & Systems
+            </p>
+
+            <h1 className="mt-4 text-4xl font-bold tracking-tight sm:text-5xl">
+              Build a Business That Can Grow Without You Doing Everything.
+            </h1>
+
+            <p className="mt-5 text-lg leading-8 text-gray-500">
+              {selectedOpportunity.name}
+            </p>
+          </div>
+
+          <section className="mt-10 rounded-3xl bg-black p-8 text-white sm:p-10">
+            <div className="flex flex-col justify-between gap-8 sm:flex-row sm:items-end">
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400">
+                  Scale Readiness
+                </p>
+
+                <p className="mt-3 text-5xl font-bold tracking-tight">
+                  {readinessScore}%
+                </p>
+
+                <p className="mt-2 max-w-xl text-gray-400">
+                  Your goal is to replace repeated manual work with
+                  systems, automation, delegation and recurring revenue.
+                </p>
+              </div>
+
+              <div className="text-left sm:text-right">
+                <p className="text-sm text-gray-400">
+                  Scale tasks
+                </p>
+
+                <p className="mt-1 text-2xl font-bold">
+                  {completedScaleTasks.length}/{allScaleTasks.length}
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-8 h-2 overflow-hidden rounded-full bg-gray-800">
+              <div
+                className="h-full rounded-full bg-white transition-all duration-300"
+                style={{ width: `${scaleProgress}%` }}
+              />
+            </div>
+          </section>
+
+          <section className="mt-16">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400">
+              Your Scale Strategy
+            </p>
+
+            <h2 className="mt-3 text-3xl font-bold">
+              {scalePlan.title}
+            </h2>
+
+            <p className="mt-4 max-w-3xl text-lg leading-8 text-gray-600">
+              {scalePlan.description}
+            </p>
+
+            <div className="mt-8 rounded-3xl bg-gray-50 p-7 sm:p-8">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400">
+                Your direction
+              </p>
+
+              <p className="mt-3 text-xl font-semibold">
+                {scalePlan.target}
+              </p>
+            </div>
+          </section>
+
+          <section className="mt-16">
+            <div className="max-w-2xl">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400">
+                Scale Dashboard
+              </p>
+
+              <h2 className="mt-3 text-3xl font-bold">
+                Build the infrastructure behind your growth.
+              </h2>
+            </div>
+
+            <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+
+              {[
+                ["Systems", sopsCreated, systemProgress],
+                ["Automation", automationsImplemented, automationProgress],
+                ["Delegation", delegatedTasks, delegationProgress],
+                ["Recurring Customers", recurringCustomers, retentionProgress],
+              ].map(([label, value, progress]) => (
+                <div
+                  key={label}
+                  className="rounded-3xl border border-gray-200 p-6"
+                >
+                  <p className="text-sm text-gray-400">
+                    {label}
+                  </p>
+
+                  <p className="mt-2 text-3xl font-bold">
+                    {value}/4
+                  </p>
+
+                  <div className="mt-4 h-1.5 overflow-hidden rounded-full bg-gray-100">
+                    <div
+                      className="h-full rounded-full bg-black transition-all duration-300"
+                      style={{ width: `${progress}%` }}
+                    />
+                  </div>
+
+                  <p className="mt-2 text-sm text-gray-500">
+                    {progress}% complete
+                  </p>
+                </div>
+              ))}
+
+            </div>
+          </section>
+
+          <section className="mt-16">
+            <div className="max-w-2xl">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400">
+                24-Day Scale Challenge
+              </p>
+
+              <h2 className="mt-3 text-3xl font-bold">
+                Build systems that create capacity.
+              </h2>
+
+              <p className="mt-4 leading-7 text-gray-600">
+                Complete the actions below. Each completed task moves
+                you closer to an operation that can handle more
+                customers without the same increase in workload.
+              </p>
+            </div>
+
+            <div className="mt-8 space-y-6">
+
+              {scaleSections.map((section, sectionIndex) => {
+                const previousTaskCount = scaleSections
+                  .slice(0, sectionIndex)
+                  .reduce(
+                    (total, previousSection) =>
+                      total + previousSection.tasks.length,
+                    0
+                  );
+
+                return (
+                  <div
+                    key={section.title}
+                    className="rounded-3xl border border-gray-200 p-7 sm:p-8"
+                  >
+                    <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400">
+                      {section.title}
+                    </p>
+
+                    <div className="mt-5 space-y-3">
+
+                      {section.tasks.map((task, taskIndex) => {
+                        const globalIndex =
+                          previousTaskCount + taskIndex;
+
+                        const completed =
+                          completedScaleTasks.includes(globalIndex);
+
+                        return (
+                          <button
+                            key={task}
+                            onClick={() =>
+                              toggleScaleTask(globalIndex)
+                            }
+                            className={`w-full rounded-2xl p-5 text-left transition ${
+                              completed
+                                ? "bg-black text-white"
+                                : "bg-gray-50 text-black hover:bg-gray-100"
+                            }`}
+                          >
+                            <div className="flex items-center gap-4">
+
+                              <div
+                                className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-sm font-bold ${
+                                  completed
+                                    ? "bg-white text-black"
+                                    : "bg-black text-white"
+                                }`}
+                              >
+                                {completed
+                                  ? "✓"
+                                  : globalIndex + 1}
+                              </div>
+
+                              <p
+                                className={`text-sm leading-6 ${
+                                  completed
+                                    ? "line-through opacity-60"
+                                    : ""
+                                }`}
+                              >
+                                {task}
+                              </p>
+
+                            </div>
+                          </button>
+                        );
+                      })}
+
+                    </div>
+                  </div>
+                );
+              })}
+
+            </div>
+
+            <div className="mt-6 rounded-2xl bg-gray-50 p-5">
+              <div className="flex items-center justify-between">
+                <p className="font-semibold">
+                  Scale system progress
+                </p>
+
+                <p className="font-bold">
+                  {scaleProgress}%
+                </p>
+              </div>
+
+              <div className="mt-4 h-2 overflow-hidden rounded-full bg-gray-200">
+                <div
+                  className="h-full rounded-full bg-black transition-all duration-300"
+                  style={{ width: `${scaleProgress}%` }}
+                />
+              </div>
+            </div>
+
+          </section>
+
+          <section className="mt-16 rounded-3xl bg-gray-50 p-8 sm:p-10">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400">
+              90-Day Scale Direction
+            </p>
+
+            <h2 className="mt-3 text-3xl font-bold">
+              From doing the work to building the machine.
+            </h2>
+
+            <div className="mt-8 grid gap-4 sm:grid-cols-3">
+
+              <div className="rounded-3xl bg-white p-6">
+                <p className="text-sm font-semibold text-gray-400">
+                  Days 1–30
+                </p>
+
+                <h3 className="mt-3 text-xl font-bold">
+                  Document
+                </h3>
+
+                <p className="mt-3 leading-7 text-gray-600">
+                  Turn the way you currently work into repeatable
+                  processes, templates and checklists.
+                </p>
+              </div>
+
+              <div className="rounded-3xl bg-white p-6">
+                <p className="text-sm font-semibold text-gray-400">
+                  Days 31–60
+                </p>
+
+                <h3 className="mt-3 text-xl font-bold">
+                  Automate & Delegate
+                </h3>
+
+                <p className="mt-3 leading-7 text-gray-600">
+                  Remove repetitive work from your personal workload
+                  and create capacity for higher-value activities.
+                </p>
+              </div>
+
+              <div className="rounded-3xl bg-white p-6">
+                <p className="text-sm font-semibold text-gray-400">
+                  Days 61–90
+                </p>
+
+                <h3 className="mt-3 text-xl font-bold">
+                  Scale
+                </h3>
+
+                <p className="mt-3 leading-7 text-gray-600">
+                  Strengthen retention, increase customer value and
+                  reinvest into the channels producing the strongest
+                  returns.
+                </p>
+              </div>
+
+            </div>
+          </section>
+
+          {scaleProgress === 100 && (
+            <section className="mt-10 rounded-3xl bg-black p-8 text-center text-white sm:p-10">
+
+              <p className="text-4xl">🏗️</p>
+
+              <h2 className="mt-4 text-2xl font-bold">
+                Your scaling foundation is complete.
+              </h2>
+
+              <p className="mx-auto mt-3 max-w-2xl text-gray-300">
+                You've completed the core systems work. Now focus on
+                operating the business, measuring what works and
+                reinvesting into profitable growth.
+              </p>
+
+            </section>
+          )}
+
+        </section>
+      </main>
+    );
+  }
+
+  /*
    * Selected opportunity
    */
   if (selectedOpportunity) {
@@ -1503,7 +4397,7 @@ export default function Home() {
             </button>
 
             <p className="text-sm font-semibold tracking-[0.3em]">
-              VYRO
+              CSTN
             </p>
           </div>
 
@@ -1520,7 +4414,7 @@ export default function Home() {
               <div className="sm:text-right">
                 <p className="text-4xl font-bold">{match}%</p>
                 <p className="text-sm text-gray-400">
-                  VYRO match
+                  CSTN match
                 </p>
               </div>
             </div>
@@ -1537,9 +4431,9 @@ export default function Home() {
             />
 
             <InfoCard
-              label="Time"
-              value={`${selectedOpportunity.timeMin}+ hrs/week`}
-            />
+       label="Time to revenue"
+       value={selectedOpportunity.timeToFirstRevenue ?? "Not specified"}
+     />
 
             <InfoCard
               label="Income potential"
@@ -1554,7 +4448,7 @@ export default function Home() {
 
           <section className="mt-16">
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400">
-              Why VYRO matched you
+              Why CSTN matched you
             </p>
 
             <div className="mt-5 rounded-3xl bg-gray-50 p-7 sm:p-9">
@@ -1563,6 +4457,93 @@ export default function Home() {
               </p>
             </div>
           </section>
+
+          <section className="mt-16">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400">
+              Your CSTN Blueprint
+            </p>
+
+            <h2 className="mt-3 text-3xl font-bold">
+              Your path from idea to income.
+            </h2>
+
+            <p className="mt-4 max-w-2xl leading-7 text-gray-600">
+              CSTN has turned this opportunity into a practical roadmap.
+              Follow the steps, validate the idea and build momentum before
+              investing heavily.
+            </p>
+
+            <div className="mt-8 grid gap-4 sm:grid-cols-3">
+
+              <div className="rounded-3xl bg-gray-50 p-6">
+                <p className="text-xs font-semibold uppercase tracking-[0.15em] text-gray-400">
+                  STEP 01
+                </p>
+
+                <h3 className="mt-3 text-xl font-bold">
+                  Validate
+                </h3>
+
+                <p className="mt-2 text-sm leading-6 text-gray-600">
+                  Research the market, understand your customer and confirm
+                  there is real demand before spending heavily.
+                </p>
+              </div>
+
+              <div className="rounded-3xl bg-gray-50 p-6">
+                <p className="text-xs font-semibold uppercase tracking-[0.15em] text-gray-400">
+                  STEP 02
+                </p>
+
+                <h3 className="mt-3 text-xl font-bold">
+                  Launch
+                </h3>
+
+                <p className="mt-2 text-sm leading-6 text-gray-600">
+                  Create a simple offer, get it in front of real people and
+                  focus on getting your first customer.
+                </p>
+              </div>
+
+              <div className="rounded-3xl bg-gray-50 p-6">
+                <p className="text-xs font-semibold uppercase tracking-[0.15em] text-gray-400">
+                  STEP 03
+                </p>
+
+                <h3 className="mt-3 text-xl font-bold">
+                  Build
+                </h3>
+
+                <p className="mt-2 text-sm leading-6 text-gray-600">
+                  Improve what works, create repeatable systems and turn the
+                  opportunity into a sustainable business.
+                </p>
+              </div>
+
+            </div>
+
+            <div className="mt-6 rounded-3xl border border-gray-200 p-7">
+
+              <p className="text-sm font-semibold">
+                Your next move
+              </p>
+
+              <p className="mt-2 leading-7 text-gray-600">
+                Start with the 7-Day Launch Plan. The goal is not to build
+                everything immediately — it is to prove that people want what
+                you are offering.
+              </p>
+
+              <button
+                onClick={() => setShowPlan(true)}
+                className="mt-6 rounded-full bg-black px-7 py-3 font-semibold text-white transition hover:bg-gray-800"
+              >
+                Start Your 7-Day Plan →
+              </button>
+
+            </div>
+          </section>
+
 
           <section className="mt-16">
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400">
@@ -1603,7 +4584,7 @@ export default function Home() {
             </h2>
 
             <p className="mt-4 max-w-2xl leading-7 text-gray-300">
-              VYRO will guide you through validation, finding your first
+              CSTN will guide you through validation, finding your first
               customer and building your first version.
             </p>
 
@@ -1623,19 +4604,42 @@ export default function Home() {
    * Results
    */
   if (showResults) {
+    const bestMatch = results.length > 0 ? results[0] : null;
+
     return (
       <main className="min-h-screen bg-white text-black">
         <section className="mx-auto max-w-4xl px-6 py-12">
+
+          {/* Header */}
           <div className="flex items-center justify-between">
             <p className="text-sm font-semibold tracking-[0.3em]">
-              VYRO
+              CSTN
             </p>
 
-            <p className="text-sm text-gray-400">
-              Your results
-            </p>
+            <div className="text-sm text-gray-400">
+              <span>Your results</span>
+
+              <div className="mt-6 flex flex-wrap gap-3">
+                {bestMatch && (
+                  <button
+                    onClick={() => selectOpportunity(bestMatch.opportunity)}
+                    className="rounded-full bg-black px-6 py-3 text-sm font-semibold text-white transition hover:bg-gray-800"
+                  >
+                    Open Dashboard →
+                  </button>
+                )}
+
+                <button
+                  onClick={resetAssessment}
+                  className="rounded-full border border-gray-200 px-6 py-3 text-sm font-semibold text-black transition hover:border-black"
+                >
+                  Retake Assessment
+                </button>
+              </div>
+            </div>
           </div>
 
+          {/* Retake */}
           <button
             onClick={resetAssessment}
             className="mt-6 w-full rounded-full border border-black px-8 py-4 font-semibold text-black transition hover:bg-black hover:text-white"
@@ -1643,6 +4647,7 @@ export default function Home() {
             Retake Assessment
           </button>
 
+          {/* Intro */}
           <div className="mt-16">
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400">
               Your opportunities
@@ -1653,76 +4658,305 @@ export default function Home() {
             </h1>
 
             <p className="mt-5 max-w-2xl text-lg leading-8 text-gray-500">
-              Based on your answers, VYRO found these opportunities as
-              strong matches for you.
+              CSTN analysed your answers and found opportunities that
+              fit your skills, interests, resources and ambitions.
             </p>
           </div>
 
-          <div className="mt-12 space-y-5">
-            {results.map((result, index) => (
+          {/* Best Match */}
+          {bestMatch && (
+            <div className="mt-10 rounded-3xl bg-black p-7 text-white sm:p-9">
+              <div className="flex items-center justify-between gap-6">
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gray-400">
+                    Your strongest match
+                  </p>
+
+                  <h2 className="mt-3 text-2xl font-bold sm:text-3xl">
+                    {bestMatch.opportunity.name}
+                  </h2>
+                </div>
+
+                <div className="shrink-0 text-right">
+                  <p className="text-4xl font-bold">
+                    {bestMatch.score}%
+                  </p>
+
+                  <p className="text-sm text-gray-400">
+                    CSTN match
+                  </p>
+                </div>
+              </div>
+
+              <p className="mt-5 max-w-2xl leading-7 text-gray-300">
+                {bestMatch.opportunity.description}
+              </p>
+
+              <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
+                <div className="rounded-2xl bg-white/10 p-4">
+                  <p className="text-xs text-gray-400">
+                    Startup
+                  </p>
+                  <p className="mt-2 font-semibold">
+                    €{bestMatch.opportunity.budgetMin}–€{bestMatch.opportunity.budgetMax}
+                  </p>
+                </div>
+
+                <div className="rounded-2xl bg-white/10 p-4">
+                  <p className="text-xs text-gray-400">
+                    Difficulty
+                  </p>
+                  <p className="mt-2 font-semibold">
+                    {bestMatch.opportunity.difficulty}
+                  </p>
+                </div>
+
+                <div className="rounded-2xl bg-white/10 p-4">
+                  <p className="text-xs text-gray-400">
+                    Time
+                  </p>
+                  <p className="mt-2 font-semibold">
+                    {bestMatch.opportunity.timeMin}+ hrs
+                  </p>
+                </div>
+
+                <div className="rounded-2xl bg-white/10 p-4">
+                  <p className="text-xs text-gray-400">
+                    Potential
+                  </p>
+                  <p className="mt-2 font-semibold">
+                    €{bestMatch.opportunity.incomeMin}–€{bestMatch.opportunity.incomeMax}
+                  </p>
+                </div>
+              </div>
+
               <button
-                key={result.opportunity.name}
                 onClick={() =>
-                  selectOpportunity(result.opportunity)
+                  selectOpportunity(bestMatch.opportunity)
                 }
-                className="w-full rounded-3xl border border-gray-200 p-6 text-left transition hover:border-black sm:p-8"
+                className="mt-7 rounded-full bg-white px-7 py-3 font-semibold text-black transition hover:bg-gray-200"
               >
-                <div className="flex items-start justify-between gap-6">
-                  <div>
-                    <p className="text-sm font-medium text-gray-400">
-                      0{index + 1} /{" "}
-                      {result.opportunity.category}
-                    </p>
-
-                    <h2 className="mt-3 text-2xl font-bold">
-                      {result.opportunity.name}
-                    </h2>
-                  </div>
-
-                  <div className="shrink-0 text-right">
-                    <p className="text-3xl font-bold">
-                      {result.score}%
-                    </p>
-
-                    <p className="text-sm text-gray-400">
-                      match
-                    </p>
-                  </div>
-                </div>
-
-                <p className="mt-5 leading-7 text-gray-600">
-                  {result.opportunity.description}
-                </p>
-
-                <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
-                  <InfoCard
-                    label="Startup"
-                    value={`€${result.opportunity.budgetMin}–€${result.opportunity.budgetMax}`}
-                  />
-
-                  <InfoCard
-                    label="Difficulty"
-                    value={result.opportunity.difficulty}
-                  />
-
-                  <InfoCard
-                    label="Time"
-                    value={`${result.opportunity.timeMin}+ hrs`}
-                  />
-
-                  <InfoCard
-                    label="Potential"
-                    value={`€${result.opportunity.incomeMin}–€${result.opportunity.incomeMax}`}
-                  />
-                </div>
-
-                <p className="mt-6 text-sm font-semibold">
-                  View opportunity →
-                </p>
+                Explore Best Match →
               </button>
-            ))}
+            </div>
+          )}
+
+          {/* All Matches */}
+          <div className="mt-12">
+            <div className="flex items-end justify-between gap-4">
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400">
+                  Your matches
+                </p>
+                <h2 className="mt-2 text-2xl font-bold">
+                  Opportunities worth exploring.
+                </h2>
+              </div>
+
+              <p className="hidden text-sm text-gray-400 sm:block">
+                {results.length} personalised matches
+              </p>
+            </div>
+
+            <div className="mt-6 space-y-5">
+              {results.slice(0, isPro ? results.length : 3).map((result, index) => {
+                const opportunity = result.opportunity;
+
+                return (
+                  <button
+                    key={`${opportunity.name}-${index}`}
+                    onClick={() => selectOpportunity(opportunity)}
+                    className={`group w-full rounded-3xl border p-6 text-left transition hover:-translate-y-0.5 hover:border-black hover:shadow-lg sm:p-8 ${
+                      index === 0
+                        ? "border-black bg-gray-50"
+                        : "border-gray-200 bg-white"
+                    }`}
+                  >
+                    <div className="flex items-start justify-between gap-6">
+                      <div className="min-w-0">
+                        <div className="flex flex-wrap items-center gap-3">
+                          <span className="text-sm font-bold text-gray-400">
+                            {String(index + 1).padStart(2, "0")}
+                          </span>
+
+                          {index === 0 && (
+                            <span className="rounded-full bg-black px-3 py-1 text-xs font-semibold text-white">
+                              BEST MATCH
+                            </span>
+                          )}
+
+                          <span className="rounded-full bg-gray-100 px-3 py-1 text-xs font-semibold text-gray-600">
+                            {opportunity.category}
+                          </span>
+                        </div>
+
+                        <h2 className="mt-4 text-2xl font-bold tracking-tight sm:text-3xl">
+                          {opportunity.name}
+                        </h2>
+
+                        <p className="mt-4 max-w-2xl leading-7 text-gray-600">
+                          {opportunity.description}
+                        </p>
+                      </div>
+
+                      <div className="shrink-0 text-right">
+                        <p className="text-3xl font-bold sm:text-4xl">
+                          {result.score}%
+                        </p>
+                        <p className="text-sm text-gray-400">
+                          match
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="mt-7 grid grid-cols-2 gap-3 sm:grid-cols-4">
+                      <InfoCard
+                        label="Startup"
+                        value={`€${opportunity.budgetMin}–€${opportunity.budgetMax}`}
+                      />
+
+                      <InfoCard
+                        label="Potential"
+                        value={`€${opportunity.incomeMin}–€${opportunity.incomeMax}`}
+                      />
+
+                      <InfoCard
+                        label="Time to revenue"
+                        value={opportunity.timeToFirstRevenue || "Varies"}
+                      />
+
+                      <InfoCard
+                        label="Difficulty"
+                        value={opportunity.difficulty}
+                      />
+                    </div>
+
+                    {opportunity.whyItFits && (
+                      <div className="mt-6 rounded-2xl bg-gray-50 p-5">
+                        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gray-400">
+                          Why CSTN thinks it fits
+                        </p>
+
+                        <p className="mt-2 leading-7 text-gray-700">
+                          {opportunity.whyItFits}
+                        </p>
+                      </div>
+                    )}
+
+                    {opportunity.targetCustomer && (
+                      <div className="mt-4">
+                        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gray-400">
+                          Target customer
+                        </p>
+
+                        <p className="mt-2 text-sm leading-6 text-gray-600">
+                          {opportunity.targetCustomer}
+                        </p>
+                      </div>
+                    )}
+
+                    <div className="mt-7 flex items-center justify-between border-t border-gray-100 pt-6">
+                      <div className="flex flex-wrap gap-2">
+                        {opportunity.scalability && (
+                          <span className="rounded-full border border-gray-200 px-3 py-1.5 text-xs font-medium text-gray-600">
+                            {opportunity.scalability} scalability
+                          </span>
+                        )}
+
+                        {Array.isArray(opportunity.skills) &&
+                          opportunity.skills.slice(0, 2).map((skill) => (
+                            <span
+                              key={skill}
+                              className="rounded-full border border-gray-200 px-3 py-1.5 text-xs font-medium text-gray-600"
+                            >
+                              {skill}
+                            </span>
+                          ))}
+                      </div>
+
+                      <span className="shrink-0 text-sm font-semibold transition group-hover:translate-x-1">
+                        Explore →
+                      </span>
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+
+            {!isPro && (
+              <div className="mt-8 overflow-hidden rounded-3xl border border-black bg-black text-white">
+                <div className="p-8 sm:p-10">
+                  <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
+                    <div className="max-w-2xl">
+                      <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400">
+                        CSTN Pro
+                      </p>
+
+                      <h3 className="mt-3 text-3xl font-bold sm:text-4xl">
+                        Stop searching. Start building.
+                      </h3>
+
+                      <p className="mt-4 leading-7 text-gray-300">
+                        Unlock your full opportunity list and get the complete
+                        CSTN execution journey built around the opportunity you choose.
+                      </p>
+
+                      <div className="mt-6 grid gap-3 text-sm text-gray-200 sm:grid-cols-2">
+                        <div>✓ Unlimited opportunities</div>
+                        <div>✓ Full 7-day action plans</div>
+                        <div>✓ Full 30-day build plans</div>
+                        <div>✓ Progress & journey tracking</div>
+                        <div>✓ AI guidance</div>
+                        <div>✓ Full opportunity matching</div>
+                      </div>
+                    </div>
+
+                    <div className="w-full max-w-sm shrink-0 rounded-2xl bg-white p-6 text-black">
+                      <p className="text-sm font-semibold text-gray-500">
+                        Choose your plan
+                      </p>
+
+                      <div className="mt-5 space-y-3">
+                        <button
+                          onClick={() => startCheckout("monthly")}
+                          className="w-full rounded-xl bg-black px-5 py-4 text-left text-white transition hover:bg-gray-800"
+                        >
+                          <span className="block font-semibold">
+                            Monthly
+                          </span>
+                          <span className="mt-1 block text-sm text-gray-400">
+                            €9.99 / month
+                          </span>
+                        </button>
+
+                        <button
+                          onClick={() => startCheckout("annual")}
+                          className="w-full rounded-xl border border-gray-200 px-5 py-4 text-left transition hover:border-black"
+                        >
+                          <span className="flex items-center justify-between gap-3 font-semibold">
+                            <span>Annual</span>
+                            <span className="rounded-full bg-gray-100 px-2.5 py-1 text-xs">
+                              Best value
+                            </span>
+                          </span>
+                          <span className="mt-1 block text-sm text-gray-500">
+                            €79.99 / year
+                          </span>
+                        </button>
+                      </div>
+
+                      <p className="mt-4 text-center text-xs text-gray-400">
+                        Secure checkout powered by Stripe
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+
           </div>
 
+          {/* What's Next */}
           <div className="mt-12 rounded-3xl bg-black p-8 text-white sm:p-10">
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400">
               What's next?
@@ -1733,10 +4967,12 @@ export default function Home() {
             </h2>
 
             <p className="mt-4 max-w-2xl leading-7 text-gray-300">
-              These matches are your starting point. VYRO will help you
-              validate the opportunity and build your first version.
+              Your result is only the starting point. Choose the
+              opportunity that feels right and CSTN will guide you
+              through your first 7 days and then your 30-day build plan.
             </p>
           </div>
+
         </section>
       </main>
     );
@@ -1763,7 +4999,7 @@ export default function Home() {
             </button>
 
             <p className="text-sm font-semibold tracking-[0.3em]">
-              VYRO
+              CSTN
             </p>
 
             <div className="w-12" />
@@ -1794,7 +5030,7 @@ export default function Home() {
               onSelect={setSelectedGoal}
               otherValue={otherGoal}
               setOtherValue={setOtherGoal}
-              otherPlaceholder="Tell VYRO what you're looking to achieve..."
+              otherPlaceholder="Tell CSTN what you're looking to achieve..."
             />
           </>
         )}
@@ -1835,7 +5071,7 @@ export default function Home() {
               }
               otherValue={otherSkill}
               setOtherValue={setOtherSkill}
-              otherPlaceholder="Tell VYRO about another skill you have..."
+              otherPlaceholder="Tell CSTN about another skill you have..."
             />
           </>
         )}
@@ -1859,7 +5095,7 @@ export default function Home() {
               }
               otherValue={otherInterest}
               setOtherValue={setOtherInterest}
-              otherPlaceholder="Tell VYRO about another interest..."
+              otherPlaceholder="Tell CSTN about another interest..."
             />
           </>
         )}
@@ -1885,7 +5121,7 @@ export default function Home() {
           <>
             <QuestionHeader
               title="Where are you based?"
-              description="This helps VYRO identify opportunities that may work in your market."
+              description="This helps CSTN identify opportunities that may work in your market."
             />
 
             <OptionList
@@ -2004,7 +5240,7 @@ function OptionList({
             }
             placeholder={
               otherPlaceholder ||
-              "Tell VYRO more..."
+              "Tell CSTN more..."
             }
             rows={3}
             className="w-full resize-none rounded-2xl border border-gray-200 bg-gray-50 p-5 text-base outline-none transition placeholder:text-gray-400 focus:border-black focus:bg-white"
