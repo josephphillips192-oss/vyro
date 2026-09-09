@@ -1680,6 +1680,7 @@ export default function Home() {
   const [analysing, setAnalysing] = useState(false);
   const [showResults, setShowResults] = useState(false);
   const [isPro, setIsPro] = useState(false);
+  const [subscriptionLoading, setSubscriptionLoading] = useState(true);
 
   const startCheckout = async (interval: "monthly" | "annual") => {
     try {
@@ -2116,6 +2117,44 @@ export default function Home() {
 
     loadCurrentUser();
   }, []);
+
+  /*
+   * Load the authenticated user's CSTN Pro subscription status.
+   */
+  useEffect(() => {
+    const loadSubscription = async () => {
+      if (!currentUserId) {
+        setIsPro(false);
+        setSubscriptionLoading(false);
+        return;
+      }
+
+      try {
+        setSubscriptionLoading(true);
+
+        const response = await fetch("/api/stripe/subscription", {
+          cache: "no-store",
+        });
+
+        if (!response.ok) {
+          setIsPro(false);
+          return;
+        }
+
+        const data = await response.json();
+        setIsPro(data.isPro === true);
+      } catch (error) {
+        console.error("CSTN subscription loading error:", error);
+        setIsPro(false);
+      } finally {
+        setSubscriptionLoading(false);
+      }
+    };
+
+    if (!authLoading) {
+      loadSubscription();
+    }
+  }, [currentUserId, authLoading]);
 
   /*
    * Restore the user's saved opportunity and progress.
