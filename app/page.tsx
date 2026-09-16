@@ -1675,7 +1675,21 @@ function getStage06Plan(opportunity: Opportunity) {
 }
 
 export default function Home() {
+  const handleLogout = async () => {
+    setLoggingOut(true);
+
+    try {
+      await fetch("/api/auth/logout", {
+        method: "POST",
+      });
+    } finally {
+      window.location.href = "/auth";
+    }
+  };
+
+
   const [started, setStarted] = useState(false);
+  const [loggingOut, setLoggingOut] = useState(false);
   const [step, setStep] = useState(1);
   const [analysing, setAnalysing] = useState(false);
   const [showResults, setShowResults] = useState(false);
@@ -2809,9 +2823,19 @@ export default function Home() {
       <main className="min-h-screen bg-white text-black">
         <section className="mx-auto max-w-5xl px-6 py-12">
           <div className="flex items-center justify-between">
-            <p className="text-sm font-semibold tracking-[0.3em]">
-              CSTN
-            </p>
+            <div className="flex items-center gap-5">
+              <p className="text-sm font-semibold tracking-[0.3em]">
+                CSTN
+              </p>
+
+              <button
+                onClick={handleLogout}
+                disabled={loggingOut}
+                className="text-sm font-medium text-gray-500 transition hover:text-black disabled:opacity-50"
+              >
+                {loggingOut ? "Logging out..." : "Log out"}
+              </button>
+            </div>
 
             <div className="flex items-center gap-6">
               <button
@@ -4427,17 +4451,27 @@ export default function Home() {
     return (
       <main className="min-h-screen bg-white text-black">
         <section className="mx-auto max-w-4xl px-6 py-12">
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between border-b border-gray-100 pb-5">
             <button
               onClick={() => setSelectedOpportunity(null)}
-              className="text-sm font-medium text-gray-500 hover:text-black"
+              className="text-sm font-medium text-gray-500 transition hover:text-black"
             >
               ← Back to results
             </button>
 
-            <p className="text-sm font-semibold tracking-[0.3em]">
-              CSTN
-            </p>
+            <div className="flex items-center gap-6">
+              <p className="text-sm font-semibold tracking-[0.3em]">
+                CSTN
+              </p>
+
+              <button
+                onClick={handleLogout}
+                disabled={loggingOut}
+                className="text-sm font-medium text-gray-500 transition hover:text-black disabled:opacity-50"
+              >
+                {loggingOut ? "Logging out..." : "Log out"}
+              </button>
+            </div>
           </div>
 
           <div className="mt-16">

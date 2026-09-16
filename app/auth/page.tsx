@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 export default function AuthPage() {
   const router = useRouter();
 
-  const [mode, setMode] = useState<"login" | "signup">("login");
+  const [mode, setMode] = useState<"login" | "signup" | "forgot">("login");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -28,6 +28,20 @@ export default function AuthPage() {
     setMessage("");
 
     try {
+      if (mode === "forgot") {
+        const { error } = await supabase.auth.resetPasswordForEmail(email, {
+          redirectTo: `${window.location.origin}/auth/reset-password`,
+        });
+
+        if (error) throw error;
+
+        setMessage(
+          "If an account exists for that email, we've sent you a password reset link."
+        );
+
+        return;
+      }
+
       if (mode === "signup") {
         const { data, error } = await supabase.auth.signUp({
           email,
@@ -67,6 +81,20 @@ export default function AuthPage() {
     }
   };
 
+  const title =
+    mode === "login"
+      ? "Welcome back."
+      : mode === "signup"
+      ? "Create your account."
+      : "Reset your password.";
+
+  const description =
+    mode === "login"
+      ? "Sign in to continue building your opportunity."
+      : mode === "signup"
+      ? "Save your opportunities, progress and CSTN dashboard."
+      : "Enter your email and we'll send you a secure password reset link.";
+
   return (
     <main className="min-h-screen bg-white text-black">
       <div className="mx-auto flex min-h-screen max-w-md items-center px-6 py-12">
@@ -77,15 +105,11 @@ export default function AuthPage() {
             </p>
 
             <h1 className="mt-8 text-4xl font-bold tracking-tight">
-              {mode === "login"
-                ? "Welcome back."
-                : "Create your account."}
+              {title}
             </h1>
 
             <p className="mt-4 leading-7 text-gray-500">
-              {mode === "login"
-                ? "Sign in to continue building your opportunity."
-                : "Save your opportunities, progress and CSTN dashboard."}
+              {description}
             </p>
           </div>
 
@@ -105,21 +129,23 @@ export default function AuthPage() {
               />
             </div>
 
-            <div>
-              <label className="mb-2 block text-sm font-medium">
-                Password
-              </label>
+            {mode !== "forgot" && (
+              <div>
+                <label className="mb-2 block text-sm font-medium">
+                  Password
+                </label>
 
-              <input
-                type="password"
-                required
-                minLength={6}
-                value={password}
-                onChange={(event) => setPassword(event.target.value)}
-                placeholder="At least 6 characters"
-                className="w-full rounded-2xl border border-gray-200 bg-gray-50 px-5 py-4 outline-none transition focus:border-black focus:bg-white"
-              />
-            </div>
+                <input
+                  type="password"
+                  required
+                  minLength={6}
+                  value={password}
+                  onChange={(event) => setPassword(event.target.value)}
+                  placeholder="At least 6 characters"
+                  className="w-full rounded-2xl border border-gray-200 bg-gray-50 px-5 py-4 outline-none transition focus:border-black focus:bg-white"
+                />
+              </div>
+            )}
 
             {message && (
               <div className="rounded-2xl bg-gray-50 p-4 text-sm leading-6 text-gray-600">
@@ -136,26 +162,60 @@ export default function AuthPage() {
                 ? "Please wait..."
                 : mode === "login"
                 ? "Log in"
-                : "Create account"}
+                : mode === "signup"
+                ? "Create account"
+                : "Send reset link"}
             </button>
           </form>
 
-          <div className="mt-8 text-center text-sm text-gray-500">
-            {mode === "login"
-              ? "Don't have a CSTN account?"
-              : "Already have a CSTN account?"}
+          {mode === "login" && (
+            <div className="mt-5 text-center">
+              <button
+                type="button"
+                onClick={() => {
+                  setMode("forgot");
+                  setMessage("");
+                }}
+                className="text-sm font-medium text-gray-500 hover:text-black hover:underline"
+              >
+                Forgot password?
+              </button>
+            </div>
+          )}
 
-            <button
-              type="button"
-              onClick={() => {
-                setMode(mode === "login" ? "signup" : "login");
-                setMessage("");
-              }}
-              className="ml-2 font-semibold text-black hover:underline"
-            >
-              {mode === "login" ? "Sign up" : "Log in"}
-            </button>
-          </div>
+          {mode === "forgot" ? (
+            <div className="mt-8 text-center text-sm text-gray-500">
+              Remember your password?
+
+              <button
+                type="button"
+                onClick={() => {
+                  setMode("login");
+                  setMessage("");
+                }}
+                className="ml-2 font-semibold text-black hover:underline"
+              >
+                Back to log in
+              </button>
+            </div>
+          ) : (
+            <div className="mt-8 text-center text-sm text-gray-500">
+              {mode === "login"
+                ? "Don't have a CSTN account?"
+                : "Already have a CSTN account?"}
+
+              <button
+                type="button"
+                onClick={() => {
+                  setMode(mode === "login" ? "signup" : "login");
+                  setMessage("");
+                }}
+                className="ml-2 font-semibold text-black hover:underline"
+              >
+                {mode === "login" ? "Sign up" : "Log in"}
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </main>
